@@ -1,0 +1,334 @@
+\hypertarget{ums_8h}{}\doxysection{ums.\+h File Reference}
+\label{ums_8h}\index{ums.h@{ums.h}}
+
+
+This file is the header of the user library.  
+
+
+{\ttfamily \#include \char`\"{}../kernel\+\_\+module/shared.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/syscall.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbuff__cq}{buff\+\_\+cq}}
+\begin{DoxyCompactList}\small\item\em contain the biffer used for the operation of the completion queue \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcq__list__item}{cq\+\_\+list\+\_\+item}}
+\item 
+struct \mbox{\hyperlink{structworker__thread__job__info}{worker\+\_\+thread\+\_\+job\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{structums__entry__info}{ums\+\_\+entry\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{structpthread__entry}{pthread\+\_\+entry}}
+\item 
+struct \mbox{\hyperlink{structums__scheduler}{ums\+\_\+scheduler}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ums_8h_a369266c24eacffb87046522897a570d5}\label{ums_8h_a369266c24eacffb87046522897a570d5}} 
+\#define {\bfseries \+\_\+\+GNU\+\_\+\+SOURCE}
+\item 
+\mbox{\Hypertarget{ums_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{ums_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries TRUE}~1
+\item 
+\mbox{\Hypertarget{ums_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{ums_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries FALSE}~0
+\item 
+\mbox{\Hypertarget{ums_8h_a63596d5f28ebb27ae8e63ab443f869d2}\label{ums_8h_a63596d5f28ebb27ae8e63ab443f869d2}} 
+\#define {\bfseries GENERAL\+\_\+\+UMS\+\_\+\+ERROR}~-\/1
+\item 
+\mbox{\Hypertarget{ums_8h_a2e530e3cd4b4aaa314f747cce70f65e8}\label{ums_8h_a2e530e3cd4b4aaa314f747cce70f65e8}} 
+\#define {\bfseries EXIT\+\_\+\+UMS\+\_\+\+MOD}~-\/2
+\item 
+\mbox{\Hypertarget{ums_8h_a05a5624c116d18ea8abd9757abb13985}\label{ums_8h_a05a5624c116d18ea8abd9757abb13985}} 
+\#define {\bfseries UMS\+\_\+\+PATH}~\char`\"{}/dev/ums\char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a9150b7c484202dfaf287fd7601c6230c}\label{ums_8h_a9150b7c484202dfaf287fd7601c6230c}} 
+\#define {\bfseries MODULE\+\_\+\+UMSLIB\+\_\+\+LOG}~\char`\"{}\mbox{[}UMS LIB DEBUG\mbox{]}\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_aa0913feb1c6609bd2a069947cf688b29}\label{ums_8h_aa0913feb1c6609bd2a069947cf688b29}} 
+\#define {\bfseries UMSLIB\+\_\+\+DEBUG}
+\item 
+\mbox{\Hypertarget{ums_8h_ad6313cfcb2c1e40d8cb2da03cd17d9ae}\label{ums_8h_ad6313cfcb2c1e40d8cb2da03cd17d9ae}} 
+\#define {\bfseries \+\_\+\+\_\+\+F\+\_\+\+APPEND}~\char`\"{}\+\_\+\+\_\+append\+\_\+new\+\_\+worker\+\_\+to\+\_\+cq\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a298b91deec2bed5a79398eedd81cd754}\label{ums_8h_a298b91deec2bed5a79398eedd81cd754}} 
+\#define {\bfseries F\+\_\+\+APPEND}~\char`\"{}Append\+To\+Completion\+Queue\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a42956502a3c423ada2a62df3b2614253}\label{ums_8h_a42956502a3c423ada2a62df3b2614253}} 
+\#define {\bfseries F\+\_\+\+FLUSH}~\char`\"{}Flush\+Completion\+Queue\+: \char`\"{}
+\item 
+\#define \mbox{\hyperlink{ums_8h_a5862827767a2d8b0927515d8cf8efbbd}{INIT\+\_\+\+UMS\+\_\+\+ENTRY\+\_\+\+STRUCT}}(X,  E,  I,  O)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ums_8h_af859eb5839e1eb99b186a5bbc4f96e1e}\label{ums_8h_af859eb5839e1eb99b186a5bbc4f96e1e}} 
+typedef void $\ast$($\ast$ {\bfseries worker\+\_\+job}) (void $\ast$)
+\item 
+\mbox{\Hypertarget{ums_8h_a5ca15f96f45d93f786381a8e3f92170b}\label{ums_8h_a5ca15f96f45d93f786381a8e3f92170b}} 
+typedef void $\ast$($\ast$ {\bfseries ums\+\_\+entry\+\_\+point}) (void $\ast$)
+\item 
+\mbox{\Hypertarget{ums_8h_a1062901a7428fdd9c7f180f5e01ea056}\label{ums_8h_a1062901a7428fdd9c7f180f5e01ea056}} 
+typedef int {\bfseries bool}
+\item 
+\mbox{\Hypertarget{ums_8h_af65b53e5cd59b128fb6b6336d5600003}\label{ums_8h_af65b53e5cd59b128fb6b6336d5600003}} 
+typedef struct \mbox{\hyperlink{structbuff__cq}{buff\+\_\+cq}} {\bfseries dequeued\+\_\+cq\+\_\+t}
+\begin{DoxyCompactList}\small\item\em contain the biffer used for the operation of the completion queue \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_a38814b6806e96ce6cb2a3286089465ca}\label{ums_8h_a38814b6806e96ce6cb2a3286089465ca}} 
+typedef struct \mbox{\hyperlink{structcq__list__item}{cq\+\_\+list\+\_\+item}} {\bfseries cq\+\_\+list\+\_\+item\+\_\+t}
+\item 
+\mbox{\Hypertarget{ums_8h_a4830f708268e624601af247e9e7bf486}\label{ums_8h_a4830f708268e624601af247e9e7bf486}} 
+typedef struct \mbox{\hyperlink{structworker__thread__job__info}{worker\+\_\+thread\+\_\+job\+\_\+info}} {\bfseries worker\+\_\+thread\+\_\+job\+\_\+info\+\_\+t}
+\item 
+\mbox{\Hypertarget{ums_8h_a9cfb31101ea1f0e8e2ced81cd3d2e397}\label{ums_8h_a9cfb31101ea1f0e8e2ced81cd3d2e397}} 
+typedef struct \mbox{\hyperlink{structums__entry__info}{ums\+\_\+entry\+\_\+info}} {\bfseries ums\+\_\+entry\+\_\+info\+\_\+t}
+\item 
+\mbox{\Hypertarget{ums_8h_afd39fe5bfcc944ab43073b758328eb93}\label{ums_8h_afd39fe5bfcc944ab43073b758328eb93}} 
+typedef struct \mbox{\hyperlink{structpthread__entry}{pthread\+\_\+entry}} {\bfseries pthread\+\_\+entry\+\_\+t}
+\item 
+\mbox{\Hypertarget{ums_8h_adad0fb7d5ed4de7d209c2a4c63adc993}\label{ums_8h_adad0fb7d5ed4de7d209c2a4c63adc993}} 
+typedef struct \mbox{\hyperlink{structums__scheduler}{ums\+\_\+scheduler}} {\bfseries ums\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ums_8h_a3e8af3842b66efe2b09d19292b4693dd}{Create\+New\+Worker}} (worker\+\_\+job job\+\_\+to\+\_\+perform, void $\ast$job\+\_\+args)
+\begin{DoxyCompactList}\small\item\em Create a New Worker thread. It busy wait until the pid entry in the new\+\_\+job\+\_\+struct is populated or is elapsed delta time. It return the pid of the new worker thread or -\/1 in case of error. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_aa3a7dbcd13fa0ab865bda217ab1c0aee}{Ums\+Thread\+Yield}} (void)
+\begin{DoxyCompactList}\small\item\em called from a worker thread, it pauses the execution of the current thread and the UMS scheduler entry point is executed for determining the next thread to be scheduled \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_a11d81e84245dc30caf2105da4178cb28}{Execute\+Ums\+Thread}} (unsigned worker\+\_\+id)
+\begin{DoxyCompactList}\small\item\em called from a scheduler thread, it executes the passed worker thread by switching the entire context \end{DoxyCompactList}\item 
+pthread\+\_\+t \mbox{\hyperlink{ums_8h_af2f6f1d2d39eae2629046bbc442e503e}{UMS\+\_\+thread\+\_\+create}} (ums\+\_\+entry\+\_\+point entry\+\_\+point, int completion\+\_\+queue\+\_\+id, int n\+\_\+cpu)
+\begin{DoxyCompactList}\small\item\em converts a standard pthread in a UMS Scheduler thread, the function takes as input a completion list of worker threads and a entry point function \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structums__scheduler}{ums\+\_\+t}} $\ast$ \mbox{\hyperlink{ums_8h_abc6038aaf775781b269d09ff68793a6a}{Enter\+Ums\+Scheduling\+Mode}} (ums\+\_\+entry\+\_\+point entry\+\_\+point, int completion\+\_\+queue\+\_\+id)
+\begin{DoxyCompactList}\small\item\em create N ums scheduler thread (N nuber of cores in the computer) and will scheduke the thred from the completion queue id \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ums_8h_a50ee127ff09b6aa3ec676940e36b4f5f}{Exit\+From\+Ums\+Scheduling\+Mode}} (\mbox{\hyperlink{structums__scheduler}{ums\+\_\+t}} $\ast$ums)
+\begin{DoxyCompactList}\small\item\em Exit from UMS mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_ab32c7b973ff7df238b8a2f8f2917ffab}{Create\+Completion\+Queue}} (void)
+\begin{DoxyCompactList}\small\item\em Create a Completion Queue object and return the completion queue id. During this process it also init the data structure to buffer the worker thread. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_a1952e5d04ef148d19021480423fa7772}{Append\+To\+Completion\+Queue}} (int completion\+\_\+queue\+\_\+id, int worker\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em it insert a worker pid inside a completion queue berfore it perform some check in order to see if the completion queue exist \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_adbbc303533f4048b334c632bf8e9ac3c}{Flush\+Completion\+Queue}} (int completion\+\_\+queue\+\_\+id)
+\begin{DoxyCompactList}\small\item\em actually insert the worker pid into the data structure in the kernel using the device ioctl \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_abf416194f89a8ad38d8ea06c713d93de}{Dequeue\+Ums\+Completion\+List\+Items}} (\mbox{\hyperlink{ums_8h_af65b53e5cd59b128fb6b6336d5600003}{dequeued\+\_\+cq\+\_\+t}} $\ast$return\+\_\+cq)
+\begin{DoxyCompactList}\small\item\em dequeue the first 100 pid of the workers inside the return queue \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_a2a98648bdad81e60c6a0ab109c1be9ee}\label{ums_8h_a2a98648bdad81e60c6a0ab109c1be9ee}} 
+void {\bfseries reset\+UMSFlag} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is the header of the user library. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ums_8h_a5862827767a2d8b0927515d8cf8efbbd}\label{ums_8h_a5862827767a2d8b0927515d8cf8efbbd}} 
+\index{ums.h@{ums.h}!INIT\_UMS\_ENTRY\_STRUCT@{INIT\_UMS\_ENTRY\_STRUCT}}
+\index{INIT\_UMS\_ENTRY\_STRUCT@{INIT\_UMS\_ENTRY\_STRUCT}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{INIT\_UMS\_ENTRY\_STRUCT}{INIT\_UMS\_ENTRY\_STRUCT}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+UMS\+\_\+\+ENTRY\+\_\+\+STRUCT(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{E,  }\item[{}]{I,  }\item[{}]{O }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{structums__entry__info}{ums\_entry\_info\_t}} X = \{      \(\backslash\)}
+\DoxyCodeLine{            .\mbox{\hyperlink{structums__entry__info_a38d97f1a8a92979bcbe64ce118d16315}{entry}} = E,    \(\backslash\)}
+\DoxyCodeLine{            .cq\_id = I,     \(\backslash\)}
+\DoxyCodeLine{            .ret\_value = 1, \(\backslash\)}
+\DoxyCodeLine{            .owner\_pid = O  \(\backslash\)}
+\DoxyCodeLine{            \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ums_8h_a1952e5d04ef148d19021480423fa7772}\label{ums_8h_a1952e5d04ef148d19021480423fa7772}} 
+\index{ums.h@{ums.h}!AppendToCompletionQueue@{AppendToCompletionQueue}}
+\index{AppendToCompletionQueue@{AppendToCompletionQueue}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{AppendToCompletionQueue()}{AppendToCompletionQueue()}}
+{\footnotesize\ttfamily int Append\+To\+Completion\+Queue (\begin{DoxyParamCaption}\item[{int}]{completion\+\_\+queue\+\_\+id,  }\item[{int}]{worker\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+it insert a worker pid inside a completion queue berfore it perform some check in order to see if the completion queue exist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em completion\+\_\+queue\+\_\+id} & id of the completion queue where apped the worker \\
+\hline
+{\em worker\+\_\+pid} & pid of the worker \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_ab32c7b973ff7df238b8a2f8f2917ffab}\label{ums_8h_ab32c7b973ff7df238b8a2f8f2917ffab}} 
+\index{ums.h@{ums.h}!CreateCompletionQueue@{CreateCompletionQueue}}
+\index{CreateCompletionQueue@{CreateCompletionQueue}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{CreateCompletionQueue()}{CreateCompletionQueue()}}
+{\footnotesize\ttfamily int Create\+Completion\+Queue (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a Completion Queue object and return the completion queue id. During this process it also init the data structure to buffer the worker thread. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a3e8af3842b66efe2b09d19292b4693dd}\label{ums_8h_a3e8af3842b66efe2b09d19292b4693dd}} 
+\index{ums.h@{ums.h}!CreateNewWorker@{CreateNewWorker}}
+\index{CreateNewWorker@{CreateNewWorker}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{CreateNewWorker()}{CreateNewWorker()}}
+{\footnotesize\ttfamily int Create\+New\+Worker (\begin{DoxyParamCaption}\item[{worker\+\_\+job}]{job\+\_\+to\+\_\+perform,  }\item[{void $\ast$}]{job\+\_\+args }\end{DoxyParamCaption})}
+
+
+
+Create a New Worker thread. It busy wait until the pid entry in the new\+\_\+job\+\_\+struct is populated or is elapsed delta time. It return the pid of the new worker thread or -\/1 in case of error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em job\+\_\+to\+\_\+perform} & job function of the worker thread \\
+\hline
+{\em job\+\_\+args} & args used from the job function (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_abf416194f89a8ad38d8ea06c713d93de}\label{ums_8h_abf416194f89a8ad38d8ea06c713d93de}} 
+\index{ums.h@{ums.h}!DequeueUmsCompletionListItems@{DequeueUmsCompletionListItems}}
+\index{DequeueUmsCompletionListItems@{DequeueUmsCompletionListItems}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{DequeueUmsCompletionListItems()}{DequeueUmsCompletionListItems()}}
+{\footnotesize\ttfamily int Dequeue\+Ums\+Completion\+List\+Items (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ums_8h_af65b53e5cd59b128fb6b6336d5600003}{dequeued\+\_\+cq\+\_\+t}} $\ast$}]{return\+\_\+cq }\end{DoxyParamCaption})}
+
+
+
+dequeue the first 100 pid of the workers inside the return queue 
+
+
+\begin{DoxyParams}{Parameters}
+{\em return\+\_\+cq} & pointer to dequeued\+\_\+cq\+\_\+t struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_abc6038aaf775781b269d09ff68793a6a}\label{ums_8h_abc6038aaf775781b269d09ff68793a6a}} 
+\index{ums.h@{ums.h}!EnterUmsSchedulingMode@{EnterUmsSchedulingMode}}
+\index{EnterUmsSchedulingMode@{EnterUmsSchedulingMode}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{EnterUmsSchedulingMode()}{EnterUmsSchedulingMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structums__scheduler}{ums\+\_\+t}} $\ast$ Enter\+Ums\+Scheduling\+Mode (\begin{DoxyParamCaption}\item[{ums\+\_\+entry\+\_\+point}]{entry\+\_\+point,  }\item[{int}]{completion\+\_\+queue\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+create N ums scheduler thread (N nuber of cores in the computer) and will scheduke the thred from the completion queue id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+point} & entry\+\_\+point for the sceduler uf null will use the default \\
+\hline
+{\em completion\+\_\+queue\+\_\+id} & id of the completion queue used by the ums \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ums\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a11d81e84245dc30caf2105da4178cb28}\label{ums_8h_a11d81e84245dc30caf2105da4178cb28}} 
+\index{ums.h@{ums.h}!ExecuteUmsThread@{ExecuteUmsThread}}
+\index{ExecuteUmsThread@{ExecuteUmsThread}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{ExecuteUmsThread()}{ExecuteUmsThread()}}
+{\footnotesize\ttfamily int Execute\+Ums\+Thread (\begin{DoxyParamCaption}\item[{unsigned}]{worker\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+called from a scheduler thread, it executes the passed worker thread by switching the entire context 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+\_\+id} & pid of the worker that will be executed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a50ee127ff09b6aa3ec676940e36b4f5f}\label{ums_8h_a50ee127ff09b6aa3ec676940e36b4f5f}} 
+\index{ums.h@{ums.h}!ExitFromUmsSchedulingMode@{ExitFromUmsSchedulingMode}}
+\index{ExitFromUmsSchedulingMode@{ExitFromUmsSchedulingMode}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{ExitFromUmsSchedulingMode()}{ExitFromUmsSchedulingMode()}}
+{\footnotesize\ttfamily void Exit\+From\+Ums\+Scheduling\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structums__scheduler}{ums\+\_\+t}} $\ast$}]{ums }\end{DoxyParamCaption})}
+
+
+
+Exit from UMS mode. 
+
+wait for all the ums to end and then free the data structured used
+
+
+\begin{DoxyParams}{Parameters}
+{\em ums} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ums_8h_adbbc303533f4048b334c632bf8e9ac3c}\label{ums_8h_adbbc303533f4048b334c632bf8e9ac3c}} 
+\index{ums.h@{ums.h}!FlushCompletionQueue@{FlushCompletionQueue}}
+\index{FlushCompletionQueue@{FlushCompletionQueue}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{FlushCompletionQueue()}{FlushCompletionQueue()}}
+{\footnotesize\ttfamily int Flush\+Completion\+Queue (\begin{DoxyParamCaption}\item[{int}]{completion\+\_\+queue\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+actually insert the worker pid into the data structure in the kernel using the device ioctl 
+
+
+\begin{DoxyParams}{Parameters}
+{\em completion\+\_\+queue\+\_\+id} & id of the completion queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_af2f6f1d2d39eae2629046bbc442e503e}\label{ums_8h_af2f6f1d2d39eae2629046bbc442e503e}} 
+\index{ums.h@{ums.h}!UMS\_thread\_create@{UMS\_thread\_create}}
+\index{UMS\_thread\_create@{UMS\_thread\_create}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{UMS\_thread\_create()}{UMS\_thread\_create()}}
+{\footnotesize\ttfamily pthread\+\_\+t UMS\+\_\+thread\+\_\+create (\begin{DoxyParamCaption}\item[{ums\+\_\+entry\+\_\+point}]{entry\+\_\+point,  }\item[{int}]{completion\+\_\+queue\+\_\+id,  }\item[{int}]{n\+\_\+cpu }\end{DoxyParamCaption})}
+
+
+
+converts a standard pthread in a UMS Scheduler thread, the function takes as input a completion list of worker threads and a entry point function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+point} & entry point funtion of the ums \\
+\hline
+{\em completion\+\_\+queue\+\_\+id} & id of the completion queue used by the ums \\
+\hline
+{\em n\+\_\+cpu} & cpu where this ums will be scheduled \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_aa3a7dbcd13fa0ab865bda217ab1c0aee}\label{ums_8h_aa3a7dbcd13fa0ab865bda217ab1c0aee}} 
+\index{ums.h@{ums.h}!UmsThreadYield@{UmsThreadYield}}
+\index{UmsThreadYield@{UmsThreadYield}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{UmsThreadYield()}{UmsThreadYield()}}
+{\footnotesize\ttfamily int Ums\+Thread\+Yield (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+called from a worker thread, it pauses the execution of the current thread and the UMS scheduler entry point is executed for determining the next thread to be scheduled 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

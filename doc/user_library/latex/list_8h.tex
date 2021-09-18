@@ -1,0 +1,530 @@
+\hypertarget{list_8h}{}\doxysection{list.\+h File Reference}
+\label{list_8h}\index{list.h@{list.h}}
+
+
+This file is the kernel implementation of the list is from Linux Kernel (include/linux/list.\+h)  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{list_8h_a276e8a32e0bbf024aadd9420b8f2d3b3}\label{list_8h_a276e8a32e0bbf024aadd9420b8f2d3b3}} 
+\#define {\bfseries offsetof}(TYPE,  MEMBER)~((size\+\_\+t) \&((TYPE $\ast$)0)-\/$>$MEMBER)
+\item 
+\#define \mbox{\hyperlink{list_8h_af8c317a42292b61c93aae91e59118a46}{container\+\_\+of}}(ptr,  type,  member)
+\item 
+\mbox{\Hypertarget{list_8h_a4642d4b7df28478bb762fe43c85b5c63}\label{list_8h_a4642d4b7df28478bb762fe43c85b5c63}} 
+\#define {\bfseries LIST\+\_\+\+HEAD\+\_\+\+INIT}(name)~\{ \&(name), \&(name) \}
+\item 
+\mbox{\Hypertarget{list_8h_a42f0e72af970a790b60a740af8c9ecd0}\label{list_8h_a42f0e72af970a790b60a740af8c9ecd0}} 
+\#define {\bfseries LIST\+\_\+\+HEAD}(name)~ struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} name = LIST\+\_\+\+HEAD\+\_\+\+INIT(name)
+\item 
+\#define \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}(ptr,  type,  member)~ \mbox{\hyperlink{list_8h_af8c317a42292b61c93aae91e59118a46}{container\+\_\+of}}(ptr, type, member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a29b80cf9d55392a4949d2071b7db4d5c}{list\+\_\+first\+\_\+entry}}(ptr,  type,  member)~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((ptr)-\/$>$next, type, member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a7d4aa6766f2ceda84f6b833d40ce97a6}{list\+\_\+last\+\_\+entry}}(ptr,  type,  member)~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((ptr)-\/$>$prev, type, member)
+\item 
+\#define \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\+\_\+next\+\_\+entry}}(pos,  member)~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((pos)-\/$>$member.\+next, typeof($\ast$(pos)), member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\+\_\+prev\+\_\+entry}}(pos,  member)~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((pos)-\/$>$member.\+prev, typeof($\ast$(pos)), member)
+\item 
+\#define \mbox{\hyperlink{list_8h_ab8b24e6660ab3760c923e4b4db3fa502}{list\+\_\+for\+\_\+each}}(pos,  head)~ for (pos = (head)-\/$>$next; pos != (head); pos = pos-\/$>$next)
+\item 
+\#define \mbox{\hyperlink{list_8h_a42c8760863ab7f07270168f7b52352f4}{list\+\_\+for\+\_\+each\+\_\+continue}}(pos,  head)~ for (pos = pos-\/$>$next; pos != (head); pos = pos-\/$>$next)
+\item 
+\#define \mbox{\hyperlink{list_8h_a19fc06b83f3502a83ce566b8887e6aec}{list\+\_\+for\+\_\+each\+\_\+prev}}(pos,  head)~ for (pos = (head)-\/$>$prev; pos != (head); pos = pos-\/$>$prev)
+\item 
+\#define \mbox{\hyperlink{list_8h_a9e4b9328744994b9d3878f5dad75c09f}{list\+\_\+for\+\_\+each\+\_\+safe}}(pos,  n,  head)
+\item 
+\#define \mbox{\hyperlink{list_8h_a4166108f765690426e9d89f02bff7df4}{list\+\_\+for\+\_\+each\+\_\+prev\+\_\+safe}}(pos,  n,  head)
+\item 
+\#define \mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\+\_\+entry\+\_\+is\+\_\+head}}(pos,  head,  member)~ (\&pos-\/$>$member == (head))
+\item 
+\#define \mbox{\hyperlink{list_8h_a9b782fefb5ab71ce9762182e45a615e1}{list\+\_\+for\+\_\+each\+\_\+entry}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_accc8d8e6c8ffe8ce964c5a1b59732cf3}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+reverse}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_af6fc8bdd3ce7ee375e35baf9d2b2e62a}{list\+\_\+prepare\+\_\+entry}}(pos,  head,  member)~ ((pos) ? \+: \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}(head, typeof($\ast$pos), member))
+\item 
+\#define \mbox{\hyperlink{list_8h_a91b31084b4ece72dbd75d2bb1f01d9ff}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a1633f5ae3e74918112a8e89ab696bff8}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue\+\_\+reverse}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a35f39924661f4dc908e710e8aee1eff0}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_afac66af4168b581dbca23fdc09f0d69e}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from\+\_\+reverse}}(pos,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_ac3f72d6bd5144c7970824813810d2da1}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe}}(pos,  n,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a70fb81027ddca24ebb21aa8e70e4b4ff}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+continue}}(pos,  n,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_ab9eb9a805ba4f3bd2a9d332ad34cb3e1}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+from}}(pos,  n,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_a3a3ce0f89762fe2bc0a1d840ee610532}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+reverse}}(pos,  n,  head,  member)
+\item 
+\#define \mbox{\hyperlink{list_8h_af423641568c98cc34b0ac68871593a16}{list\+\_\+safe\+\_\+reset\+\_\+next}}(pos,  n,  member)~ n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\+\_\+next\+\_\+entry}}(pos, member)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is the kernel implementation of the list is from Linux Kernel (include/linux/list.\+h) 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{list_8h_af8c317a42292b61c93aae91e59118a46}\label{list_8h_af8c317a42292b61c93aae91e59118a46}} 
+\index{list.h@{list.h}!container\_of@{container\_of}}
+\index{container\_of@{container\_of}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{container\_of}{container\_of}}
+{\footnotesize\ttfamily \#define container\+\_\+of(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (\{          \(\backslash\)}
+\DoxyCodeLine{    (type *)((\textcolor{keywordtype}{char} *)ptr -\/ offsetof(type, member)); \})}
+
+\end{DoxyCode}
+container\+\_\+of -\/ cast a member of a structure out to the containing structure 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the pointer to the member. \\
+\hline
+{\em type} & the type of the container struct this is embedded in. \\
+\hline
+{\em member} & the name of the member within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a26c976b7f654e70df318c1843e5094de}\label{list_8h_a26c976b7f654e70df318c1843e5094de}} 
+\index{list.h@{list.h}!list\_entry@{list\_entry}}
+\index{list\_entry@{list\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_entry}{list\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})~ \mbox{\hyperlink{list_8h_af8c317a42292b61c93aae91e59118a46}{container\+\_\+of}}(ptr, type, member)}
+
+list\+\_\+entry -\/ get the struct for this entry 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} pointer. \\
+\hline
+{\em type} & the type of the struct this is embedded in. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a419ef9513bf508915b2ae9156e67dd6b}\label{list_8h_a419ef9513bf508915b2ae9156e67dd6b}} 
+\index{list.h@{list.h}!list\_entry\_is\_head@{list\_entry\_is\_head}}
+\index{list\_entry\_is\_head@{list\_entry\_is\_head}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_entry\_is\_head}{list\_entry\_is\_head}}
+{\footnotesize\ttfamily \#define list\+\_\+entry\+\_\+is\+\_\+head(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})~ (\&pos-\/$>$member == (head))}
+
+list\+\_\+entry\+\_\+is\+\_\+head -\/ test if the entry points to the head of the list 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to cursor \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a29b80cf9d55392a4949d2071b7db4d5c}\label{list_8h_a29b80cf9d55392a4949d2071b7db4d5c}} 
+\index{list.h@{list.h}!list\_first\_entry@{list\_first\_entry}}
+\index{list\_first\_entry@{list\_first\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_first\_entry}{list\_first\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+first\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((ptr)-\/$>$next, type, member)}
+
+list\+\_\+first\+\_\+entry -\/ get the first element from a list 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the list head to take the element from. \\
+\hline
+{\em type} & the type of the struct this is embedded in. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Note, that list is expected to be not empty. \mbox{\Hypertarget{list_8h_ab8b24e6660ab3760c923e4b4db3fa502}\label{list_8h_ab8b24e6660ab3760c923e4b4db3fa502}} 
+\index{list.h@{list.h}!list\_for\_each@{list\_for\_each}}
+\index{list\_for\_each@{list\_for\_each}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each}{list\_for\_each}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head }\end{DoxyParamCaption})~ for (pos = (head)-\/$>$next; pos != (head); pos = pos-\/$>$next)}
+
+list\+\_\+for\+\_\+each -\/ iterate over a list 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a42c8760863ab7f07270168f7b52352f4}\label{list_8h_a42c8760863ab7f07270168f7b52352f4}} 
+\index{list.h@{list.h}!list\_for\_each\_continue@{list\_for\_each\_continue}}
+\index{list\_for\_each\_continue@{list\_for\_each\_continue}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_continue}{list\_for\_each\_continue}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+continue(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head }\end{DoxyParamCaption})~ for (pos = pos-\/$>$next; pos != (head); pos = pos-\/$>$next)}
+
+list\+\_\+for\+\_\+each\+\_\+continue -\/ continue iteration over a list 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list.\\
+\hline
+\end{DoxyParams}
+Continue to iterate over a list, continuing after the current position. \mbox{\Hypertarget{list_8h_a9b782fefb5ab71ce9762182e45a615e1}\label{list_8h_a9b782fefb5ab71ce9762182e45a615e1}} 
+\index{list.h@{list.h}!list\_for\_each\_entry@{list\_for\_each\_entry}}
+\index{list\_for\_each\_entry@{list\_for\_each\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry}{list\_for\_each\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_a29b80cf9d55392a4949d2071b7db4d5c}{list\_first\_entry}}(head, typeof(*pos), member);    \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry -\/ iterate over list of given type 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a91b31084b4ece72dbd75d2bb1f01d9ff}\label{list_8h_a91b31084b4ece72dbd75d2bb1f01d9ff}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_continue@{list\_for\_each\_entry\_continue}}
+\index{list\_for\_each\_entry\_continue@{list\_for\_each\_entry\_continue}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_continue}{list\_for\_each\_entry\_continue}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member);         \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue -\/ continue iteration over list of given type 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Continue to iterate over list of given type, continuing after the current position. \mbox{\Hypertarget{list_8h_a1633f5ae3e74918112a8e89ab696bff8}\label{list_8h_a1633f5ae3e74918112a8e89ab696bff8}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_continue\_reverse@{list\_for\_each\_entry\_continue\_reverse}}
+\index{list\_for\_each\_entry\_continue\_reverse@{list\_for\_each\_entry\_continue\_reverse}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_continue\_reverse}{list\_for\_each\_entry\_continue\_reverse}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue\+\_\+reverse(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(pos, member);         \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue\+\_\+reverse -\/ iterate backwards from the given point 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Start to iterate over list of given type backwards, continuing after the current position. \mbox{\Hypertarget{list_8h_a35f39924661f4dc908e710e8aee1eff0}\label{list_8h_a35f39924661f4dc908e710e8aee1eff0}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_from@{list\_for\_each\_entry\_from}}
+\index{list\_for\_each\_entry\_from@{list\_for\_each\_entry\_from}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_from}{list\_for\_each\_entry\_from}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (; !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);            \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from -\/ iterate over list of given type from the current point 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Iterate over list of given type, continuing from current position. \mbox{\Hypertarget{list_8h_afac66af4168b581dbca23fdc09f0d69e}\label{list_8h_afac66af4168b581dbca23fdc09f0d69e}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_from\_reverse@{list\_for\_each\_entry\_from\_reverse}}
+\index{list\_for\_each\_entry\_from\_reverse@{list\_for\_each\_entry\_from\_reverse}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_from\_reverse}{list\_for\_each\_entry\_from\_reverse}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from\+\_\+reverse(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (; !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);            \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+from\+\_\+reverse -\/ iterate backwards over list of given type from the current point 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Iterate backwards over list of given type, continuing from current position. \mbox{\Hypertarget{list_8h_accc8d8e6c8ffe8ce964c5a1b59732cf3}\label{list_8h_accc8d8e6c8ffe8ce964c5a1b59732cf3}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_reverse@{list\_for\_each\_entry\_reverse}}
+\index{list\_for\_each\_entry\_reverse@{list\_for\_each\_entry\_reverse}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_reverse}{list\_for\_each\_entry\_reverse}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+reverse(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_a7d4aa6766f2ceda84f6b833d40ce97a6}{list\_last\_entry}}(head, typeof(*pos), member);      \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(pos, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+reverse -\/ iterate backwards over list of given type. 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_ac3f72d6bd5144c7970824813810d2da1}\label{list_8h_ac3f72d6bd5144c7970824813810d2da1}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_safe@{list\_for\_each\_entry\_safe}}
+\index{list\_for\_each\_entry\_safe@{list\_for\_each\_entry\_safe}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_safe}{list\_for\_each\_entry\_safe}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_a29b80cf9d55392a4949d2071b7db4d5c}{list\_first\_entry}}(head, typeof(*pos), member),    \(\backslash\)}
+\DoxyCodeLine{        n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member);            \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = n, n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(n, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe -\/ iterate over list of given type safe against removal of list entry 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em n} & another type $\ast$ to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a70fb81027ddca24ebb21aa8e70e4b4ff}\label{list_8h_a70fb81027ddca24ebb21aa8e70e4b4ff}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_safe\_continue@{list\_for\_each\_entry\_safe\_continue}}
+\index{list\_for\_each\_entry\_safe\_continue@{list\_for\_each\_entry\_safe\_continue}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_safe\_continue}{list\_for\_each\_entry\_safe\_continue}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+continue(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member),                 \(\backslash\)}
+\DoxyCodeLine{        n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member);                \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);              \(\backslash\)}
+\DoxyCodeLine{         pos = n, n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(n, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+continue -\/ continue list iteration safe against removal 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em n} & another type $\ast$ to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Iterate over list of given type, continuing after current point, safe against removal of list entry. \mbox{\Hypertarget{list_8h_ab9eb9a805ba4f3bd2a9d332ad34cb3e1}\label{list_8h_ab9eb9a805ba4f3bd2a9d332ad34cb3e1}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_safe\_from@{list\_for\_each\_entry\_safe\_from}}
+\index{list\_for\_each\_entry\_safe\_from@{list\_for\_each\_entry\_safe\_from}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_safe\_from}{list\_for\_each\_entry\_safe\_from}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+from(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(pos, member);                   \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);              \(\backslash\)}
+\DoxyCodeLine{         pos = n, n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\_next\_entry}}(n, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+from -\/ iterate over list from current point safe against removal 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em n} & another type $\ast$ to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Iterate over list of given type from current point, safe against removal of list entry. \mbox{\Hypertarget{list_8h_a3a3ce0f89762fe2bc0a1d840ee610532}\label{list_8h_a3a3ce0f89762fe2bc0a1d840ee610532}} 
+\index{list.h@{list.h}!list\_for\_each\_entry\_safe\_reverse@{list\_for\_each\_entry\_safe\_reverse}}
+\index{list\_for\_each\_entry\_safe\_reverse@{list\_for\_each\_entry\_safe\_reverse}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_entry\_safe\_reverse}{list\_for\_each\_entry\_safe\_reverse}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+reverse(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = \mbox{\hyperlink{list_8h_a7d4aa6766f2ceda84f6b833d40ce97a6}{list\_last\_entry}}(head, typeof(*pos), member),      \(\backslash\)}
+\DoxyCodeLine{        n = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(pos, member);            \(\backslash\)}
+\DoxyCodeLine{         !\mbox{\hyperlink{list_8h_a419ef9513bf508915b2ae9156e67dd6b}{list\_entry\_is\_head}}(pos, head, member);          \(\backslash\)}
+\DoxyCodeLine{         pos = n, n = \mbox{\hyperlink{list_8h_a9130468440cee8613eea994b4c737b6c}{list\_prev\_entry}}(n, member))}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe\+\_\+reverse -\/ iterate backwards over list safe against removal 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a loop cursor. \\
+\hline
+{\em n} & another type $\ast$ to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Iterate backwards over list of given type, safe against removal of list entry. \mbox{\Hypertarget{list_8h_a19fc06b83f3502a83ce566b8887e6aec}\label{list_8h_a19fc06b83f3502a83ce566b8887e6aec}} 
+\index{list.h@{list.h}!list\_for\_each\_prev@{list\_for\_each\_prev}}
+\index{list\_for\_each\_prev@{list\_for\_each\_prev}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_prev}{list\_for\_each\_prev}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+prev(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head }\end{DoxyParamCaption})~ for (pos = (head)-\/$>$prev; pos != (head); pos = pos-\/$>$prev)}
+
+list\+\_\+for\+\_\+each\+\_\+prev -\/ iterate over a list backwards 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as a loop cursor. \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a4166108f765690426e9d89f02bff7df4}\label{list_8h_a4166108f765690426e9d89f02bff7df4}} 
+\index{list.h@{list.h}!list\_for\_each\_prev\_safe@{list\_for\_each\_prev\_safe}}
+\index{list\_for\_each\_prev\_safe@{list\_for\_each\_prev\_safe}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_prev\_safe}{list\_for\_each\_prev\_safe}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+prev\+\_\+safe(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = (head)-\/>prev, n = pos-\/>prev; \(\backslash\)}
+\DoxyCodeLine{         pos != (head); \(\backslash\)}
+\DoxyCodeLine{         pos = n, n = pos-\/>prev)}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+prev\+\_\+safe -\/ iterate over a list backwards safe against removal of list entry 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as a loop cursor. \\
+\hline
+{\em n} & another \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a9e4b9328744994b9d3878f5dad75c09f}\label{list_8h_a9e4b9328744994b9d3878f5dad75c09f}} 
+\index{list.h@{list.h}!list\_for\_each\_safe@{list\_for\_each\_safe}}
+\index{list\_for\_each\_safe@{list\_for\_each\_safe}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_for\_each\_safe}{list\_for\_each\_safe}}
+{\footnotesize\ttfamily \#define list\+\_\+for\+\_\+each\+\_\+safe(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{head }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (pos = (head)-\/>next, n = pos-\/>next; pos != (head); \(\backslash\)}
+\DoxyCodeLine{        pos = n, n = pos-\/>next)}
+
+\end{DoxyCode}
+list\+\_\+for\+\_\+each\+\_\+safe -\/ iterate over a list safe against removal of list entry 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as a loop cursor. \\
+\hline
+{\em n} & another \&struct \mbox{\hyperlink{structlist__head}{list\+\_\+head}} to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_a7d4aa6766f2ceda84f6b833d40ce97a6}\label{list_8h_a7d4aa6766f2ceda84f6b833d40ce97a6}} 
+\index{list.h@{list.h}!list\_last\_entry@{list\_last\_entry}}
+\index{list\_last\_entry@{list\_last\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_last\_entry}{list\_last\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+last\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((ptr)-\/$>$prev, type, member)}
+
+list\+\_\+last\+\_\+entry -\/ get the last element from a list 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the list head to take the element from. \\
+\hline
+{\em type} & the type of the struct this is embedded in. \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Note, that list is expected to be not empty. \mbox{\Hypertarget{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}\label{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}} 
+\index{list.h@{list.h}!list\_next\_entry@{list\_next\_entry}}
+\index{list\_next\_entry@{list\_next\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_next\_entry}{list\_next\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+next\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{member }\end{DoxyParamCaption})~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((pos)-\/$>$member.\+next, typeof($\ast$(pos)), member)}
+
+list\+\_\+next\+\_\+entry -\/ get the next element in list 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to cursor \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_af6fc8bdd3ce7ee375e35baf9d2b2e62a}\label{list_8h_af6fc8bdd3ce7ee375e35baf9d2b2e62a}} 
+\index{list.h@{list.h}!list\_prepare\_entry@{list\_prepare\_entry}}
+\index{list\_prepare\_entry@{list\_prepare\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_prepare\_entry}{list\_prepare\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+prepare\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})~ ((pos) ? \+: \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}(head, typeof($\ast$pos), member))}
+
+list\+\_\+prepare\+\_\+entry -\/ prepare a pos entry for use in \mbox{\hyperlink{list_8h_a91b31084b4ece72dbd75d2bb1f01d9ff}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue()}} 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to use as a start point \\
+\hline
+{\em head} & the head of the list \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+Prepares a pos entry for use as a start point in \mbox{\hyperlink{list_8h_a91b31084b4ece72dbd75d2bb1f01d9ff}{list\+\_\+for\+\_\+each\+\_\+entry\+\_\+continue()}}. \mbox{\Hypertarget{list_8h_a9130468440cee8613eea994b4c737b6c}\label{list_8h_a9130468440cee8613eea994b4c737b6c}} 
+\index{list.h@{list.h}!list\_prev\_entry@{list\_prev\_entry}}
+\index{list\_prev\_entry@{list\_prev\_entry}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_prev\_entry}{list\_prev\_entry}}
+{\footnotesize\ttfamily \#define list\+\_\+prev\+\_\+entry(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{member }\end{DoxyParamCaption})~ \mbox{\hyperlink{list_8h_a26c976b7f654e70df318c1843e5094de}{list\+\_\+entry}}((pos)-\/$>$member.\+prev, typeof($\ast$(pos)), member)}
+
+list\+\_\+prev\+\_\+entry -\/ get the prev element in list 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the type $\ast$ to cursor \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_af423641568c98cc34b0ac68871593a16}\label{list_8h_af423641568c98cc34b0ac68871593a16}} 
+\index{list.h@{list.h}!list\_safe\_reset\_next@{list\_safe\_reset\_next}}
+\index{list\_safe\_reset\_next@{list\_safe\_reset\_next}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_safe\_reset\_next}{list\_safe\_reset\_next}}
+{\footnotesize\ttfamily \#define list\+\_\+safe\+\_\+reset\+\_\+next(\begin{DoxyParamCaption}\item[{}]{pos,  }\item[{}]{n,  }\item[{}]{member }\end{DoxyParamCaption})~ n = \mbox{\hyperlink{list_8h_ad5a7bbc278609c0fee4536eeeaa1afab}{list\+\_\+next\+\_\+entry}}(pos, member)}
+
+list\+\_\+safe\+\_\+reset\+\_\+next -\/ reset a stale list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe loop 
+\begin{DoxyParams}{Parameters}
+{\em pos} & the loop cursor used in the list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe loop \\
+\hline
+{\em n} & temporary storage used in list\+\_\+for\+\_\+each\+\_\+entry\+\_\+safe \\
+\hline
+{\em member} & the name of the \mbox{\hyperlink{structlist__head}{list\+\_\+head}} within the struct.\\
+\hline
+\end{DoxyParams}
+list\+\_\+safe\+\_\+reset\+\_\+next is not safe to use in general if the list may be modified concurrently (eg. the lock is dropped in the loop body). An exception to this is if the cursor element (pos) is pinned in the list, and list\+\_\+safe\+\_\+reset\+\_\+next is called after re-\/taking the lock and before completing the current iteration of the loop body. 

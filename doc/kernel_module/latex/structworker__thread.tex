@@ -1,0 +1,115 @@
+\hypertarget{structworker__thread}{}\doxysection{worker\+\_\+thread Struct Reference}
+\label{structworker__thread}\index{worker\_thread@{worker\_thread}}
+
+
+Struct with the representation of the worker thread.  
+
+
+
+
+{\ttfamily \#include $<$ums.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structworker__thread_aa4f6d0315ed545bab8eb403856348415}{pid}}
+\item 
+struct task\+\_\+struct $\ast$ \mbox{\hyperlink{structworker__thread_a52919cc1fa610306727d1782386e74a8}{task\+\_\+struct}}
+\item 
+struct pt\+\_\+regs \mbox{\hyperlink{structworker__thread_a2160e82742089490644b67a446c25878}{saved\+\_\+pt\+\_\+regs}}
+\item 
+struct fpu \mbox{\hyperlink{structworker__thread_abd5568c7c58ba6fcb07cbaccb12cd802}{saved\+\_\+fpu\+\_\+regs}}
+\item 
+int \mbox{\hyperlink{structworker__thread_a20e8471a06e49b6533cc0aafa46de2bf}{scheduled\+\_\+by}}
+\item 
+unsigned long \mbox{\hyperlink{structworker__thread_a527f4e159116d8f43460bb34b7b8c453}{time\+\_\+at\+\_\+switch}}
+\item 
+unsigned long \mbox{\hyperlink{structworker__thread_acaac9e5390c6fd1562bfba2d463e4300}{total\+\_\+switch}}
+\item 
+unsigned long \mbox{\hyperlink{structworker__thread_a339435527320c5ed0d033f42440b1fd8}{total\+\_\+runtime}}
+\item 
+long \mbox{\hyperlink{structworker__thread_af123aa403d894338a103297e4d84db2c}{state}}
+\item 
+struct list\+\_\+head \mbox{\hyperlink{structworker__thread_af9a24f2ded79b93472939621f27bff0c}{list}}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structworker__thread_a4e58209f86c52a59f2f1d8801a6545d7}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct with the representation of the worker thread. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structworker__thread_a4e58209f86c52a59f2f1d8801a6545d7}\label{structworker__thread_a4e58209f86c52a59f2f1d8801a6545d7}} 
+\index{worker\_thread@{worker\_thread}!hlist@{hlist}}
+\index{hlist@{hlist}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node worker\+\_\+thread\+::hlist}
+
+for implementing the master\+\_\+wt\+\_\+hashlist \mbox{\Hypertarget{structworker__thread_af9a24f2ded79b93472939621f27bff0c}\label{structworker__thread_af9a24f2ded79b93472939621f27bff0c}} 
+\index{worker\_thread@{worker\_thread}!list@{list}}
+\index{list@{list}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily struct list\+\_\+head worker\+\_\+thread\+::list}
+
+for implementing the ready queue \mbox{\Hypertarget{structworker__thread_aa4f6d0315ed545bab8eb403856348415}\label{structworker__thread_aa4f6d0315ed545bab8eb403856348415}} 
+\index{worker\_thread@{worker\_thread}!pid@{pid}}
+\index{pid@{pid}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily int worker\+\_\+thread\+::pid}
+
+pid of the worker thread \mbox{\Hypertarget{structworker__thread_abd5568c7c58ba6fcb07cbaccb12cd802}\label{structworker__thread_abd5568c7c58ba6fcb07cbaccb12cd802}} 
+\index{worker\_thread@{worker\_thread}!saved\_fpu\_regs@{saved\_fpu\_regs}}
+\index{saved\_fpu\_regs@{saved\_fpu\_regs}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{saved\_fpu\_regs}{saved\_fpu\_regs}}
+{\footnotesize\ttfamily struct fpu worker\+\_\+thread\+::saved\+\_\+fpu\+\_\+regs}
+
+saved fpu register \mbox{\Hypertarget{structworker__thread_a2160e82742089490644b67a446c25878}\label{structworker__thread_a2160e82742089490644b67a446c25878}} 
+\index{worker\_thread@{worker\_thread}!saved\_pt\_regs@{saved\_pt\_regs}}
+\index{saved\_pt\_regs@{saved\_pt\_regs}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{saved\_pt\_regs}{saved\_pt\_regs}}
+{\footnotesize\ttfamily struct pt\+\_\+regs worker\+\_\+thread\+::saved\+\_\+pt\+\_\+regs}
+
+current context of the cpu registers \mbox{\Hypertarget{structworker__thread_a20e8471a06e49b6533cc0aafa46de2bf}\label{structworker__thread_a20e8471a06e49b6533cc0aafa46de2bf}} 
+\index{worker\_thread@{worker\_thread}!scheduled\_by@{scheduled\_by}}
+\index{scheduled\_by@{scheduled\_by}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{scheduled\_by}{scheduled\_by}}
+{\footnotesize\ttfamily int worker\+\_\+thread\+::scheduled\+\_\+by}
+
+pid of the scheduler that has scheduled this thread \mbox{\Hypertarget{structworker__thread_af123aa403d894338a103297e4d84db2c}\label{structworker__thread_af123aa403d894338a103297e4d84db2c}} 
+\index{worker\_thread@{worker\_thread}!state@{state}}
+\index{state@{state}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily long worker\+\_\+thread\+::state}
+
+current state of the worker \mbox{\Hypertarget{structworker__thread_a52919cc1fa610306727d1782386e74a8}\label{structworker__thread_a52919cc1fa610306727d1782386e74a8}} 
+\index{worker\_thread@{worker\_thread}!task\_struct@{task\_struct}}
+\index{task\_struct@{task\_struct}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{task\_struct}{task\_struct}}
+{\footnotesize\ttfamily struct task\+\_\+struct$\ast$ worker\+\_\+thread\+::task\+\_\+struct}
+
+task\+\_\+struct of the worker thread \mbox{\Hypertarget{structworker__thread_a527f4e159116d8f43460bb34b7b8c453}\label{structworker__thread_a527f4e159116d8f43460bb34b7b8c453}} 
+\index{worker\_thread@{worker\_thread}!time\_at\_switch@{time\_at\_switch}}
+\index{time\_at\_switch@{time\_at\_switch}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{time\_at\_switch}{time\_at\_switch}}
+{\footnotesize\ttfamily unsigned long worker\+\_\+thread\+::time\+\_\+at\+\_\+switch}
+
+\hypertarget{structworker__thread_autotoc_md6}{}\doxysubsection{of switch that this work thread caused}\label{structworker__thread_autotoc_md6}
+\mbox{\Hypertarget{structworker__thread_a339435527320c5ed0d033f42440b1fd8}\label{structworker__thread_a339435527320c5ed0d033f42440b1fd8}} 
+\index{worker\_thread@{worker\_thread}!total\_runtime@{total\_runtime}}
+\index{total\_runtime@{total\_runtime}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{total\_runtime}{total\_runtime}}
+{\footnotesize\ttfamily unsigned long worker\+\_\+thread\+::total\+\_\+runtime}
+
+total running time of the thread \mbox{\Hypertarget{structworker__thread_acaac9e5390c6fd1562bfba2d463e4300}\label{structworker__thread_acaac9e5390c6fd1562bfba2d463e4300}} 
+\index{worker\_thread@{worker\_thread}!total\_switch@{total\_switch}}
+\index{total\_switch@{total\_switch}!worker\_thread@{worker\_thread}}
+\doxysubsubsection{\texorpdfstring{total\_switch}{total\_switch}}
+{\footnotesize\ttfamily unsigned long worker\+\_\+thread\+::total\+\_\+switch}
+
+\hypertarget{structworker__thread_autotoc_md7}{}\doxysubsection{of switch that this work thread caused}\label{structworker__thread_autotoc_md7}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ums_8h}{ums.\+h}}\end{DoxyCompactItemize}

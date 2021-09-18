@@ -1,0 +1,65 @@
+\hypertarget{structowner__proc}{}\doxysection{owner\+\_\+proc Struct Reference}
+\label{structowner__proc}\index{owner\_proc@{owner\_proc}}
+
+
+contains the data of the ums owner directory that contain the scheduler dir with all the UMS thread created by the owner  
+
+
+
+
+{\ttfamily \#include $<$proc.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structowner__proc_a4960f360ef0e92198a79e2a1c00f4a80}{dir\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structowner__proc_a1e5c9902c28873b0f9a3b51d494ad0ed}{sched\+\_\+entry}}
+\item 
+unsigned \mbox{\hyperlink{structowner__proc_a5b9eb4173bf7647201492af1e0ec55b7}{pid}}
+\item 
+char \mbox{\hyperlink{structowner__proc_a9fe0531702d5670df9a1a480709d2705}{name\+\_\+dir}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structowner__proc_a1df814fbc18a988b046ae9af18243598}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains the data of the ums owner directory that contain the scheduler dir with all the UMS thread created by the owner 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structowner__proc_a4960f360ef0e92198a79e2a1c00f4a80}\label{structowner__proc_a4960f360ef0e92198a79e2a1c00f4a80}} 
+\index{owner\_proc@{owner\_proc}!dir\_entry@{dir\_entry}}
+\index{dir\_entry@{dir\_entry}!owner\_proc@{owner\_proc}}
+\doxysubsubsection{\texorpdfstring{dir\_entry}{dir\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ owner\+\_\+proc\+::dir\+\_\+entry}
+
+directory of the owner \mbox{\Hypertarget{structowner__proc_a1df814fbc18a988b046ae9af18243598}\label{structowner__proc_a1df814fbc18a988b046ae9af18243598}} 
+\index{owner\_proc@{owner\_proc}!hlist@{hlist}}
+\index{hlist@{hlist}!owner\_proc@{owner\_proc}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node owner\+\_\+proc\+::hlist}
+
+hlist\+\_\+node used for htable \mbox{\Hypertarget{structowner__proc_a9fe0531702d5670df9a1a480709d2705}\label{structowner__proc_a9fe0531702d5670df9a1a480709d2705}} 
+\index{owner\_proc@{owner\_proc}!name\_dir@{name\_dir}}
+\index{name\_dir@{name\_dir}!owner\_proc@{owner\_proc}}
+\doxysubsubsection{\texorpdfstring{name\_dir}{name\_dir}}
+{\footnotesize\ttfamily char owner\+\_\+proc\+::name\+\_\+dir\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+name of the owner\textquotesingle{}s dir (pid to string) \mbox{\Hypertarget{structowner__proc_a5b9eb4173bf7647201492af1e0ec55b7}\label{structowner__proc_a5b9eb4173bf7647201492af1e0ec55b7}} 
+\index{owner\_proc@{owner\_proc}!pid@{pid}}
+\index{pid@{pid}!owner\_proc@{owner\_proc}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily unsigned owner\+\_\+proc\+::pid}
+
+pid of the owner \mbox{\Hypertarget{structowner__proc_a1e5c9902c28873b0f9a3b51d494ad0ed}\label{structowner__proc_a1e5c9902c28873b0f9a3b51d494ad0ed}} 
+\index{owner\_proc@{owner\_proc}!sched\_entry@{sched\_entry}}
+\index{sched\_entry@{sched\_entry}!owner\_proc@{owner\_proc}}
+\doxysubsubsection{\texorpdfstring{sched\_entry}{sched\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ owner\+\_\+proc\+::sched\+\_\+entry}
+
+directory that will contain all the ums schedulers 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{proc_8h}{proc.\+h}}\end{DoxyCompactItemize}

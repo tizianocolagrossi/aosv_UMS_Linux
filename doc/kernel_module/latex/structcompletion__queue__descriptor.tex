@@ -1,0 +1,57 @@
+\hypertarget{structcompletion__queue__descriptor}{}\doxysection{completion\+\_\+queue\+\_\+descriptor Struct Reference}
+\label{structcompletion__queue__descriptor}\index{completion\_queue\_descriptor@{completion\_queue\_descriptor}}
+
+
+Is the representation of the completion queue contain the id of the completion queue and the completion queue itself.  
+
+
+
+
+{\ttfamily \#include $<$ums.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct list\+\_\+head \mbox{\hyperlink{structcompletion__queue__descriptor_a1556efb09c915cd9f950aae3ddc382a8}{completion\+\_\+queue}}
+\item 
+int \mbox{\hyperlink{structcompletion__queue__descriptor_a016dc914d9d7fd1f51c56bc6e6f7fbdf}{id}}
+\item 
+unsigned int \mbox{\hyperlink{structcompletion__queue__descriptor_a93d7476594fc4a95699d344b8953191d}{used\+\_\+by\+\_\+couter}}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structcompletion__queue__descriptor_a50e2e1b7f33df8b71e4984f6df2d8334}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Is the representation of the completion queue contain the id of the completion queue and the completion queue itself. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structcompletion__queue__descriptor_a1556efb09c915cd9f950aae3ddc382a8}\label{structcompletion__queue__descriptor_a1556efb09c915cd9f950aae3ddc382a8}} 
+\index{completion\_queue\_descriptor@{completion\_queue\_descriptor}!completion\_queue@{completion\_queue}}
+\index{completion\_queue@{completion\_queue}!completion\_queue\_descriptor@{completion\_queue\_descriptor}}
+\doxysubsubsection{\texorpdfstring{completion\_queue}{completion\_queue}}
+{\footnotesize\ttfamily struct list\+\_\+head completion\+\_\+queue\+\_\+descriptor\+::completion\+\_\+queue}
+
+list of all the worker thread in the cq \mbox{\Hypertarget{structcompletion__queue__descriptor_a50e2e1b7f33df8b71e4984f6df2d8334}\label{structcompletion__queue__descriptor_a50e2e1b7f33df8b71e4984f6df2d8334}} 
+\index{completion\_queue\_descriptor@{completion\_queue\_descriptor}!hlist@{hlist}}
+\index{hlist@{hlist}!completion\_queue\_descriptor@{completion\_queue\_descriptor}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node completion\+\_\+queue\+\_\+descriptor\+::hlist}
+
+hlist node for the htable \mbox{\Hypertarget{structcompletion__queue__descriptor_a016dc914d9d7fd1f51c56bc6e6f7fbdf}\label{structcompletion__queue__descriptor_a016dc914d9d7fd1f51c56bc6e6f7fbdf}} 
+\index{completion\_queue\_descriptor@{completion\_queue\_descriptor}!id@{id}}
+\index{id@{id}!completion\_queue\_descriptor@{completion\_queue\_descriptor}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int completion\+\_\+queue\+\_\+descriptor\+::id}
+
+id of the completion queue \mbox{\Hypertarget{structcompletion__queue__descriptor_a93d7476594fc4a95699d344b8953191d}\label{structcompletion__queue__descriptor_a93d7476594fc4a95699d344b8953191d}} 
+\index{completion\_queue\_descriptor@{completion\_queue\_descriptor}!used\_by\_couter@{used\_by\_couter}}
+\index{used\_by\_couter@{used\_by\_couter}!completion\_queue\_descriptor@{completion\_queue\_descriptor}}
+\doxysubsubsection{\texorpdfstring{used\_by\_couter}{used\_by\_couter}}
+{\footnotesize\ttfamily unsigned int completion\+\_\+queue\+\_\+descriptor\+::used\+\_\+by\+\_\+couter}
+
+conter of the ums that use this cq 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ums_8h}{ums.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\hypertarget{shared_8h}{}\doxysection{shared.\+h File Reference}
+\label{shared_8h}\index{shared.h@{shared.h}}
+
+
+This file contains definition shared between kernel module and user library.  
+
+
+{\ttfamily \#include $<$linux/ioctl.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structums__km__param}{ums\+\_\+km\+\_\+param}}
+\item 
+struct \mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{shared_8h_a14ded244c47bbba850a8a4be6d16c7e3}\label{shared_8h_a14ded244c47bbba850a8a4be6d16c7e3}} 
+\#define {\bfseries MODULE\+\_\+\+NAME}~\char`\"{}ums\char`\"{}
+\item 
+\mbox{\Hypertarget{shared_8h_a00c62a0aeb05e6681f7da3c45ff88df9}\label{shared_8h_a00c62a0aeb05e6681f7da3c45ff88df9}} 
+\#define {\bfseries MODULE\+\_\+\+PATH}~\char`\"{}/dev/ums\char`\"{}
+\item 
+\mbox{\Hypertarget{shared_8h_a687984f47d8cce148d1b914d2b79612a}\label{shared_8h_a687984f47d8cce148d1b914d2b79612a}} 
+\#define {\bfseries EXIT\+\_\+\+SUCCESS}~0
+\item 
+\mbox{\Hypertarget{shared_8h_a73efe787c131b385070f25d18b7c9aa4}\label{shared_8h_a73efe787c131b385070f25d18b7c9aa4}} 
+\#define {\bfseries EXIT\+\_\+\+FAILURE}~-\/1
+\item 
+\mbox{\Hypertarget{shared_8h_a515a75049da60089e9e05ff61b612c4e}\label{shared_8h_a515a75049da60089e9e05ff61b612c4e}} 
+\#define {\bfseries THREAD\+\_\+\+RUNNG}~-\/3
+\item 
+\mbox{\Hypertarget{shared_8h_a82c28d006e844fd6d57e0f8a9d580569}\label{shared_8h_a82c28d006e844fd6d57e0f8a9d580569}} 
+\#define {\bfseries CQ\+\_\+\+FULL}~-\/4
+\item 
+\mbox{\Hypertarget{shared_8h_a5c237f6e103bc7b6dedceb910741d196}\label{shared_8h_a5c237f6e103bc7b6dedceb910741d196}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+MAGIC}~0x\+F4
+\item 
+\mbox{\Hypertarget{shared_8h_a9c9f8b5bb92f6c8ad113be456792f877}\label{shared_8h_a9c9f8b5bb92f6c8ad113be456792f877}} 
+\#define {\bfseries UMS\+\_\+\+IOCRESET}~\+\_\+\+IO  (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 0)
+\item 
+\mbox{\Hypertarget{shared_8h_a54fca38c7e9ae1a3f0537d0c30f28c78}\label{shared_8h_a54fca38c7e9ae1a3f0537d0c30f28c78}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+THREAD\+\_\+\+YIELD}~\+\_\+\+IO  (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 1)
+\item 
+\mbox{\Hypertarget{shared_8h_ab4faef8db7c8f352502d88da71d42af3}\label{shared_8h_ab4faef8db7c8f352502d88da71d42af3}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+THREAD\+\_\+\+EXECUTE}~\+\_\+\+IOW (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 2, unsigned)
+\item 
+\mbox{\Hypertarget{shared_8h_a329aacc7474e3edbeecba6aaee43c375}\label{shared_8h_a329aacc7474e3edbeecba6aaee43c375}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+ENTER\+\_\+\+UMS\+\_\+\+SCHEDULING\+\_\+\+MODE}~\+\_\+\+IOW (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 3, unsigned long)
+\item 
+\mbox{\Hypertarget{shared_8h_ab290e18106c75f5dda9527f8e4e52321}\label{shared_8h_ab290e18106c75f5dda9527f8e4e52321}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+END\+\_\+\+UMS\+\_\+\+SCHEDULER}~\+\_\+\+IO  (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 4)
+\item 
+\mbox{\Hypertarget{shared_8h_a0cc61af8d1095ac7a7d9e7cb24ce3405}\label{shared_8h_a0cc61af8d1095ac7a7d9e7cb24ce3405}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+INIT\+\_\+\+WORKER\+\_\+\+THREAD}~\+\_\+\+IO  (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 5)
+\item 
+\mbox{\Hypertarget{shared_8h_a97c23b76ed94f5dafff73597c8c247d0}\label{shared_8h_a97c23b76ed94f5dafff73597c8c247d0}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+END\+\_\+\+WORKER\+\_\+\+THREAD}~\+\_\+\+IO  (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 6)
+\item 
+\mbox{\Hypertarget{shared_8h_ad07b4d2d9c8246090296d265a874e6bf}\label{shared_8h_ad07b4d2d9c8246090296d265a874e6bf}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+INIT\+\_\+\+COMPLETION\+\_\+\+QUEUE}~\+\_\+\+IOR (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 7, unsigned long)
+\item 
+\mbox{\Hypertarget{shared_8h_ad68d301e9fee7f4d54f3b63e162efc92}\label{shared_8h_ad68d301e9fee7f4d54f3b63e162efc92}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+APPEND\+\_\+\+TO\+\_\+\+COMPLETION\+\_\+\+QUEUE}~\+\_\+\+IOW (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 8, int)
+\item 
+\mbox{\Hypertarget{shared_8h_af2c09c2f97316c3721c0c7cfdc3b057d}\label{shared_8h_af2c09c2f97316c3721c0c7cfdc3b057d}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+DEQUEUE\+\_\+\+COMPLETION\+\_\+\+LIST}~\+\_\+\+IOR (UMS\+\_\+\+IOC\+\_\+\+MAGIC, 9, unsigned long)
+\item 
+\mbox{\Hypertarget{shared_8h_a88abcd2e12bf03435b693033201f1f3d}\label{shared_8h_a88abcd2e12bf03435b693033201f1f3d}} 
+\#define {\bfseries UMS\+\_\+\+IOC\+\_\+\+MAXNR}~9
+\item 
+\mbox{\Hypertarget{shared_8h_a56830db4d071c195ab0024f28a7d9898}\label{shared_8h_a56830db4d071c195ab0024f28a7d9898}} 
+\#define {\bfseries COMPLETION\+\_\+\+QUEUE\+\_\+\+BUFF}~100
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{shared_8h_abd29093767fbdfc68d7b04ab8b60df38}\label{shared_8h_abd29093767fbdfc68d7b04ab8b60df38}} 
+typedef void $\ast$($\ast$ {\bfseries worker\+\_\+job\+\_\+t}) (void $\ast$)
+\item 
+\mbox{\Hypertarget{shared_8h_a06bc095065ffec15cb53a790bb069f60}\label{shared_8h_a06bc095065ffec15cb53a790bb069f60}} 
+typedef struct \mbox{\hyperlink{structums__km__param}{ums\+\_\+km\+\_\+param}} {\bfseries ums\+\_\+km\+\_\+param\+\_\+t}
+\item 
+\mbox{\Hypertarget{shared_8h_ac2d838d007cc2edc60c7646115695cde}\label{shared_8h_ac2d838d007cc2edc60c7646115695cde}} 
+typedef struct \mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param}} {\bfseries ums\+\_\+cq\+\_\+param\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains definition shared between kernel module and user library. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}

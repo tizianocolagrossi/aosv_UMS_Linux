@@ -1,0 +1,580 @@
+\hypertarget{ums_8h}{}\doxysection{ums.\+h File Reference}
+\label{ums_8h}\index{ums.h@{ums.h}}
+
+
+This file is the header of \mbox{\hyperlink{ums_8c}{ums.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}shared.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utility.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proc.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$asm/fpu/internal.\+h$>$}\newline
+{\ttfamily \#include $<$asm/fpu/types.\+h$>$}\newline
+{\ttfamily \#include $<$asm/ptrace.\+h$>$}\newline
+{\ttfamily \#include $<$asm/uaccess.\+h$>$}\newline
+{\ttfamily \#include $<$linux/init.\+h$>$}\newline
+{\ttfamily \#include $<$linux/module.\+h$>$}\newline
+{\ttfamily \#include $<$linux/list.\+h$>$}\newline
+{\ttfamily \#include $<$linux/hashtable.\+h$>$}\newline
+{\ttfamily \#include $<$linux/sched.\+h$>$}\newline
+{\ttfamily \#include $<$linux/ktime.\+h$>$}\newline
+{\ttfamily \#include $<$linux/timekeeping.\+h$>$}\newline
+{\ttfamily \#include $<$linux/bitmap.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcompletion__queue__descriptor}{completion\+\_\+queue\+\_\+descriptor}}
+\begin{DoxyCompactList}\small\item\em Is the representation of the completion queue contain the id of the completion queue and the completion queue itself. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structums__scheduler}{ums\+\_\+scheduler}}
+\begin{DoxyCompactList}\small\item\em This struct contain all the data related to a Ums scheduler. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structworker__thread}{worker\+\_\+thread}}
+\begin{DoxyCompactList}\small\item\em Struct with the representation of the worker thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ums_8h_aa34f0eddbb99ef112f5cc09f43b1af00}\label{ums_8h_aa34f0eddbb99ef112f5cc09f43b1af00}} 
+\#define {\bfseries MODULE\+\_\+\+UMS\+\_\+\+LOG}~\char`\"{}UMS\+\_\+\+MASTER\+\_\+\+FUNCS\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_aebe5c2a8ad49014eca376a97a898b9bd}\label{ums_8h_aebe5c2a8ad49014eca376a97a898b9bd}} 
+\#define {\bfseries F\+\_\+\+DEQUEUE}~\char`\"{}DEQUEUE\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a298b91deec2bed5a79398eedd81cd754}\label{ums_8h_a298b91deec2bed5a79398eedd81cd754}} 
+\#define {\bfseries F\+\_\+\+APPEND}~\char`\"{}APPEND\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_abaad1a2a9d235a74f215d50ad175ac8a}\label{ums_8h_abaad1a2a9d235a74f215d50ad175ac8a}} 
+\#define {\bfseries F\+\_\+\+DESTROY\+\_\+\+CQ}~\char`\"{}DESTROY\+\_\+\+CQ\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a886dac76e6634fe36f615cd7440b08c4}\label{ums_8h_a886dac76e6634fe36f615cd7440b08c4}} 
+\#define {\bfseries F\+\_\+\+INIT\+\_\+\+CQ}~\char`\"{}INIT\+\_\+\+CQ\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a19bf2a7257e823cea3707b7f6e131aad}\label{ums_8h_a19bf2a7257e823cea3707b7f6e131aad}} 
+\#define {\bfseries F\+\_\+\+INIT\+\_\+\+WORKER}~\char`\"{}INIT\+\_\+\+WORKER\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a6b71a2a9b04e16aa0295ab5aea2ec7a2}\label{ums_8h_a6b71a2a9b04e16aa0295ab5aea2ec7a2}} 
+\#define {\bfseries F\+\_\+\+END\+\_\+\+WORKER}~\char`\"{}END\+\_\+\+WORKER\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_aa6b57304de34abdc8921d5f490a0a47b}\label{ums_8h_aa6b57304de34abdc8921d5f490a0a47b}} 
+\#define {\bfseries F\+\_\+\+INIT\+\_\+\+UMS}~\char`\"{}INIT\+\_\+\+UMS\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a4776628cdbe3c899bc7ab6d8f1950ed9}\label{ums_8h_a4776628cdbe3c899bc7ab6d8f1950ed9}} 
+\#define {\bfseries F\+\_\+\+SCHED\+\_\+\+WRK}~\char`\"{}SCHED\+\_\+\+WKT\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a3c654c24f3d770b20453f36d533684f1}\label{ums_8h_a3c654c24f3d770b20453f36d533684f1}} 
+\#define {\bfseries F\+\_\+\+SCHED\+\_\+\+UMS}~\char`\"{}SCHED\+\_\+\+UMS\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{ums_8h_a18ba938c9030675035b3be843356a807}\label{ums_8h_a18ba938c9030675035b3be843356a807}} 
+\#define {\bfseries HASH\+\_\+\+KEY\+\_\+\+SIZE}~10
+\item 
+\mbox{\Hypertarget{ums_8h_aee927d37d1b02743fedb1a4453979d72}\label{ums_8h_aee927d37d1b02743fedb1a4453979d72}} 
+\#define {\bfseries BITMAP\+\_\+\+CQ\+\_\+\+SIZE}~128
+\item 
+\mbox{\Hypertarget{ums_8h_ac4c0304c569818c811515e24523c3150}\label{ums_8h_ac4c0304c569818c811515e24523c3150}} 
+\#define {\bfseries STATE\+\_\+\+RUNNING}~0x0000
+\item 
+\mbox{\Hypertarget{ums_8h_aafff27c7165f059a969fe60fee51f683}\label{ums_8h_aafff27c7165f059a969fe60fee51f683}} 
+\#define {\bfseries STATE\+\_\+\+IDLE}~0x0001
+\item 
+\mbox{\Hypertarget{ums_8h_aa74af0876332d1a6258cff9745a1bd53}\label{ums_8h_aa74af0876332d1a6258cff9745a1bd53}} 
+\#define {\bfseries STATE\+\_\+\+READY}~0x0002
+\item 
+\mbox{\Hypertarget{ums_8h_a7d7920c1e51cc4eef80206ebd6fee3f4}\label{ums_8h_a7d7920c1e51cc4eef80206ebd6fee3f4}} 
+\#define {\bfseries STATE\+\_\+\+WAITING}~0x0004
+\item 
+\mbox{\Hypertarget{ums_8h_ac37c6c331540a1393b62e9b69450012c}\label{ums_8h_ac37c6c331540a1393b62e9b69450012c}} 
+\#define {\bfseries ums\+\_\+is\+\_\+idle}(ums)~((ums-\/$>$state \& STATE\+\_\+\+IDLE)    != 0)
+\item 
+\mbox{\Hypertarget{ums_8h_a56f0a96cf57ed31d5499481efc46aa96}\label{ums_8h_a56f0a96cf57ed31d5499481efc46aa96}} 
+\#define {\bfseries ums\+\_\+is\+\_\+running}(ums)~((ums-\/$>$state \& STATE\+\_\+\+RUNNING) != 0)
+\item 
+\mbox{\Hypertarget{ums_8h_a2e051e785bf9875e235d0907c4e1ee81}\label{ums_8h_a2e051e785bf9875e235d0907c4e1ee81}} 
+\#define {\bfseries wkt\+\_\+is\+\_\+running}(wkt)~((wkt-\/$>$state \& STATE\+\_\+\+RUNNING) != 0)
+\item 
+\mbox{\Hypertarget{ums_8h_ae360bb07487124620c7460ffe0b91856}\label{ums_8h_ae360bb07487124620c7460ffe0b91856}} 
+\#define {\bfseries wkt\+\_\+is\+\_\+ready}(wkt)~((wkt-\/$>$state \& STATE\+\_\+\+READY)   != 0)
+\item 
+\mbox{\Hypertarget{ums_8h_a56dc9b9d42f96476d22ee705d30896dd}\label{ums_8h_a56dc9b9d42f96476d22ee705d30896dd}} 
+\#define {\bfseries wkt\+\_\+is\+\_\+waiting}(wkt)~((wkt-\/$>$state \& STATE\+\_\+\+WAITING) != 0)
+\item 
+\mbox{\Hypertarget{ums_8h_aa8f6505b721b1ace180ff767c0c321b1}\label{ums_8h_aa8f6505b721b1ace180ff767c0c321b1}} 
+\#define {\bfseries fxsave}(fpu)~copy\+\_\+fxregs\+\_\+to\+\_\+kernel(fpu)
+\item 
+\mbox{\Hypertarget{ums_8h_a33bd7a189b8acb55d93d60f21dae08c9}\label{ums_8h_a33bd7a189b8acb55d93d60f21dae08c9}} 
+\#define {\bfseries fxrestore}(fpu)~copy\+\_\+kernel\+\_\+to\+\_\+fxregs(\&((fpu)-\/$>$state.\+fxsave))
+\item 
+\mbox{\Hypertarget{ums_8h_a55ef8cb58193befc104bcec5050ae4fd}\label{ums_8h_a55ef8cb58193befc104bcec5050ae4fd}} 
+\#define {\bfseries UMS\+\_\+\+CORE\+\_\+\+DEBUG}
+\item 
+\mbox{\Hypertarget{ums_8h_a532163ec165cb6fc588649f21bec7c3b}\label{ums_8h_a532163ec165cb6fc588649f21bec7c3b}} 
+\#define {\bfseries SWITCH\+\_\+\+PT\+\_\+\+REGS}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}\label{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}} 
+typedef struct \mbox{\hyperlink{structums__scheduler}{ums\+\_\+scheduler}} {\bfseries ums\+\_\+scheduler\+\_\+t}
+\begin{DoxyCompactList}\small\item\em This struct contain all the data related to a Ums scheduler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}\label{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}} 
+typedef struct \mbox{\hyperlink{structworker__thread}{worker\+\_\+thread}} {\bfseries worker\+\_\+thread\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Struct with the representation of the worker thread. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_ab6b5c4d749e234ba2e7eada4203f444b}\label{ums_8h_ab6b5c4d749e234ba2e7eada4203f444b}} 
+typedef enum \mbox{\hyperlink{ums_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} {\bfseries direction\+\_\+t}
+\begin{DoxyCompactList}\small\item\em This enum represent the possible direction for update the stats. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_aa2a2415aec04e9b44c23f7a22697a2f8}\label{ums_8h_aa2a2415aec04e9b44c23f7a22697a2f8}} 
+typedef struct \mbox{\hyperlink{structcompletion__queue__descriptor}{completion\+\_\+queue\+\_\+descriptor}} {\bfseries completion\+\_\+queue\+\_\+descriptor\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Is the representation of the completion queue contain the id of the completion queue and the completion queue itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ums_8h_a99f26e6ee9fcd62f75203b5402df8098}\label{ums_8h_a99f26e6ee9fcd62f75203b5402df8098}} 
+enum \mbox{\hyperlink{ums_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} \{ {\bfseries YIELD}
+, {\bfseries EXECUTE}
+, {\bfseries WAIT}
+ \}
+\begin{DoxyCompactList}\small\item\em This enum represent the possible direction for update the stats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ums_8h_a182eedef81cb4eadd04215f1441e43fa}{yield\+\_\+to\+\_\+ums}} (spinlock\+\_\+t ioctl\+\_\+lock)
+\begin{DoxyCompactList}\small\item\em perform a context switch from wkt to ums that host it \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_ae37704a0b594aee14855aab9be9a57f9}{execute\+\_\+wkt}} (spinlock\+\_\+t ioctl\+\_\+lock, unsigned $\ast$u\+\_\+wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em perform a context switch from ums to wkt selected \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_a4151951cf69f689c2c9ce53c4af490b9}{init\+\_\+cq}} (spinlock\+\_\+t ioctl\+\_\+lock, void $\ast$cq\+\_\+id\+\_\+u\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Initialize the struct for a new completion queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_ab1f2e82c89ead853133ac7590d7f9af0}{append\+\_\+to\+\_\+cq}} (spinlock\+\_\+t ioctl\+\_\+lock, \mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param\+\_\+t}} $\ast$args)
+\begin{DoxyCompactList}\small\item\em Append worker threads to a completion queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_a6611c9795c89c9f672d4345dcaf144c9}{dequeue\+\_\+cq}} (spinlock\+\_\+t ioctl\+\_\+lock, \mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param\+\_\+t}} $\ast$ret\+\_\+cq)
+\begin{DoxyCompactList}\small\item\em return the first COMPLETION\+\_\+\+QUEUE\+\_\+\+BUFF size of worker thread id in the completion queue \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_aaa23e454313f99f8fa13b0f112806a0d}{init\+\_\+ums\+\_\+scheduler}} (spinlock\+\_\+t ioctl\+\_\+lock, \mbox{\hyperlink{structums__km__param}{ums\+\_\+km\+\_\+param\+\_\+t}} $\ast$args)
+\begin{DoxyCompactList}\small\item\em convert a standard pthread into an Ums\+Scheduler\+Thread \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_aac60db4abba386c08e3599297dd359b5}{end\+\_\+ums\+\_\+scheduler}} (spinlock\+\_\+t ioctl\+\_\+lock)
+\begin{DoxyCompactList}\small\item\em clear the data structure used by the ums \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_aa751d9b457dae103dfe7378c5227e546}{init\+\_\+worker\+\_\+thread}} (spinlock\+\_\+t ioctl\+\_\+lock)
+\begin{DoxyCompactList}\small\item\em block at startup the \mbox{\hyperlink{structworker__thread}{worker\+\_\+thread}} to avoid that the linux scheduler shedule this thread, and initialize its kernel struct used for the UMS \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_aa1a20632f0647504b0539b35c309032a}{end\+\_\+worker\+\_\+thread}} (spinlock\+\_\+t ioctl\+\_\+lock)
+\begin{DoxyCompactList}\small\item\em if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined restore the original worker thread not hosted from the ums in order to permit the end of the worker thread and its task\+\_\+struct. Also remove the worker\+\_\+thread\+\_\+struct from the completion queue and the hashtable of the worker thread. if SWITCH\+\_\+\+PT\+\_\+\+REGS is not defined wake up the UMS \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$ \mbox{\hyperlink{ums_8h_a011694061c73e18fb7d1ae5e4d8ed44c}{Get\+\_\+\+WKT}} (int wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em retrive a pointer to worker\+\_\+thread\+\_\+t struct \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$ \mbox{\hyperlink{ums_8h_a5679e69d564e6b0715294454edde38af}{Get\+\_\+\+UMS}} (int ums\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em retrive a pointer to ums\+\_\+scheduler\+\_\+t struct \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$ \mbox{\hyperlink{ums_8h_a2328161c98c82b2a2f78f6ff30d37f8c}{Get\+\_\+\+UMS\+\_\+from\+\_\+\+WKT}} (int wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em retrive a pointer to ums\+\_\+scheduler\+\_\+t struct \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{ums_8h_a62d3a26b1d6e5787d980fc777e42ae41}{Get\+\_\+\+UMS\+\_\+\+Info}} (int ums\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em retrive a char $\ast$ with the info of the UMS in a human readable fashion \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{ums_8h_ae8c3cda91c18a17a56e5a50167c54abe}{Get\+\_\+\+WKT\+\_\+\+Info}} (int wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em retrive a char $\ast$ with the info of the worker in a human readable fashion \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ums_8h_adfaf717c4a07ac2bb27003201af2e24e}{ums\+\_\+do\+\_\+wait}} (\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$from\+\_\+wkt, \mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$to\+\_\+ums)
+\begin{DoxyCompactList}\small\item\em handler used in the case that a worker thread is put on wait \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ums_8h_a5a9a4f31c68231ec097400541c5431cf}{ums\+\_\+do\+\_\+unwait}} (\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$from\+\_\+wkt, struct task\+\_\+struct $\ast$p)
+\begin{DoxyCompactList}\small\item\em handler used in the case that a worker thread previously put on wait is awakened \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ums_8h_ae173057ca1385d98109fdda0e9a9e755}{try\+\_\+build\+\_\+ums\+\_\+core}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the data structure needed for the UMS. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ums_8h_a3cfa909582d4fb8a20abdc5b72beaeeb}\label{ums_8h_a3cfa909582d4fb8a20abdc5b72beaeeb}} 
+void {\bfseries clear\+\_\+ums\+\_\+core} (void)
+\begin{DoxyCompactList}\small\item\em Destroy the ums data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is the header of \mbox{\hyperlink{ums_8c}{ums.\+c}}. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ums_8h_ab1f2e82c89ead853133ac7590d7f9af0}\label{ums_8h_ab1f2e82c89ead853133ac7590d7f9af0}} 
+\index{ums.h@{ums.h}!append\_to\_cq@{append\_to\_cq}}
+\index{append\_to\_cq@{append\_to\_cq}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{append\_to\_cq()}{append\_to\_cq()}}
+{\footnotesize\ttfamily int append\+\_\+to\+\_\+cq (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock,  }\item[{\mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param\+\_\+t}} $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Append worker threads to a completion queue. 
+
+It cycle over the cpmpletion queue buffer. The buffer is initialized to -\/1 so if reach -\/1 before that cycle over all the buffer means that it has appended all the worker
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+{\em args} & pointer to the ums\+\_\+cq\+\_\+param\+\_\+t struct placed in the user space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a6611c9795c89c9f672d4345dcaf144c9}\label{ums_8h_a6611c9795c89c9f672d4345dcaf144c9}} 
+\index{ums.h@{ums.h}!dequeue\_cq@{dequeue\_cq}}
+\index{dequeue\_cq@{dequeue\_cq}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{dequeue\_cq()}{dequeue\_cq()}}
+{\footnotesize\ttfamily int dequeue\+\_\+cq (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock,  }\item[{\mbox{\hyperlink{structums__cq__param}{ums\+\_\+cq\+\_\+param\+\_\+t}} $\ast$}]{ret\+\_\+cq }\end{DoxyParamCaption})}
+
+
+
+return the first COMPLETION\+\_\+\+QUEUE\+\_\+\+BUFF size of worker thread id in the completion queue 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+{\em ret\+\_\+cq} & pointer to the ums\+\_\+cq\+\_\+param\+\_\+t in the user space used to return the worker thread pid in the cq that are ready \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_aac60db4abba386c08e3599297dd359b5}\label{ums_8h_aac60db4abba386c08e3599297dd359b5}} 
+\index{ums.h@{ums.h}!end\_ums\_scheduler@{end\_ums\_scheduler}}
+\index{end\_ums\_scheduler@{end\_ums\_scheduler}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{end\_ums\_scheduler()}{end\_ums\_scheduler()}}
+{\footnotesize\ttfamily int end\+\_\+ums\+\_\+scheduler (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock }\end{DoxyParamCaption})}
+
+
+
+clear the data structure used by the ums 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_aa1a20632f0647504b0539b35c309032a}\label{ums_8h_aa1a20632f0647504b0539b35c309032a}} 
+\index{ums.h@{ums.h}!end\_worker\_thread@{end\_worker\_thread}}
+\index{end\_worker\_thread@{end\_worker\_thread}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{end\_worker\_thread()}{end\_worker\_thread()}}
+{\footnotesize\ttfamily int end\+\_\+worker\+\_\+thread (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock }\end{DoxyParamCaption})}
+
+
+
+if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined restore the original worker thread not hosted from the ums in order to permit the end of the worker thread and its task\+\_\+struct. Also remove the worker\+\_\+thread\+\_\+struct from the completion queue and the hashtable of the worker thread. if SWITCH\+\_\+\+PT\+\_\+\+REGS is not defined wake up the UMS 
+
+\hypertarget{ums_8h_autotoc_md5}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md5}
+Check done by the function\+:
+\begin{DoxyItemize}
+\item The current pid needs to be a UMS pid if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined else the current pid represent the worker scheduled
+\item if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined, try to retrive the worker\+\_\+thread\+\_\+t struct else try to retrive the UMS using the worker pid
+\end{DoxyItemize}
+
+After this check perform\+:
+\begin{DoxyItemize}
+\item Restore context of the worker into his own task\+\_\+struct if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined
+\item Restore ums context if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined
+\item Remove the worker thread from the completion queue and from the hashtable and free the memory of the worker\+\_\+thread\+\_\+t struct
+\item Finally resume the worker thread
+\item If SWITCH\+\_\+\+PT\+\_\+\+REGS is not defined wake up also the UMS
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_ae37704a0b594aee14855aab9be9a57f9}\label{ums_8h_ae37704a0b594aee14855aab9be9a57f9}} 
+\index{ums.h@{ums.h}!execute\_wkt@{execute\_wkt}}
+\index{execute\_wkt@{execute\_wkt}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{execute\_wkt()}{execute\_wkt()}}
+{\footnotesize\ttfamily int execute\+\_\+wkt (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock,  }\item[{unsigned $\ast$}]{u\+\_\+wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+perform a context switch from ums to wkt selected 
+
+\hypertarget{ums_8h_autotoc_md1}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md1}
+Initially the current check are done\+:
+\begin{DoxyItemize}
+\item Try to copy from user the value passed to the module by ioctl
+\item The current need to be an ums pid because only an UMS can schedule a worker thread.
+\item I try to retrive the worker\+\_\+thread\+\_\+t from the cq\+\_\+list using the wkt\+\_\+pid\+\_\+to\+\_\+switch passed by the user arg
+\item If the state of the worker selected is W\+\_\+\+RUNNING the function end because the thread is scheduled by another UMS
+\end{DoxyItemize}
+
+After this checks\+:
+\begin{DoxyItemize}
+\item Update the stats for the UMS and the worker structs.
+\item Finally perform the actual context switch\+: if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined, by saving the current state (pt\+\_\+regs and fxregs) into the ums\+\_\+scheduler\+\_\+t stuct and restoring the previously saved state of the worker thread from the worker\+\_\+thread\+\_\+t struct. if SWITCH\+\_\+\+PT\+\_\+\+REGS is not defined, by stop the UMS and waking up the worker thread.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+{\em u\+\_\+wkt\+\_\+pid} & pointer to the user space mem of the id of the worker thread choose to be executed ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a5679e69d564e6b0715294454edde38af}\label{ums_8h_a5679e69d564e6b0715294454edde38af}} 
+\index{ums.h@{ums.h}!Get\_UMS@{Get\_UMS}}
+\index{Get\_UMS@{Get\_UMS}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{Get\_UMS()}{Get\_UMS()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$ Get\+\_\+\+UMS (\begin{DoxyParamCaption}\item[{int}]{ums\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+retrive a pointer to ums\+\_\+scheduler\+\_\+t struct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ums\+\_\+pid} & pid of the ums thread to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ums\+\_\+scheduler\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a2328161c98c82b2a2f78f6ff30d37f8c}\label{ums_8h_a2328161c98c82b2a2f78f6ff30d37f8c}} 
+\index{ums.h@{ums.h}!Get\_UMS\_from\_WKT@{Get\_UMS\_from\_WKT}}
+\index{Get\_UMS\_from\_WKT@{Get\_UMS\_from\_WKT}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{Get\_UMS\_from\_WKT()}{Get\_UMS\_from\_WKT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$ Get\+\_\+\+UMS\+\_\+from\+\_\+\+WKT (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+retrive a pointer to ums\+\_\+scheduler\+\_\+t struct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & pid of the worker actual scheduled by the ums \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ums\+\_\+scheduler\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a62d3a26b1d6e5787d980fc777e42ae41}\label{ums_8h_a62d3a26b1d6e5787d980fc777e42ae41}} 
+\index{ums.h@{ums.h}!Get\_UMS\_Info@{Get\_UMS\_Info}}
+\index{Get\_UMS\_Info@{Get\_UMS\_Info}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{Get\_UMS\_Info()}{Get\_UMS\_Info()}}
+{\footnotesize\ttfamily char $\ast$ Get\+\_\+\+UMS\+\_\+\+Info (\begin{DoxyParamCaption}\item[{int}]{ums\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+retrive a char $\ast$ with the info of the UMS in a human readable fashion 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ums\+\_\+pid} & pid of the ums \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a011694061c73e18fb7d1ae5e4d8ed44c}\label{ums_8h_a011694061c73e18fb7d1ae5e4d8ed44c}} 
+\index{ums.h@{ums.h}!Get\_WKT@{Get\_WKT}}
+\index{Get\_WKT@{Get\_WKT}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{Get\_WKT()}{Get\_WKT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$ Get\+\_\+\+WKT (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+retrive a pointer to worker\+\_\+thread\+\_\+t struct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & pid of the worker thread to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+worker\+\_\+thread\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_ae8c3cda91c18a17a56e5a50167c54abe}\label{ums_8h_ae8c3cda91c18a17a56e5a50167c54abe}} 
+\index{ums.h@{ums.h}!Get\_WKT\_Info@{Get\_WKT\_Info}}
+\index{Get\_WKT\_Info@{Get\_WKT\_Info}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{Get\_WKT\_Info()}{Get\_WKT\_Info()}}
+{\footnotesize\ttfamily char $\ast$ Get\+\_\+\+WKT\+\_\+\+Info (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+retrive a char $\ast$ with the info of the worker in a human readable fashion 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & oid of the worker thread \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a4151951cf69f689c2c9ce53c4af490b9}\label{ums_8h_a4151951cf69f689c2c9ce53c4af490b9}} 
+\index{ums.h@{ums.h}!init\_cq@{init\_cq}}
+\index{init\_cq@{init\_cq}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{init\_cq()}{init\_cq()}}
+{\footnotesize\ttfamily int init\+\_\+cq (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock,  }\item[{void $\ast$}]{cq\+\_\+id\+\_\+u\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Initialize the struct for a new completion queue. 
+
+\hypertarget{ums_8h_autotoc_md2}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Find id for a new completion queue from the bitmap and set the bit.
+\item Create a new completion\+\_\+queue\+\_\+descriptor\+\_\+t and initialize it
+\item Try to return the completion queue id
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+{\em cq\+\_\+id\+\_\+u\+\_\+ptr} & pointer to the cq\+\_\+id in user space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_aaa23e454313f99f8fa13b0f112806a0d}\label{ums_8h_aaa23e454313f99f8fa13b0f112806a0d}} 
+\index{ums.h@{ums.h}!init\_ums\_scheduler@{init\_ums\_scheduler}}
+\index{init\_ums\_scheduler@{init\_ums\_scheduler}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{init\_ums\_scheduler()}{init\_ums\_scheduler()}}
+{\footnotesize\ttfamily int init\+\_\+ums\+\_\+scheduler (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock,  }\item[{\mbox{\hyperlink{structums__km__param}{ums\+\_\+km\+\_\+param\+\_\+t}} $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+convert a standard pthread into an Ums\+Scheduler\+Thread 
+
+converts a standard pthread in a UMS Scheduler thread, the function takes as input a completion list of worker threads and a entry point function\hypertarget{ums_8h_autotoc_md3}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md3}
+Initially the current check are done\+:
+\begin{DoxyItemize}
+\item Try to copy from user the value passed to the module by ioctl
+\item Check if the completion queue id is a valid id
+\end{DoxyItemize}
+
+After this checks the function populate the structs in the kernel\+:
+\begin{DoxyItemize}
+\item Create a new ums\+\_\+scheduler\+\_\+t struct for the new UMS created
+\item Initialize the struct with default value
+\item Link the completion queue to this UMS and update the used\+\_\+by\+\_\+couter entry in the completion\+\_\+queue\+\_\+descriptor\+\_\+t descriptor cause the completion queue can be shared among multiple UMS
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+{\em args} & pointer to the ums\+\_\+km\+\_\+param\+\_\+t struct in user space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_aa751d9b457dae103dfe7378c5227e546}\label{ums_8h_aa751d9b457dae103dfe7378c5227e546}} 
+\index{ums.h@{ums.h}!init\_worker\_thread@{init\_worker\_thread}}
+\index{init\_worker\_thread@{init\_worker\_thread}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{init\_worker\_thread()}{init\_worker\_thread()}}
+{\footnotesize\ttfamily int init\+\_\+worker\+\_\+thread (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock }\end{DoxyParamCaption})}
+
+
+
+block at startup the \mbox{\hyperlink{structworker__thread}{worker\+\_\+thread}} to avoid that the linux scheduler shedule this thread, and initialize its kernel struct used for the UMS 
+
+\hypertarget{ums_8h_autotoc_md4}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Create a new worker\+\_\+thread\+\_\+t struct and initialize it by save the current pid of the real worker thread into its own struct, and save the pointer to the worker task\+\_\+struct into task\+\_\+struct. And set the worker state to W\+\_\+\+READY.
+\item If SWITCH\+\_\+\+PT\+\_\+\+REGS is defined, save the worker current state into the worker\+\_\+thread\+\_\+t struct
+\item Put on wait worker thread
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_ae173057ca1385d98109fdda0e9a9e755}\label{ums_8h_ae173057ca1385d98109fdda0e9a9e755}} 
+\index{ums.h@{ums.h}!try\_build\_ums\_core@{try\_build\_ums\_core}}
+\index{try\_build\_ums\_core@{try\_build\_ums\_core}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{try\_build\_ums\_core()}{try\_build\_ums\_core()}}
+{\footnotesize\ttfamily int try\+\_\+build\+\_\+ums\+\_\+core (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the data structure needed for the UMS. 
+
+It initialize the following hashtables\+:
+\begin{DoxyItemize}
+\item master\+\_\+wkt\+\_\+hashlist (key\+:pid , data\+:worker\+\_\+thread\+\_\+t)
+\item master\+\_\+cq\+\_\+hashlist (key\+:id , data\+:completion\+\_\+queue\+\_\+descriptor\+\_\+t)
+\item master\+\_\+ums\+\_\+hashlist (key\+:pid , data\+:ums\+\_\+scheduler\+\_\+t)
+\item cq\+\_\+id\+\_\+bitmap (is used to check the avaiable id for the completion queues)
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ums_8h_a5a9a4f31c68231ec097400541c5431cf}\label{ums_8h_a5a9a4f31c68231ec097400541c5431cf}} 
+\index{ums.h@{ums.h}!ums\_do\_unwait@{ums\_do\_unwait}}
+\index{ums\_do\_unwait@{ums\_do\_unwait}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{ums\_do\_unwait()}{ums\_do\_unwait()}}
+{\footnotesize\ttfamily void ums\+\_\+do\+\_\+unwait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$}]{from\+\_\+wkt,  }\item[{struct task\+\_\+struct $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+handler used in the case that a worker thread previously put on wait is awakened 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+wkt} & pointer to worker\+\_\+thread\+\_\+t struct of the worker awakened \\
+\hline
+{\em p} & task\+\_\+struct of the worker thread awakened \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ums_8h_adfaf717c4a07ac2bb27003201af2e24e}\label{ums_8h_adfaf717c4a07ac2bb27003201af2e24e}} 
+\index{ums.h@{ums.h}!ums\_do\_wait@{ums\_do\_wait}}
+\index{ums\_do\_wait@{ums\_do\_wait}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{ums\_do\_wait()}{ums\_do\_wait()}}
+{\footnotesize\ttfamily void ums\+\_\+do\+\_\+wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$}]{from\+\_\+wkt,  }\item[{\mbox{\hyperlink{ums_8h_a906fad0c1f29abafafcc214f6f78ac2d}{ums\+\_\+scheduler\+\_\+t}} $\ast$}]{to\+\_\+ums }\end{DoxyParamCaption})}
+
+
+
+handler used in the case that a worker thread is put on wait 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+wkt} & pointer to worker\+\_\+thread\+\_\+t struct of the worker thread that will put in wait \\
+\hline
+{\em to\+\_\+ums} & pointer to ums\+\_\+scheduler\+\_\+t struct if the ums thread that will wakeup \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ums_8h_a182eedef81cb4eadd04215f1441e43fa}\label{ums_8h_a182eedef81cb4eadd04215f1441e43fa}} 
+\index{ums.h@{ums.h}!yield\_to\_ums@{yield\_to\_ums}}
+\index{yield\_to\_ums@{yield\_to\_ums}!ums.h@{ums.h}}
+\doxysubsubsection{\texorpdfstring{yield\_to\_ums()}{yield\_to\_ums()}}
+{\footnotesize\ttfamily int yield\+\_\+to\+\_\+ums (\begin{DoxyParamCaption}\item[{spinlock\+\_\+t}]{ioctl\+\_\+lock }\end{DoxyParamCaption})}
+
+
+
+perform a context switch from wkt to ums that host it 
+
+\hypertarget{ums_8h_autotoc_md0}{}\doxysubsection{Implementation}\label{ums_8h_autotoc_md0}
+Initially the current check are done\+:
+\begin{DoxyItemize}
+\item Try to retrive the UMS that currenty host the execution of the worker thread that has required the yield.
+\item Try to retrive the worker thread struct scheduled saved inside the UMS struct.
+\end{DoxyItemize}
+
+After this checks\+:
+\begin{DoxyItemize}
+\item Update the stats for the UMS and the worker structs.
+\item Finally perform the actual context switch\+: if SWITCH\+\_\+\+PT\+\_\+\+REGS is defined, by saving the current state (pt\+\_\+regs and fxregs) into the worker\+\_\+thread\+\_\+t struct and restoring the previously saved state of the ums from the ums\+\_\+scheduler\+\_\+t struct. if SWITCH\+\_\+\+PT\+\_\+\+REGS is not defined, by stop the worker thread and waking up the UMS scheduler that previously has scheduled the worker.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ioctl\+\_\+lock} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if all went ok, else -\/1 
+\end{DoxyReturn}

@@ -1,0 +1,73 @@
+\hypertarget{structcq__proc}{}\doxysection{cq\+\_\+proc Struct Reference}
+\label{structcq__proc}\index{cq\_proc@{cq\_proc}}
+
+
+contains the data of the completion queue directory that will contain the worker thread contained in the completion queue.  
+
+
+
+
+{\ttfamily \#include $<$proc.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structcq__proc_a2106060c035508108f9c82341b10bc64}{dir\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structcq__proc_a76915cd85e0278f3af3e93bb67780c01}{link\+\_\+to}}
+\item 
+int \mbox{\hyperlink{structcq__proc_a4a9460cc44e9a8f90a5ae15d5a4ce582}{cq\+\_\+id}}
+\item 
+char \mbox{\hyperlink{structcq__proc_a751764145d1dc1b578d441c3cbde820e}{name\+\_\+dir}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+char \mbox{\hyperlink{structcq__proc_a2533dcb8bbabe3c836cf43ce8ae4fdeb}{path}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structcq__proc_a688043204c9f8a7927caecb8ea630819}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains the data of the completion queue directory that will contain the worker thread contained in the completion queue. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structcq__proc_a4a9460cc44e9a8f90a5ae15d5a4ce582}\label{structcq__proc_a4a9460cc44e9a8f90a5ae15d5a4ce582}} 
+\index{cq\_proc@{cq\_proc}!cq\_id@{cq\_id}}
+\index{cq\_id@{cq\_id}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{cq\_id}{cq\_id}}
+{\footnotesize\ttfamily int cq\+\_\+proc\+::cq\+\_\+id}
+
+id of the completion queue \mbox{\Hypertarget{structcq__proc_a2106060c035508108f9c82341b10bc64}\label{structcq__proc_a2106060c035508108f9c82341b10bc64}} 
+\index{cq\_proc@{cq\_proc}!dir\_entry@{dir\_entry}}
+\index{dir\_entry@{dir\_entry}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{dir\_entry}{dir\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ cq\+\_\+proc\+::dir\+\_\+entry}
+
+proc\+\_\+dir\+\_\+entry of the directory for the completion queue \mbox{\Hypertarget{structcq__proc_a688043204c9f8a7927caecb8ea630819}\label{structcq__proc_a688043204c9f8a7927caecb8ea630819}} 
+\index{cq\_proc@{cq\_proc}!hlist@{hlist}}
+\index{hlist@{hlist}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node cq\+\_\+proc\+::hlist}
+
+hlist\+\_\+node used for htable \mbox{\Hypertarget{structcq__proc_a76915cd85e0278f3af3e93bb67780c01}\label{structcq__proc_a76915cd85e0278f3af3e93bb67780c01}} 
+\index{cq\_proc@{cq\_proc}!link\_to@{link\_to}}
+\index{link\_to@{link\_to}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{link\_to}{link\_to}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ cq\+\_\+proc\+::link\+\_\+to}
+
+will contain the proc\+\_\+dir\+\_\+entry of the link to the UMS scheduler that use this completion queue \mbox{\Hypertarget{structcq__proc_a751764145d1dc1b578d441c3cbde820e}\label{structcq__proc_a751764145d1dc1b578d441c3cbde820e}} 
+\index{cq\_proc@{cq\_proc}!name\_dir@{name\_dir}}
+\index{name\_dir@{name\_dir}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{name\_dir}{name\_dir}}
+{\footnotesize\ttfamily char cq\+\_\+proc\+::name\+\_\+dir\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+name of the completion queue dir (id to string) \mbox{\Hypertarget{structcq__proc_a2533dcb8bbabe3c836cf43ce8ae4fdeb}\label{structcq__proc_a2533dcb8bbabe3c836cf43ce8ae4fdeb}} 
+\index{cq\_proc@{cq\_proc}!path@{path}}
+\index{path@{path}!cq\_proc@{cq\_proc}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily char cq\+\_\+proc\+::path\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+path to reach the completion queue dir inside of the CQ\+\_\+\+ALL\+\_\+\+DIR 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{proc_8h}{proc.\+h}}\end{DoxyCompactItemize}

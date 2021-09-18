@@ -1,0 +1,46 @@
+\hypertarget{device_8h_source}{}\doxysection{device.\+h}
+\mbox{\hyperlink{device_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* }}
+\DoxyCodeLine{2 \textcolor{comment}{ * This file is part of the User Mode Thread Scheduling (Kernel Module).}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (c) 2021 Tiziano Colagrossi.}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify  }}
+\DoxyCodeLine{6 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by  }}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Free Software Foundation, version 3.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful, but }}
+\DoxyCodeLine{10 \textcolor{comment}{ * WITHOUT ANY WARRANTY; without even the implied warranty of }}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU }}
+\DoxyCodeLine{12 \textcolor{comment}{ * General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License }}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program. If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef \_\_DEVICE\_HEADER}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define \_\_DEVICE\_HEADER}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shared_8h}{shared.h}}"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{module_8h}{module.h}}"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ums_8h}{ums.h}}"{}}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <asm/uaccess.h>}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <asm/current.h>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <linux/ioctl.h>}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <linux/miscdevice.h>}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <linux/kernel.h>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <linux/cdev.h>}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include <linux/fs.h>}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define MODULE\_DEV\_LOG "{}UMS\_DEV: "{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{// \#define UMS\_DEV\_DEBUG}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keywordtype}{int}  \mbox{\hyperlink{device_8h_ae1bb10ce68c4330f3aced1db89753a4f}{try\_start\_device}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} \mbox{\hyperlink{device_8h_a3504a23bb955d3e99708593358483223}{stop\_device}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

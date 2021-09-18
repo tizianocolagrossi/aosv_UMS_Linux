@@ -1,0 +1,75 @@
+\hypertarget{device_8c}{}\doxysection{device.\+c File Reference}
+\label{device_8c}\index{device.c@{device.c}}
+
+
+contain the main ioctl switch for the requested ops  
+
+
+{\ttfamily \#include \char`\"{}device.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{device_8c_a259128b1fc85e12c4eeb54dc43026116}\label{device_8c_a259128b1fc85e12c4eeb54dc43026116}} 
+{\bfseries DEFINE\+\_\+\+SPINLOCK} (ioctl\+\_\+spinlock)
+\item 
+int \mbox{\hyperlink{device_8c_ae1bb10ce68c4330f3aced1db89753a4f}{try\+\_\+start\+\_\+device}} (void)
+\begin{DoxyCompactList}\small\item\em try to register the char device \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{device_8c_a3504a23bb955d3e99708593358483223}\label{device_8c_a3504a23bb955d3e99708593358483223}} 
+void {\bfseries stop\+\_\+device} (void)
+\begin{DoxyCompactList}\small\item\em deregister the device \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{device_8c_a3d1600e0e9a10e52c6af3f988f38503e}{cmds}} \mbox{[}UMS\+\_\+\+IOC\+\_\+\+MAXNR+1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contain the main ioctl switch for the requested ops 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{device_8c_ae1bb10ce68c4330f3aced1db89753a4f}\label{device_8c_ae1bb10ce68c4330f3aced1db89753a4f}} 
+\index{device.c@{device.c}!try\_start\_device@{try\_start\_device}}
+\index{try\_start\_device@{try\_start\_device}!device.c@{device.c}}
+\doxysubsubsection{\texorpdfstring{try\_start\_device()}{try\_start\_device()}}
+{\footnotesize\ttfamily int try\+\_\+start\+\_\+device (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+try to register the char device 
+
+return 0 if registration ok return -\/1 if registration no ok
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{device_8c_a3d1600e0e9a10e52c6af3f988f38503e}\label{device_8c_a3d1600e0e9a10e52c6af3f988f38503e}} 
+\index{device.c@{device.c}!cmds@{cmds}}
+\index{cmds@{cmds}!device.c@{device.c}}
+\doxysubsubsection{\texorpdfstring{cmds}{cmds}}
+{\footnotesize\ttfamily char$\ast$ cmds\mbox{[}UMS\+\_\+\+IOC\+\_\+\+MAXNR+1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}RESET"{}},                             }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_THREAD\_YIELD"{}},              }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_THREAD\_EXECUTE"{}},            }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_ENTER\_UMS\_SCHEDULING\_MODE"{}}, }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_END\_UMS\_SCHEDULER"{}},         }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_INIT\_WORKER\_THREAD"{}},        }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_END\_WORKER\_THREAD"{}},         }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_INIT\_COMPLETION\_QUEUE"{}},     }
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_APPEND\_TO\_COMPLETION\_QUEUE"{}},}
+\DoxyCodeLine{        \textcolor{stringliteral}{"{}UMS\_IOC\_DEQUEUE\_COMPLETION\_LIST"{}}    }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

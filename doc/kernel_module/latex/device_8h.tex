@@ -1,0 +1,57 @@
+\hypertarget{device_8h}{}\doxysection{device.\+h File Reference}
+\label{device_8h}\index{device.h@{device.h}}
+
+
+The header of the device section of the module.  
+
+
+{\ttfamily \#include \char`\"{}shared.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ums.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$asm/uaccess.\+h$>$}\newline
+{\ttfamily \#include $<$asm/current.\+h$>$}\newline
+{\ttfamily \#include $<$linux/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$linux/miscdevice.\+h$>$}\newline
+{\ttfamily \#include $<$linux/kernel.\+h$>$}\newline
+{\ttfamily \#include $<$linux/cdev.\+h$>$}\newline
+{\ttfamily \#include $<$linux/fs.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{device_8h_adce0f5fcfb7ccd999d2703d1c22c1a88}\label{device_8h_adce0f5fcfb7ccd999d2703d1c22c1a88}} 
+\#define {\bfseries MODULE\+\_\+\+DEV\+\_\+\+LOG}~\char`\"{}UMS\+\_\+\+DEV\+: \char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{device_8h_ae1bb10ce68c4330f3aced1db89753a4f}{try\+\_\+start\+\_\+device}} (void)
+\begin{DoxyCompactList}\small\item\em try to register the char device \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{device_8h_a3504a23bb955d3e99708593358483223}\label{device_8h_a3504a23bb955d3e99708593358483223}} 
+void {\bfseries stop\+\_\+device} (void)
+\begin{DoxyCompactList}\small\item\em deregister the device \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The header of the device section of the module. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{device_8h_ae1bb10ce68c4330f3aced1db89753a4f}\label{device_8h_ae1bb10ce68c4330f3aced1db89753a4f}} 
+\index{device.h@{device.h}!try\_start\_device@{try\_start\_device}}
+\index{try\_start\_device@{try\_start\_device}!device.h@{device.h}}
+\doxysubsubsection{\texorpdfstring{try\_start\_device()}{try\_start\_device()}}
+{\footnotesize\ttfamily int try\+\_\+start\+\_\+device (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+try to register the char device 
+
+return 0 if registration ok return -\/1 if registration no ok
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

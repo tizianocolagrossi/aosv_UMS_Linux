@@ -1,0 +1,94 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}buff\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cq Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Field Documentation}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}pids}{5}{subsubsection.3.1.2.1}%
+\contentsline {section}{\numberline {3.2}cq\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}list\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}item Struct Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Field Documentation}{6}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}cq\_item}{6}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}id}{6}{subsubsection.3.2.1.2}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}list}{6}{subsubsection.3.2.1.3}%
+\contentsline {subsubsection}{\numberline {3.2.1.4}used\_by}{6}{subsubsection.3.2.1.4}%
+\contentsline {section}{\numberline {3.3}list\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}head Struct Reference}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}pthread\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}entry Struct Reference}{7}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Field Documentation}{7}{subsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.1}list}{7}{subsubsection.3.4.1.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.2}tid}{7}{subsubsection.3.4.1.2}%
+\contentsline {section}{\numberline {3.5}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}entry\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}info Struct Reference}{7}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Field Documentation}{8}{subsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}cq\_id}{8}{subsubsection.3.5.1.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.2}entry}{8}{subsubsection.3.5.1.2}%
+\contentsline {subsubsection}{\numberline {3.5.1.3}owner\_pid}{8}{subsubsection.3.5.1.3}%
+\contentsline {subsubsection}{\numberline {3.5.1.4}ret\_value}{8}{subsubsection.3.5.1.4}%
+\contentsline {section}{\numberline {3.6}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}scheduler Struct Reference}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.7}worker\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}thread\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}job\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}info Struct Reference}{9}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Field Documentation}{9}{subsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.1}args\_routine}{9}{subsubsection.3.7.1.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.2}job}{9}{subsubsection.3.7.1.2}%
+\contentsline {subsubsection}{\numberline {3.7.1.3}pid}{9}{subsubsection.3.7.1.3}%
+\contentsline {chapter}{\numberline {4}File Documentation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}list.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{12}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Macro Definition Documentation}{12}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}container\_of}{12}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}list\_entry}{12}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}list\_entry\_is\_head}{12}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}list\_first\_entry}{13}{subsubsection.4.1.2.4}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}list\_for\_each}{13}{subsubsection.4.1.2.5}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}list\_for\_each\_continue}{13}{subsubsection.4.1.2.6}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}list\_for\_each\_entry}{14}{subsubsection.4.1.2.7}%
+\contentsline {subsubsection}{\numberline {4.1.2.8}list\_for\_each\_entry\_continue}{14}{subsubsection.4.1.2.8}%
+\contentsline {subsubsection}{\numberline {4.1.2.9}list\_for\_each\_entry\_continue\_reverse}{15}{subsubsection.4.1.2.9}%
+\contentsline {subsubsection}{\numberline {4.1.2.10}list\_for\_each\_entry\_from}{15}{subsubsection.4.1.2.10}%
+\contentsline {subsubsection}{\numberline {4.1.2.11}list\_for\_each\_entry\_from\_reverse}{15}{subsubsection.4.1.2.11}%
+\contentsline {subsubsection}{\numberline {4.1.2.12}list\_for\_each\_entry\_reverse}{16}{subsubsection.4.1.2.12}%
+\contentsline {subsubsection}{\numberline {4.1.2.13}list\_for\_each\_entry\_safe}{16}{subsubsection.4.1.2.13}%
+\contentsline {subsubsection}{\numberline {4.1.2.14}list\_for\_each\_entry\_safe\_continue}{17}{subsubsection.4.1.2.14}%
+\contentsline {subsubsection}{\numberline {4.1.2.15}list\_for\_each\_entry\_safe\_from}{17}{subsubsection.4.1.2.15}%
+\contentsline {subsubsection}{\numberline {4.1.2.16}list\_for\_each\_entry\_safe\_reverse}{18}{subsubsection.4.1.2.16}%
+\contentsline {subsubsection}{\numberline {4.1.2.17}list\_for\_each\_prev}{18}{subsubsection.4.1.2.17}%
+\contentsline {subsubsection}{\numberline {4.1.2.18}list\_for\_each\_prev\_safe}{18}{subsubsection.4.1.2.18}%
+\contentsline {subsubsection}{\numberline {4.1.2.19}list\_for\_each\_safe}{19}{subsubsection.4.1.2.19}%
+\contentsline {subsubsection}{\numberline {4.1.2.20}list\_last\_entry}{19}{subsubsection.4.1.2.20}%
+\contentsline {subsubsection}{\numberline {4.1.2.21}list\_next\_entry}{20}{subsubsection.4.1.2.21}%
+\contentsline {subsubsection}{\numberline {4.1.2.22}list\_prepare\_entry}{20}{subsubsection.4.1.2.22}%
+\contentsline {subsubsection}{\numberline {4.1.2.23}list\_prev\_entry}{20}{subsubsection.4.1.2.23}%
+\contentsline {subsubsection}{\numberline {4.1.2.24}list\_safe\_reset\_next}{21}{subsubsection.4.1.2.24}%
+\contentsline {section}{\numberline {4.2}list.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{27}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Function Documentation}{27}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}\_\_default\_entry\_point()}{27}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}\_\_ums\_entry\_point\_wrapper()}{27}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}AppendToCompletionQueue()}{28}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}CreateCompletionQueue()}{28}{subsubsection.4.3.2.4}%
+\contentsline {subsubsection}{\numberline {4.3.2.5}CreateNewWorker()}{28}{subsubsection.4.3.2.5}%
+\contentsline {subsubsection}{\numberline {4.3.2.6}DequeueUmsCompletionListItems()}{29}{subsubsection.4.3.2.6}%
+\contentsline {subsubsection}{\numberline {4.3.2.7}EnterUmsSchedulingMode()}{29}{subsubsection.4.3.2.7}%
+\contentsline {subsubsection}{\numberline {4.3.2.8}ExecuteUmsThread()}{30}{subsubsection.4.3.2.8}%
+\contentsline {subsubsection}{\numberline {4.3.2.9}ExitFromUmsSchedulingMode()}{30}{subsubsection.4.3.2.9}%
+\contentsline {subsubsection}{\numberline {4.3.2.10}FlushCompletionQueue()}{30}{subsubsection.4.3.2.10}%
+\contentsline {subsubsection}{\numberline {4.3.2.11}UMS\_thread\_create()}{31}{subsubsection.4.3.2.11}%
+\contentsline {subsubsection}{\numberline {4.3.2.12}UmsThreadYield()}{31}{subsubsection.4.3.2.12}%
+\contentsline {section}{\numberline {4.4}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{31}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{33}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Macro Definition Documentation}{33}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}INIT\_UMS\_ENTRY\_STRUCT}{33}{subsubsection.4.4.2.1}%
+\contentsline {subsection}{\numberline {4.4.3}Function Documentation}{33}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}AppendToCompletionQueue()}{33}{subsubsection.4.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}CreateCompletionQueue()}{34}{subsubsection.4.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.4.3.3}CreateNewWorker()}{34}{subsubsection.4.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.4}DequeueUmsCompletionListItems()}{34}{subsubsection.4.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.4.3.5}EnterUmsSchedulingMode()}{35}{subsubsection.4.4.3.5}%
+\contentsline {subsubsection}{\numberline {4.4.3.6}ExecuteUmsThread()}{35}{subsubsection.4.4.3.6}%
+\contentsline {subsubsection}{\numberline {4.4.3.7}ExitFromUmsSchedulingMode()}{36}{subsubsection.4.4.3.7}%
+\contentsline {subsubsection}{\numberline {4.4.3.8}FlushCompletionQueue()}{36}{subsubsection.4.4.3.8}%
+\contentsline {subsubsection}{\numberline {4.4.3.9}UMS\_thread\_create()}{36}{subsubsection.4.4.3.9}%
+\contentsline {subsubsection}{\numberline {4.4.3.10}UmsThreadYield()}{37}{subsubsection.4.4.3.10}%
+\contentsline {section}{\numberline {4.5}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{37}{section.4.5}%
+\contentsline {chapter}{Index}{39}{section*.16}%

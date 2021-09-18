@@ -1,0 +1,268 @@
+\hypertarget{utility_8h}{}\doxysection{utility.\+h File Reference}
+\label{utility_8h}\index{utility.h@{utility.h}}
+
+
+This file contains utility macro definition.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utility_8h_ab375fa02bd66173719967c82be440a38}{add\+\_\+new\+\_\+item\+\_\+to\+\_\+list}}(new\+\_\+item\+\_\+pointer,  list\+\_\+head,  member,  item\+\_\+type)
+\begin{DoxyCompactList}\small\item\em allocate and append to tail a new item to a list \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a744634d386d7d94e2b6f86fc48fec4b3}{add\+\_\+new\+\_\+item\+\_\+to\+\_\+hlist}}(new\+\_\+item\+\_\+pointer,  hashtable,  node,  item\+\_\+type,  identifier)
+\begin{DoxyCompactList}\small\item\em allocate and append to tail a new item to a hlist \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a8f1722e78508b22ebea54a32efd44d52}{get\+\_\+hlist\+\_\+item\+\_\+by\+\_\+id}}(getted\+\_\+item\+\_\+pointer,  hashtable,  node,  member\+\_\+identifier,  identifier)
+\begin{DoxyCompactList}\small\item\em retrive the item from an hashtable by the key \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a1f2491215758d6a5272ec11447798f33}{delete\+\_\+completion\+\_\+queue\+\_\+descriptor}}(cq\+\_\+desc\+\_\+to\+\_\+delete,  node)
+\begin{DoxyCompactList}\small\item\em delete the completion queue descriptor from its hashtable and free it \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a61a4ce716ef1429b6b654bbd49d3cd0a}{retrive\+\_\+from\+\_\+hlist}}(item\+\_\+select,  hashtable,  node,  member\+\_\+identifier,  identifier)
+\begin{DoxyCompactList}\small\item\em retrive a node in an hlist by its identifier \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a53faa7a1d33d765e7dd9a83664d8167c}{retrive\+\_\+from\+\_\+list}}(item\+\_\+select,  head,  member,  member\+\_\+identifier,  identifier)
+\begin{DoxyCompactList}\small\item\em retrive a node in an hlist by its identifier \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_a474c73d2697c781179b35b3bb647e82a}{ums\+\_\+delete\+\_\+list}}(entry\+\_\+cursor,  entry\+\_\+cursor\+\_\+safe,  head,  member)
+\begin{DoxyCompactList}\small\item\em delete all the item from a list \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{utility_8h_ab89adeb793e9e997c031b9779733dd29}{ums\+\_\+delete\+\_\+hlist}}(cursor,  node\+\_\+ptr,  bucket,  hashtable,  node)
+\begin{DoxyCompactList}\small\item\em delete all the item from an hlist \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains utility macro definition. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utility_8h_a744634d386d7d94e2b6f86fc48fec4b3}\label{utility_8h_a744634d386d7d94e2b6f86fc48fec4b3}} 
+\index{utility.h@{utility.h}!add\_new\_item\_to\_hlist@{add\_new\_item\_to\_hlist}}
+\index{add\_new\_item\_to\_hlist@{add\_new\_item\_to\_hlist}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{add\_new\_item\_to\_hlist}{add\_new\_item\_to\_hlist}}
+{\footnotesize\ttfamily \#define add\+\_\+new\+\_\+item\+\_\+to\+\_\+hlist(\begin{DoxyParamCaption}\item[{}]{new\+\_\+item\+\_\+pointer,  }\item[{}]{hashtable,  }\item[{}]{node,  }\item[{}]{item\+\_\+type,  }\item[{}]{identifier }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    new\_item\_pointer = (item\_type *) kmalloc(\textcolor{keyword}{sizeof}(item\_type), GFP\_KERNEL);                        \(\backslash\)}
+\DoxyCodeLine{    hash\_add(hashtable, \&(new\_item\_pointer-\/>node), identifier)}
+
+\end{DoxyCode}
+
+
+allocate and append to tail a new item to a hlist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+item\+\_\+pointer} & will be filled with the new item address. \\
+\hline
+{\em hashtable} & hashtable to add to \\
+\hline
+{\em node} & the \&struct hlist\+\_\+node of the object to be added \\
+\hline
+{\em item\+\_\+type} & the item type of the new element \\
+\hline
+{\em identifier} & the key of the object to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_ab375fa02bd66173719967c82be440a38}\label{utility_8h_ab375fa02bd66173719967c82be440a38}} 
+\index{utility.h@{utility.h}!add\_new\_item\_to\_list@{add\_new\_item\_to\_list}}
+\index{add\_new\_item\_to\_list@{add\_new\_item\_to\_list}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{add\_new\_item\_to\_list}{add\_new\_item\_to\_list}}
+{\footnotesize\ttfamily \#define add\+\_\+new\+\_\+item\+\_\+to\+\_\+list(\begin{DoxyParamCaption}\item[{}]{new\+\_\+item\+\_\+pointer,  }\item[{}]{list\+\_\+head,  }\item[{}]{member,  }\item[{}]{item\+\_\+type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    new\_item\_pointer = (item\_type *) kmalloc(\textcolor{keyword}{sizeof}(item\_type), GFP\_KERNEL);                        \(\backslash\)}
+\DoxyCodeLine{    list\_add\_tail(\&(new\_item\_pointer-\/>member), list\_head)}
+
+\end{DoxyCode}
+
+
+allocate and append to tail a new item to a list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+item\+\_\+pointer} & will be filled with the new item address. \\
+\hline
+{\em list\+\_\+head} & list head to add it before \\
+\hline
+{\em member} & the name of the list\+\_\+head within the struct \\
+\hline
+{\em item\+\_\+type} & the item type of the new element \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_a1f2491215758d6a5272ec11447798f33}\label{utility_8h_a1f2491215758d6a5272ec11447798f33}} 
+\index{utility.h@{utility.h}!delete\_completion\_queue\_descriptor@{delete\_completion\_queue\_descriptor}}
+\index{delete\_completion\_queue\_descriptor@{delete\_completion\_queue\_descriptor}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{delete\_completion\_queue\_descriptor}{delete\_completion\_queue\_descriptor}}
+{\footnotesize\ttfamily \#define delete\+\_\+completion\+\_\+queue\+\_\+descriptor(\begin{DoxyParamCaption}\item[{}]{cq\+\_\+desc\+\_\+to\+\_\+delete,  }\item[{}]{node }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    hash\_del(\&cq\_desc\_to\_delete-\/>node);                                 \(\backslash\)}
+\DoxyCodeLine{    kfree(cq\_desc\_to\_delete)}
+
+\end{DoxyCode}
+
+
+delete the completion queue descriptor from its hashtable and free it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cq\+\_\+desc\+\_\+to\+\_\+delete} & will be filled with the retrived node. \\
+\hline
+{\em node} & the \&struct hlist\+\_\+node of the object to be retrived \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_a8f1722e78508b22ebea54a32efd44d52}\label{utility_8h_a8f1722e78508b22ebea54a32efd44d52}} 
+\index{utility.h@{utility.h}!get\_hlist\_item\_by\_id@{get\_hlist\_item\_by\_id}}
+\index{get\_hlist\_item\_by\_id@{get\_hlist\_item\_by\_id}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{get\_hlist\_item\_by\_id}{get\_hlist\_item\_by\_id}}
+{\footnotesize\ttfamily \#define get\+\_\+hlist\+\_\+item\+\_\+by\+\_\+id(\begin{DoxyParamCaption}\item[{}]{getted\+\_\+item\+\_\+pointer,  }\item[{}]{hashtable,  }\item[{}]{node,  }\item[{}]{member\+\_\+identifier,  }\item[{}]{identifier }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    hash\_for\_each\_possible(hashtable, getted\_item\_pointer, node, identifier) \{                      \(\backslash\)}
+\DoxyCodeLine{            if (getted\_item\_pointer-\/>member\_identifier != identifier) \textcolor{keywordflow}{continue};                 \(\backslash\)}
+\DoxyCodeLine{            break;                                                  \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+retrive the item from an hashtable by the key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em getted\+\_\+item\+\_\+pointer} & will be filled with the retrived node. \\
+\hline
+{\em hashtable} & hashtable where to search \\
+\hline
+{\em node} & the \&struct hlist\+\_\+node of the object to be retrived \\
+\hline
+{\em member\+\_\+identifier} & the name of the identifier within the struct \\
+\hline
+{\em identifier} & the key of the object to find \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_a61a4ce716ef1429b6b654bbd49d3cd0a}\label{utility_8h_a61a4ce716ef1429b6b654bbd49d3cd0a}} 
+\index{utility.h@{utility.h}!retrive\_from\_hlist@{retrive\_from\_hlist}}
+\index{retrive\_from\_hlist@{retrive\_from\_hlist}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{retrive\_from\_hlist}{retrive\_from\_hlist}}
+{\footnotesize\ttfamily \#define retrive\+\_\+from\+\_\+hlist(\begin{DoxyParamCaption}\item[{}]{item\+\_\+select,  }\item[{}]{hashtable,  }\item[{}]{node,  }\item[{}]{member\+\_\+identifier,  }\item[{}]{identifier }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    hash\_for\_each\_possible(hashtable, item\_select, node, identifier) \{                          \(\backslash\)}
+\DoxyCodeLine{        if (item\_select-\/>member\_identifier != identifier) \textcolor{keywordflow}{continue};                             \(\backslash\)}
+\DoxyCodeLine{        break;                                                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+retrive a node in an hlist by its identifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtable} & hashtable where to search \\
+\hline
+{\em item\+\_\+select} & will be filled with the retrived node \\
+\hline
+{\em node} & the \&struct hlist\+\_\+node of the object to be retrived \\
+\hline
+{\em member\+\_\+identifier} & the name of the identifier within the struct \\
+\hline
+{\em identifier} & the key of the object to find \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_a53faa7a1d33d765e7dd9a83664d8167c}\label{utility_8h_a53faa7a1d33d765e7dd9a83664d8167c}} 
+\index{utility.h@{utility.h}!retrive\_from\_list@{retrive\_from\_list}}
+\index{retrive\_from\_list@{retrive\_from\_list}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{retrive\_from\_list}{retrive\_from\_list}}
+{\footnotesize\ttfamily \#define retrive\+\_\+from\+\_\+list(\begin{DoxyParamCaption}\item[{}]{item\+\_\+select,  }\item[{}]{head,  }\item[{}]{member,  }\item[{}]{member\+\_\+identifier,  }\item[{}]{identifier }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    list\_for\_each\_entry(item\_select, head, member) \{                                    \(\backslash\)}
+\DoxyCodeLine{        if (item\_select-\/>member\_identifier != identifier) \textcolor{keywordflow}{continue};                             \(\backslash\)}
+\DoxyCodeLine{        break;                                                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+retrive a node in an hlist by its identifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+select} & will be filled with the retrived node \\
+\hline
+{\em head} & the head of the list \\
+\hline
+{\em member} & the \&struct list\+\_\+head of the object to be retrived \\
+\hline
+{\em member\+\_\+identifier} & the name of the identifier within the struct \\
+\hline
+{\em identifier} & the key of the object to find \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_ab89adeb793e9e997c031b9779733dd29}\label{utility_8h_ab89adeb793e9e997c031b9779733dd29}} 
+\index{utility.h@{utility.h}!ums\_delete\_hlist@{ums\_delete\_hlist}}
+\index{ums\_delete\_hlist@{ums\_delete\_hlist}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{ums\_delete\_hlist}{ums\_delete\_hlist}}
+{\footnotesize\ttfamily \#define ums\+\_\+delete\+\_\+hlist(\begin{DoxyParamCaption}\item[{}]{cursor,  }\item[{}]{node\+\_\+ptr,  }\item[{}]{bucket,  }\item[{}]{hashtable,  }\item[{}]{node }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    hash\_for\_each\_safe(hashtable, bucket, node\_ptr, cursor, node)\{                                  \(\backslash\)}
+\DoxyCodeLine{                hlist\_del(\&cursor-\/>node);                                               \(\backslash\)}
+\DoxyCodeLine{                kfree(cursor);                                                      \(\backslash\)}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+delete all the item from an hlist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & the type $\ast$ to use as a loop cursor. ~\newline
+ \\
+\hline
+{\em bucket} & integer to use as bucket loop cursor \\
+\hline
+{\em hashtable} & hashtable where to search \\
+\hline
+{\em node} & the \&struct hlist\+\_\+node of the object to be retrived \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utility_8h_a474c73d2697c781179b35b3bb647e82a}\label{utility_8h_a474c73d2697c781179b35b3bb647e82a}} 
+\index{utility.h@{utility.h}!ums\_delete\_list@{ums\_delete\_list}}
+\index{ums\_delete\_list@{ums\_delete\_list}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{ums\_delete\_list}{ums\_delete\_list}}
+{\footnotesize\ttfamily \#define ums\+\_\+delete\+\_\+list(\begin{DoxyParamCaption}\item[{}]{entry\+\_\+cursor,  }\item[{}]{entry\+\_\+cursor\+\_\+safe,  }\item[{}]{head,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    list\_for\_each\_entry\_safe(entry\_cursor, entry\_cursor\_safe, head, member )\{                               \(\backslash\)}
+\DoxyCodeLine{                list\_del(\&entry\_cursor-\/>member);                                                    \(\backslash\)}
+\DoxyCodeLine{                kfree(entry\_cursor);                                                        \(\backslash\)}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+delete all the item from a list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+cursor} & the type $\ast$ to use as a loop cursor \\
+\hline
+{\em entry\+\_\+cursor\+\_\+safe} & another type $\ast$ to use as temporary storage \\
+\hline
+{\em head} & the head for your list. \\
+\hline
+{\em member} & the name of the list\+\_\+head within the struct. \\
+\hline
+\end{DoxyParams}

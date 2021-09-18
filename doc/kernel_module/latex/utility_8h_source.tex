@@ -1,0 +1,68 @@
+\hypertarget{utility_8h_source}{}\doxysection{utility.\+h}
+\mbox{\hyperlink{utility_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* }}
+\DoxyCodeLine{2 \textcolor{comment}{ * This file is part of the User Mode Thread Scheduling (Kernel Module).}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (c) 2021 Tiziano Colagrossi.}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify  }}
+\DoxyCodeLine{6 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by  }}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Free Software Foundation, version 3.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful, but }}
+\DoxyCodeLine{10 \textcolor{comment}{ * WITHOUT ANY WARRANTY; without even the implied warranty of }}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU }}
+\DoxyCodeLine{12 \textcolor{comment}{ * General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License }}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program. If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef \_\_UTILITY\_HEADER}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define \_\_UTILITY\_HEADER}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define add\_new\_item\_to\_list(new\_item\_pointer, list\_head, member, item\_type)                            \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    new\_item\_pointer = (item\_type *) kmalloc(sizeof(item\_type), GFP\_KERNEL);                        \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    list\_add\_tail(\&(new\_item\_pointer-\/>member), list\_head)}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define add\_new\_item\_to\_hlist(new\_item\_pointer, hashtable , node, item\_type, identifier)                    \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{    new\_item\_pointer = (item\_type *) kmalloc(sizeof(item\_type), GFP\_KERNEL);                        \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{    hash\_add(hashtable, \&(new\_item\_pointer-\/>node), identifier)}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define get\_hlist\_item\_by\_id(getted\_item\_pointer, hashtable , node, member\_identifier, identifier)              \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    hash\_for\_each\_possible(hashtable, getted\_item\_pointer, node, identifier) \{                      \(\backslash\)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{            if (getted\_item\_pointer-\/>member\_identifier != identifier) continue;                 \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{            break;                                                  \(\backslash\)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define delete\_completion\_queue\_descriptor(cq\_desc\_to\_delete, node)                     \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    hash\_del(\&cq\_desc\_to\_delete-\/>node);                                 \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{    kfree(cq\_desc\_to\_delete)}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define retrive\_from\_hlist(item\_select, hashtable, node, member\_identifier, identifier)                     \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{    hash\_for\_each\_possible(hashtable, item\_select, node, identifier) \{                          \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{        if (item\_select-\/>member\_identifier != identifier) continue;                             \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{        break;                                                      \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define retrive\_from\_list(item\_select, head, member, member\_identifier, identifier)                     \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{    list\_for\_each\_entry(item\_select, head, member) \{                                    \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{        if (item\_select-\/>member\_identifier != identifier) continue;                             \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{        break;                                                      \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define ums\_delete\_list(entry\_cursor, entry\_cursor\_safe, head, member)                                      \(\backslash\)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    list\_for\_each\_entry\_safe(entry\_cursor, entry\_cursor\_safe, head, member )\{                               \(\backslash\)}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{                list\_del(\&entry\_cursor-\/>member);                                                    \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{                kfree(entry\_cursor);                                                        \(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{        \}}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define ums\_delete\_hlist(cursor, node\_ptr, bucket, hashtable, node)                                 \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{    hash\_for\_each\_safe(hashtable, bucket, node\_ptr, cursor, node)\{                                  \(\backslash\)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{                hlist\_del(\&cursor-\/>node);                                               \(\backslash\)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{                kfree(cursor);                                                      \(\backslash\)}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{        \}}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

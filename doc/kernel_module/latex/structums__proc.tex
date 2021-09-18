@@ -1,0 +1,97 @@
+\hypertarget{structums__proc}{}\doxysection{ums\+\_\+proc Struct Reference}
+\label{structums__proc}\index{ums\_proc@{ums\_proc}}
+
+
+contains the data of the UMS thread directory that will contain the info file of the UMS and the directory of the completion queue used by the UMS.  
+
+
+
+
+{\ttfamily \#include $<$proc.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structums__proc_a8dc0796567adff1b16d3267c31019a5c}{dir\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structums__proc_aba73e4c4cc7feb46573ea3d33ca7aa5f}{info\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structums__proc_ae7a8faf123200d6642c6c25a7d8a882d}{link\+\_\+to}}
+\item 
+unsigned \mbox{\hyperlink{structums__proc_a9d3230434638660efb808ea1405a489b}{pid\+\_\+owner}}
+\item 
+unsigned \mbox{\hyperlink{structums__proc_a2a0e56909660a43695359dd0004ed8f1}{pid}}
+\item 
+int \mbox{\hyperlink{structums__proc_ad991a50dc80725e09f19fe88413230fe}{cq\+\_\+id}}
+\item 
+char \mbox{\hyperlink{structums__proc_ad888b6985df6fe4b80d6c61ed7ee229d}{name\+\_\+dir}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+char \mbox{\hyperlink{structums__proc_a4ce37ef723445090f23e25b4d67ce023}{path}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structums__proc_ab645f3d7e2003ddbaf60f09fe9c4689e}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains the data of the UMS thread directory that will contain the info file of the UMS and the directory of the completion queue used by the UMS. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structums__proc_ad991a50dc80725e09f19fe88413230fe}\label{structums__proc_ad991a50dc80725e09f19fe88413230fe}} 
+\index{ums\_proc@{ums\_proc}!cq\_id@{cq\_id}}
+\index{cq\_id@{cq\_id}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{cq\_id}{cq\_id}}
+{\footnotesize\ttfamily int ums\+\_\+proc\+::cq\+\_\+id}
+
+id of the completion queue used by the UMS thread \mbox{\Hypertarget{structums__proc_a8dc0796567adff1b16d3267c31019a5c}\label{structums__proc_a8dc0796567adff1b16d3267c31019a5c}} 
+\index{ums\_proc@{ums\_proc}!dir\_entry@{dir\_entry}}
+\index{dir\_entry@{dir\_entry}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{dir\_entry}{dir\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ ums\+\_\+proc\+::dir\+\_\+entry}
+
+proc\+\_\+dir\+\_\+entry of the directory for the UMS thread \mbox{\Hypertarget{structums__proc_ab645f3d7e2003ddbaf60f09fe9c4689e}\label{structums__proc_ab645f3d7e2003ddbaf60f09fe9c4689e}} 
+\index{ums\_proc@{ums\_proc}!hlist@{hlist}}
+\index{hlist@{hlist}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node ums\+\_\+proc\+::hlist}
+
+hlist\+\_\+node used for htable \mbox{\Hypertarget{structums__proc_aba73e4c4cc7feb46573ea3d33ca7aa5f}\label{structums__proc_aba73e4c4cc7feb46573ea3d33ca7aa5f}} 
+\index{ums\_proc@{ums\_proc}!info\_entry@{info\_entry}}
+\index{info\_entry@{info\_entry}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{info\_entry}{info\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ ums\+\_\+proc\+::info\+\_\+entry}
+
+proc\+\_\+dir\+\_\+entry of the file containing the info of the UMS thread \mbox{\Hypertarget{structums__proc_ae7a8faf123200d6642c6c25a7d8a882d}\label{structums__proc_ae7a8faf123200d6642c6c25a7d8a882d}} 
+\index{ums\_proc@{ums\_proc}!link\_to@{link\_to}}
+\index{link\_to@{link\_to}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{link\_to}{link\_to}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ ums\+\_\+proc\+::link\+\_\+to}
+
+will contain the proc\+\_\+dir\+\_\+entry of the link to the owner dir \mbox{\Hypertarget{structums__proc_ad888b6985df6fe4b80d6c61ed7ee229d}\label{structums__proc_ad888b6985df6fe4b80d6c61ed7ee229d}} 
+\index{ums\_proc@{ums\_proc}!name\_dir@{name\_dir}}
+\index{name\_dir@{name\_dir}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{name\_dir}{name\_dir}}
+{\footnotesize\ttfamily char ums\+\_\+proc\+::name\+\_\+dir\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+name of the UMS thread dir (pid to string) \mbox{\Hypertarget{structums__proc_a4ce37ef723445090f23e25b4d67ce023}\label{structums__proc_a4ce37ef723445090f23e25b4d67ce023}} 
+\index{ums\_proc@{ums\_proc}!path@{path}}
+\index{path@{path}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily char ums\+\_\+proc\+::path\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+path to reach the UMS thread dir inside of the UMS\+\_\+\+ALL\+\_\+\+DIR \mbox{\Hypertarget{structums__proc_a2a0e56909660a43695359dd0004ed8f1}\label{structums__proc_a2a0e56909660a43695359dd0004ed8f1}} 
+\index{ums\_proc@{ums\_proc}!pid@{pid}}
+\index{pid@{pid}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily unsigned ums\+\_\+proc\+::pid}
+
+pid of the UMD thread \mbox{\Hypertarget{structums__proc_a9d3230434638660efb808ea1405a489b}\label{structums__proc_a9d3230434638660efb808ea1405a489b}} 
+\index{ums\_proc@{ums\_proc}!pid\_owner@{pid\_owner}}
+\index{pid\_owner@{pid\_owner}!ums\_proc@{ums\_proc}}
+\doxysubsubsection{\texorpdfstring{pid\_owner}{pid\_owner}}
+{\footnotesize\ttfamily unsigned ums\+\_\+proc\+::pid\+\_\+owner}
+
+pid of the owner of the UMS thread 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{proc_8h}{proc.\+h}}\end{DoxyCompactItemize}

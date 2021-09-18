@@ -1,0 +1,81 @@
+\hypertarget{structworker__proc}{}\doxysection{worker\+\_\+proc Struct Reference}
+\label{structworker__proc}\index{worker\_proc@{worker\_proc}}
+
+
+contains the data of the worker thread directory that contain the info file of the worker.  
+
+
+
+
+{\ttfamily \#include $<$proc.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structworker__proc_a78eac572d664d2616714f40a9f2a49a2}{dir\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structworker__proc_a3146fb45a67a281926fe319a09d98f56}{info\+\_\+entry}}
+\item 
+struct proc\+\_\+dir\+\_\+entry $\ast$ \mbox{\hyperlink{structworker__proc_aa8a9104d3544ada8e8648dd4dd9dfa2c}{link\+\_\+to}}
+\item 
+unsigned \mbox{\hyperlink{structworker__proc_a6b7da361a25db39df030b97c6c28fa9e}{pid}}
+\item 
+char \mbox{\hyperlink{structworker__proc_a9dfc37c67c25396083f9295007cc6270}{name\+\_\+dir}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+char \mbox{\hyperlink{structworker__proc_a06d0e4f86f4f933e4fc0881edbcfbc6d}{path}} \mbox{[}NAME\+\_\+\+BUFF\mbox{]}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structworker__proc_a9c2bd84e1ad6cc56c6e03d423fced9a7}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains the data of the worker thread directory that contain the info file of the worker. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structworker__proc_a78eac572d664d2616714f40a9f2a49a2}\label{structworker__proc_a78eac572d664d2616714f40a9f2a49a2}} 
+\index{worker\_proc@{worker\_proc}!dir\_entry@{dir\_entry}}
+\index{dir\_entry@{dir\_entry}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{dir\_entry}{dir\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ worker\+\_\+proc\+::dir\+\_\+entry}
+
+proc\+\_\+dir\+\_\+entry of the directory of the worker thread \mbox{\Hypertarget{structworker__proc_a9c2bd84e1ad6cc56c6e03d423fced9a7}\label{structworker__proc_a9c2bd84e1ad6cc56c6e03d423fced9a7}} 
+\index{worker\_proc@{worker\_proc}!hlist@{hlist}}
+\index{hlist@{hlist}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node worker\+\_\+proc\+::hlist}
+
+hlist\+\_\+node used for htable \mbox{\Hypertarget{structworker__proc_a3146fb45a67a281926fe319a09d98f56}\label{structworker__proc_a3146fb45a67a281926fe319a09d98f56}} 
+\index{worker\_proc@{worker\_proc}!info\_entry@{info\_entry}}
+\index{info\_entry@{info\_entry}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{info\_entry}{info\_entry}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ worker\+\_\+proc\+::info\+\_\+entry}
+
+proc\+\_\+dir\+\_\+entry of the file containing the info of the worker thread \mbox{\Hypertarget{structworker__proc_aa8a9104d3544ada8e8648dd4dd9dfa2c}\label{structworker__proc_aa8a9104d3544ada8e8648dd4dd9dfa2c}} 
+\index{worker\_proc@{worker\_proc}!link\_to@{link\_to}}
+\index{link\_to@{link\_to}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{link\_to}{link\_to}}
+{\footnotesize\ttfamily struct proc\+\_\+dir\+\_\+entry$\ast$ worker\+\_\+proc\+::link\+\_\+to}
+
+will contain the proc\+\_\+dir\+\_\+entry of the link to the completion queue dir \mbox{\Hypertarget{structworker__proc_a9dfc37c67c25396083f9295007cc6270}\label{structworker__proc_a9dfc37c67c25396083f9295007cc6270}} 
+\index{worker\_proc@{worker\_proc}!name\_dir@{name\_dir}}
+\index{name\_dir@{name\_dir}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{name\_dir}{name\_dir}}
+{\footnotesize\ttfamily char worker\+\_\+proc\+::name\+\_\+dir\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+name of the worker dir (pid to string) \mbox{\Hypertarget{structworker__proc_a06d0e4f86f4f933e4fc0881edbcfbc6d}\label{structworker__proc_a06d0e4f86f4f933e4fc0881edbcfbc6d}} 
+\index{worker\_proc@{worker\_proc}!path@{path}}
+\index{path@{path}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily char worker\+\_\+proc\+::path\mbox{[}NAME\+\_\+\+BUFF\mbox{]}}
+
+path to reach the worker dir inside of the WKT\+\_\+\+ALL\+\_\+\+DIR \mbox{\Hypertarget{structworker__proc_a6b7da361a25db39df030b97c6c28fa9e}\label{structworker__proc_a6b7da361a25db39df030b97c6c28fa9e}} 
+\index{worker\_proc@{worker\_proc}!pid@{pid}}
+\index{pid@{pid}!worker\_proc@{worker\_proc}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily unsigned worker\+\_\+proc\+::pid}
+
+pid of the worker threead 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{proc_8h}{proc.\+h}}\end{DoxyCompactItemize}

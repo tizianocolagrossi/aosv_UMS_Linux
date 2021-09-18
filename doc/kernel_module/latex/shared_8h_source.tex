@@ -1,0 +1,66 @@
+\hypertarget{shared_8h_source}{}\doxysection{shared.\+h}
+\mbox{\hyperlink{shared_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* }}
+\DoxyCodeLine{2 \textcolor{comment}{ * This file is part of the User Mode Thread Scheduling (Kernel Module).}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (c) 2021 Tiziano Colagrossi.}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify  }}
+\DoxyCodeLine{6 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by  }}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Free Software Foundation, version 3.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful, but }}
+\DoxyCodeLine{10 \textcolor{comment}{ * WITHOUT ANY WARRANTY; without even the implied warranty of }}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU }}
+\DoxyCodeLine{12 \textcolor{comment}{ * General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License }}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program. If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef \_\_SHARED\_HEADER}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define \_\_SHARED\_HEADER}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <linux/ioctl.h>}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define MODULE\_NAME "{}ums"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define MODULE\_PATH "{}/dev/ums"{}}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define EXIT\_SUCCESS  0}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define EXIT\_FAILURE -\/1}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define THREAD\_RUNNG -\/3}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define CQ\_FULL      -\/4}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{// Define ioctl command}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define UMS\_IOC\_MAGIC 0xF4}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define UMS\_IOCRESET                       \_IO  (UMS\_IOC\_MAGIC, 0)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define UMS\_IOC\_THREAD\_YIELD               \_IO  (UMS\_IOC\_MAGIC, 1)}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define UMS\_IOC\_THREAD\_EXECUTE             \_IOW (UMS\_IOC\_MAGIC, 2, unsigned)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define UMS\_IOC\_ENTER\_UMS\_SCHEDULING\_MODE  \_IOW (UMS\_IOC\_MAGIC, 3, unsigned long)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define UMS\_IOC\_END\_UMS\_SCHEDULER          \_IO  (UMS\_IOC\_MAGIC, 4)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define UMS\_IOC\_INIT\_WORKER\_THREAD         \_IO  (UMS\_IOC\_MAGIC, 5)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define UMS\_IOC\_END\_WORKER\_THREAD          \_IO  (UMS\_IOC\_MAGIC, 6)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define UMS\_IOC\_INIT\_COMPLETION\_QUEUE      \_IOR (UMS\_IOC\_MAGIC, 7, unsigned long)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define UMS\_IOC\_APPEND\_TO\_COMPLETION\_QUEUE \_IOW (UMS\_IOC\_MAGIC, 8, int)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define UMS\_IOC\_DEQUEUE\_COMPLETION\_LIST    \_IOR (UMS\_IOC\_MAGIC, 9, unsigned long)}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define UMS\_IOC\_MAXNR 9}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define COMPLETION\_QUEUE\_BUFF 100}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*worker\_job\_t)(\textcolor{keywordtype}{void} *);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structums__km__param}{ums\_km\_param}}\{}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structums__km__param_afbef512acd1a4cd8bb356cfac00343cc}{cq\_id}}; }
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} \mbox{\hyperlink{structums__km__param_a525288768f1ab20ee6d4b8b9321a4165}{owner\_pid}}; }
+\DoxyCodeLine{62 \}\mbox{\hyperlink{structums__km__param}{ums\_km\_param\_t}};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structums__cq__param}{ums\_cq\_param}}\{}
+\DoxyCodeLine{65     \textcolor{keywordtype}{int}         \mbox{\hyperlink{structums__cq__param_a0d8103652dac5b888ec43a5f9b1ebe0c}{completion\_queue\_id}}; }
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} \mbox{\hyperlink{structums__cq__param_a0ece3c934f50b3465cea05fa85dc5299}{pids}}[COMPLETION\_QUEUE\_BUFF]; }
+\DoxyCodeLine{67 \}\mbox{\hyperlink{structums__cq__param}{ums\_cq\_param\_t}};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

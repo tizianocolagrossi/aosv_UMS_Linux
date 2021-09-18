@@ -1,0 +1,137 @@
+\hypertarget{structums__scheduler}{}\doxysection{ums\+\_\+scheduler Struct Reference}
+\label{structums__scheduler}\index{ums\_scheduler@{ums\_scheduler}}
+
+
+This struct contain all the data related to a Ums scheduler.  
+
+
+
+
+{\ttfamily \#include $<$ums.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structums__scheduler_a7e84944a4e4610340669b1297c6c9e6b}{pid}}
+\item 
+struct task\+\_\+struct $\ast$ \mbox{\hyperlink{structums__scheduler_a2689a64322b2a1c5656bfc7f9aff5880}{task\+\_\+struct}}
+\item 
+int \mbox{\hyperlink{structums__scheduler_a2c5f3af76f384a77bd425f1beb76582a}{owner\+\_\+pid}}
+\item 
+int \mbox{\hyperlink{structums__scheduler_aa4805866c54a925d1e7045644ba9c338}{ums\+\_\+cq\+\_\+id}}
+\item 
+struct list\+\_\+head $\ast$ \mbox{\hyperlink{structums__scheduler_afb707076e46bd75606d40cdf32d29678}{cq\+\_\+list}}
+\item 
+int \mbox{\hyperlink{structums__scheduler_ac52dc5e5fa1b56f2af1a2ba64148935d}{pid\+\_\+wkt\+\_\+sched}}
+\item 
+\mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}} $\ast$ \mbox{\hyperlink{structums__scheduler_a67fdd268de41e96e82e52c171c7b6563}{wkt\+\_\+sched\+\_\+struct}}
+\item 
+struct pt\+\_\+regs \mbox{\hyperlink{structums__scheduler_a52ca14934f88202d23b13ebb983f94f8}{saved\+\_\+pt\+\_\+regs}}
+\item 
+struct fpu \mbox{\hyperlink{structums__scheduler_a7a24082b8a308e05cc1a86066125e699}{saved\+\_\+fpu\+\_\+regs}}
+\item 
+unsigned long \mbox{\hyperlink{structums__scheduler_acecd83945a2e0b6d64885250bd4722a2}{total\+\_\+switch}}
+\item 
+unsigned long \mbox{\hyperlink{structums__scheduler_a265cebee0a542e579a7778417f625e8a}{last\+\_\+wkt\+\_\+runtime}}
+\item 
+long \mbox{\hyperlink{structums__scheduler_a7bb7e1e41b306960a0f88498f2471d8e}{state}}
+\item 
+struct list\+\_\+head \mbox{\hyperlink{structums__scheduler_ae5b39438a94def9b8487cb5a025508fc}{list}}
+\item 
+struct hlist\+\_\+node \mbox{\hyperlink{structums__scheduler_ad63c16919ea6b719b077bdb86b0a9700}{hlist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This struct contain all the data related to a Ums scheduler. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structums__scheduler_afb707076e46bd75606d40cdf32d29678}\label{structums__scheduler_afb707076e46bd75606d40cdf32d29678}} 
+\index{ums\_scheduler@{ums\_scheduler}!cq\_list@{cq\_list}}
+\index{cq\_list@{cq\_list}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{cq\_list}{cq\_list}}
+{\footnotesize\ttfamily struct list\+\_\+head$\ast$ ums\+\_\+scheduler\+::cq\+\_\+list}
+
+completion\+\_\+queue of this scheduler \mbox{\Hypertarget{structums__scheduler_ad63c16919ea6b719b077bdb86b0a9700}\label{structums__scheduler_ad63c16919ea6b719b077bdb86b0a9700}} 
+\index{ums\_scheduler@{ums\_scheduler}!hlist@{hlist}}
+\index{hlist@{hlist}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{hlist}{hlist}}
+{\footnotesize\ttfamily struct hlist\+\_\+node ums\+\_\+scheduler\+::hlist}
+
+for implementing the master\+\_\+ums\+\_\+hashlist \mbox{\Hypertarget{structums__scheduler_a265cebee0a542e579a7778417f625e8a}\label{structums__scheduler_a265cebee0a542e579a7778417f625e8a}} 
+\index{ums\_scheduler@{ums\_scheduler}!last\_wkt\_runtime@{last\_wkt\_runtime}}
+\index{last\_wkt\_runtime@{last\_wkt\_runtime}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{last\_wkt\_runtime}{last\_wkt\_runtime}}
+{\footnotesize\ttfamily unsigned long ums\+\_\+scheduler\+::last\+\_\+wkt\+\_\+runtime}
+
+time needed for the last worker thread switch \mbox{\Hypertarget{structums__scheduler_ae5b39438a94def9b8487cb5a025508fc}\label{structums__scheduler_ae5b39438a94def9b8487cb5a025508fc}} 
+\index{ums\_scheduler@{ums\_scheduler}!list@{list}}
+\index{list@{list}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily struct list\+\_\+head ums\+\_\+scheduler\+::list}
+
+all the scheduler are into a global list \mbox{\Hypertarget{structums__scheduler_a2c5f3af76f384a77bd425f1beb76582a}\label{structums__scheduler_a2c5f3af76f384a77bd425f1beb76582a}} 
+\index{ums\_scheduler@{ums\_scheduler}!owner\_pid@{owner\_pid}}
+\index{owner\_pid@{owner\_pid}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{owner\_pid}{owner\_pid}}
+{\footnotesize\ttfamily int ums\+\_\+scheduler\+::owner\+\_\+pid}
+
+pid of the parent process that has generated the ums \mbox{\Hypertarget{structums__scheduler_a7e84944a4e4610340669b1297c6c9e6b}\label{structums__scheduler_a7e84944a4e4610340669b1297c6c9e6b}} 
+\index{ums\_scheduler@{ums\_scheduler}!pid@{pid}}
+\index{pid@{pid}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily int ums\+\_\+scheduler\+::pid}
+
+pid of the ums thread (is also its id) \mbox{\Hypertarget{structums__scheduler_ac52dc5e5fa1b56f2af1a2ba64148935d}\label{structums__scheduler_ac52dc5e5fa1b56f2af1a2ba64148935d}} 
+\index{ums\_scheduler@{ums\_scheduler}!pid\_wkt\_sched@{pid\_wkt\_sched}}
+\index{pid\_wkt\_sched@{pid\_wkt\_sched}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{pid\_wkt\_sched}{pid\_wkt\_sched}}
+{\footnotesize\ttfamily int ums\+\_\+scheduler\+::pid\+\_\+wkt\+\_\+sched}
+
+pid of the worker scheduled or -\/1 \mbox{\Hypertarget{structums__scheduler_a7a24082b8a308e05cc1a86066125e699}\label{structums__scheduler_a7a24082b8a308e05cc1a86066125e699}} 
+\index{ums\_scheduler@{ums\_scheduler}!saved\_fpu\_regs@{saved\_fpu\_regs}}
+\index{saved\_fpu\_regs@{saved\_fpu\_regs}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{saved\_fpu\_regs}{saved\_fpu\_regs}}
+{\footnotesize\ttfamily struct fpu ums\+\_\+scheduler\+::saved\+\_\+fpu\+\_\+regs}
+
+saved fpu register \mbox{\Hypertarget{structums__scheduler_a52ca14934f88202d23b13ebb983f94f8}\label{structums__scheduler_a52ca14934f88202d23b13ebb983f94f8}} 
+\index{ums\_scheduler@{ums\_scheduler}!saved\_pt\_regs@{saved\_pt\_regs}}
+\index{saved\_pt\_regs@{saved\_pt\_regs}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{saved\_pt\_regs}{saved\_pt\_regs}}
+{\footnotesize\ttfamily struct pt\+\_\+regs ums\+\_\+scheduler\+::saved\+\_\+pt\+\_\+regs}
+
+current context of the cpu registers \mbox{\Hypertarget{structums__scheduler_a7bb7e1e41b306960a0f88498f2471d8e}\label{structums__scheduler_a7bb7e1e41b306960a0f88498f2471d8e}} 
+\index{ums\_scheduler@{ums\_scheduler}!state@{state}}
+\index{state@{state}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily long ums\+\_\+scheduler\+::state}
+
+current state of the scheduler IDLE $\vert$ RUNNING \mbox{\Hypertarget{structums__scheduler_a2689a64322b2a1c5656bfc7f9aff5880}\label{structums__scheduler_a2689a64322b2a1c5656bfc7f9aff5880}} 
+\index{ums\_scheduler@{ums\_scheduler}!task\_struct@{task\_struct}}
+\index{task\_struct@{task\_struct}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{task\_struct}{task\_struct}}
+{\footnotesize\ttfamily struct task\+\_\+struct$\ast$ ums\+\_\+scheduler\+::task\+\_\+struct}
+
+task\+\_\+struct of the ums thread \mbox{\Hypertarget{structums__scheduler_acecd83945a2e0b6d64885250bd4722a2}\label{structums__scheduler_acecd83945a2e0b6d64885250bd4722a2}} 
+\index{ums\_scheduler@{ums\_scheduler}!total\_switch@{total\_switch}}
+\index{total\_switch@{total\_switch}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{total\_switch}{total\_switch}}
+{\footnotesize\ttfamily unsigned long ums\+\_\+scheduler\+::total\+\_\+switch}
+
+total number of switch done by this scheduler \mbox{\Hypertarget{structums__scheduler_aa4805866c54a925d1e7045644ba9c338}\label{structums__scheduler_aa4805866c54a925d1e7045644ba9c338}} 
+\index{ums\_scheduler@{ums\_scheduler}!ums\_cq\_id@{ums\_cq\_id}}
+\index{ums\_cq\_id@{ums\_cq\_id}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{ums\_cq\_id}{ums\_cq\_id}}
+{\footnotesize\ttfamily int ums\+\_\+scheduler\+::ums\+\_\+cq\+\_\+id}
+
+id of the completion queue used by this ums \mbox{\Hypertarget{structums__scheduler_a67fdd268de41e96e82e52c171c7b6563}\label{structums__scheduler_a67fdd268de41e96e82e52c171c7b6563}} 
+\index{ums\_scheduler@{ums\_scheduler}!wkt\_sched\_struct@{wkt\_sched\_struct}}
+\index{wkt\_sched\_struct@{wkt\_sched\_struct}!ums\_scheduler@{ums\_scheduler}}
+\doxysubsubsection{\texorpdfstring{wkt\_sched\_struct}{wkt\_sched\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ums_8h_a283231e0eca6d5c5c7450ed0c40e1ccf}{worker\+\_\+thread\+\_\+t}}$\ast$ ums\+\_\+scheduler\+::wkt\+\_\+sched\+\_\+struct}
+
+datastructire of the wkt scheduled 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ums_8h}{ums.\+h}}\end{DoxyCompactItemize}

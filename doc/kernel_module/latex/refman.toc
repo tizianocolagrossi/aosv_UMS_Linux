@@ -1,0 +1,210 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}completion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}queue\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}descriptor Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Field Documentation}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}completion\_queue}{5}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}hlist}{6}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}id}{6}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}used\_by\_couter}{6}{subsubsection.3.1.2.4}%
+\contentsline {section}{\numberline {3.2}cq\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proc Struct Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Field Documentation}{6}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}cq\_id}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}dir\_entry}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}hlist}{7}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}link\_to}{7}{subsubsection.3.2.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.2.5}name\_dir}{7}{subsubsection.3.2.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.2.6}path}{7}{subsubsection.3.2.2.6}%
+\contentsline {section}{\numberline {3.3}owner\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proc Struct Reference}{7}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Field Documentation}{8}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}dir\_entry}{8}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}hlist}{8}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}name\_dir}{8}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}pid}{8}{subsubsection.3.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.3.2.5}sched\_entry}{9}{subsubsection.3.3.2.5}%
+\contentsline {section}{\numberline {3.4}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cq\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}param Struct Reference}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Field Documentation}{9}{subsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.1}completion\_queue\_id}{9}{subsubsection.3.4.1.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.2}pids}{9}{subsubsection.3.4.1.2}%
+\contentsline {section}{\numberline {3.5}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}km\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}param Struct Reference}{9}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Field Documentation}{10}{subsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}cq\_id}{10}{subsubsection.3.5.1.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.2}owner\_pid}{10}{subsubsection.3.5.1.2}%
+\contentsline {section}{\numberline {3.6}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proc Struct Reference}{10}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{10}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Field Documentation}{11}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}cq\_id}{11}{subsubsection.3.6.2.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.2}dir\_entry}{11}{subsubsection.3.6.2.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.3}hlist}{11}{subsubsection.3.6.2.3}%
+\contentsline {subsubsection}{\numberline {3.6.2.4}info\_entry}{11}{subsubsection.3.6.2.4}%
+\contentsline {subsubsection}{\numberline {3.6.2.5}link\_to}{11}{subsubsection.3.6.2.5}%
+\contentsline {subsubsection}{\numberline {3.6.2.6}name\_dir}{11}{subsubsection.3.6.2.6}%
+\contentsline {subsubsection}{\numberline {3.6.2.7}path}{11}{subsubsection.3.6.2.7}%
+\contentsline {subsubsection}{\numberline {3.6.2.8}pid}{12}{subsubsection.3.6.2.8}%
+\contentsline {subsubsection}{\numberline {3.6.2.9}pid\_owner}{12}{subsubsection.3.6.2.9}%
+\contentsline {section}{\numberline {3.7}ums\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}scheduler Struct Reference}{12}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Detailed Description}{12}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Field Documentation}{12}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}cq\_list}{13}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}hlist}{13}{subsubsection.3.7.2.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.3}last\_wkt\_runtime}{13}{subsubsection.3.7.2.3}%
+\contentsline {subsubsection}{\numberline {3.7.2.4}list}{13}{subsubsection.3.7.2.4}%
+\contentsline {subsubsection}{\numberline {3.7.2.5}owner\_pid}{13}{subsubsection.3.7.2.5}%
+\contentsline {subsubsection}{\numberline {3.7.2.6}pid}{13}{subsubsection.3.7.2.6}%
+\contentsline {subsubsection}{\numberline {3.7.2.7}pid\_wkt\_sched}{13}{subsubsection.3.7.2.7}%
+\contentsline {subsubsection}{\numberline {3.7.2.8}saved\_fpu\_regs}{13}{subsubsection.3.7.2.8}%
+\contentsline {subsubsection}{\numberline {3.7.2.9}saved\_pt\_regs}{14}{subsubsection.3.7.2.9}%
+\contentsline {subsubsection}{\numberline {3.7.2.10}state}{14}{subsubsection.3.7.2.10}%
+\contentsline {subsubsection}{\numberline {3.7.2.11}task\_struct}{14}{subsubsection.3.7.2.11}%
+\contentsline {subsubsection}{\numberline {3.7.2.12}total\_switch}{14}{subsubsection.3.7.2.12}%
+\contentsline {subsubsection}{\numberline {3.7.2.13}ums\_cq\_id}{14}{subsubsection.3.7.2.13}%
+\contentsline {subsubsection}{\numberline {3.7.2.14}wkt\_sched\_struct}{14}{subsubsection.3.7.2.14}%
+\contentsline {section}{\numberline {3.8}worker\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}proc Struct Reference}{14}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{15}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Field Documentation}{15}{subsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.1}dir\_entry}{15}{subsubsection.3.8.2.1}%
+\contentsline {subsubsection}{\numberline {3.8.2.2}hlist}{15}{subsubsection.3.8.2.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.3}info\_entry}{15}{subsubsection.3.8.2.3}%
+\contentsline {subsubsection}{\numberline {3.8.2.4}link\_to}{15}{subsubsection.3.8.2.4}%
+\contentsline {subsubsection}{\numberline {3.8.2.5}name\_dir}{15}{subsubsection.3.8.2.5}%
+\contentsline {subsubsection}{\numberline {3.8.2.6}path}{16}{subsubsection.3.8.2.6}%
+\contentsline {subsubsection}{\numberline {3.8.2.7}pid}{16}{subsubsection.3.8.2.7}%
+\contentsline {section}{\numberline {3.9}worker\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}thread Struct Reference}{16}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{16}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Field Documentation}{16}{subsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.1}hlist}{17}{subsubsection.3.9.2.1}%
+\contentsline {subsubsection}{\numberline {3.9.2.2}list}{17}{subsubsection.3.9.2.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.3}pid}{17}{subsubsection.3.9.2.3}%
+\contentsline {subsubsection}{\numberline {3.9.2.4}saved\_fpu\_regs}{17}{subsubsection.3.9.2.4}%
+\contentsline {subsubsection}{\numberline {3.9.2.5}saved\_pt\_regs}{17}{subsubsection.3.9.2.5}%
+\contentsline {subsubsection}{\numberline {3.9.2.6}scheduled\_by}{17}{subsubsection.3.9.2.6}%
+\contentsline {subsubsection}{\numberline {3.9.2.7}state}{17}{subsubsection.3.9.2.7}%
+\contentsline {subsubsection}{\numberline {3.9.2.8}task\_struct}{17}{subsubsection.3.9.2.8}%
+\contentsline {subsubsection}{\numberline {3.9.2.9}time\_at\_switch}{18}{subsubsection.3.9.2.9}%
+\contentsline {subsection}{\numberline {3.9.3}of switch that this work thread caused}{18}{subsection.3.9.3}%
+\contentsline {subsubsection}{\numberline {3.9.3.1}total\_runtime}{18}{subsubsection.3.9.3.1}%
+\contentsline {subsubsection}{\numberline {3.9.3.2}total\_switch}{18}{subsubsection.3.9.3.2}%
+\contentsline {subsection}{\numberline {3.9.4}of switch that this work thread caused}{18}{subsection.3.9.4}%
+\contentsline {chapter}{\numberline {4}File Documentation}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}device.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{19}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{19}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{19}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}try\_start\_device()}{20}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Variable Documentation}{20}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}cmds}{20}{subsubsection.4.1.3.1}%
+\contentsline {section}{\numberline {4.2}device.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{20}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{21}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Function Documentation}{21}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}try\_start\_device()}{21}{subsubsection.4.2.2.1}%
+\contentsline {section}{\numberline {4.3}device.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}module.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{22}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{22}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}module.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{22}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{23}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}module.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.4.6}%
+\contentsline {section}{\numberline {4.7}proc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{23}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{24}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Function Documentation}{24}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}clear\_ums\_proc()}{24}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}Proc\_Update\_Cq\_Created()}{24}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}Proc\_Update\_Cq\_Deleted()}{25}{subsubsection.4.7.2.3}%
+\contentsline {subsubsection}{\numberline {4.7.2.4}Proc\_Update\_Ums\_Created()}{25}{subsubsection.4.7.2.4}%
+\contentsline {subsubsection}{\numberline {4.7.2.5}Proc\_Update\_Ums\_Ended()}{26}{subsubsection.4.7.2.5}%
+\contentsline {subsubsection}{\numberline {4.7.2.6}Proc\_Update\_Worker\_Appended()}{26}{subsubsection.4.7.2.6}%
+\contentsline {subsubsection}{\numberline {4.7.2.7}Proc\_Update\_Worker\_Created()}{26}{subsubsection.4.7.2.7}%
+\contentsline {subsubsection}{\numberline {4.7.2.8}Proc\_Update\_Worker\_Ended()}{27}{subsubsection.4.7.2.8}%
+\contentsline {subsubsection}{\numberline {4.7.2.9}try\_build\_ums\_proc()}{27}{subsubsection.4.7.2.9}%
+\contentsline {section}{\numberline {4.8}proc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{27}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{29}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Function Documentation}{29}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}clear\_ums\_proc()}{29}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}Proc\_Update\_Cq\_Created()}{29}{subsubsection.4.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.3}Proc\_Update\_Cq\_Deleted()}{30}{subsubsection.4.8.2.3}%
+\contentsline {subsubsection}{\numberline {4.8.2.4}Proc\_Update\_Ums\_Created()}{30}{subsubsection.4.8.2.4}%
+\contentsline {subsubsection}{\numberline {4.8.2.5}Proc\_Update\_Ums\_Ended()}{31}{subsubsection.4.8.2.5}%
+\contentsline {subsubsection}{\numberline {4.8.2.6}Proc\_Update\_Worker\_Appended()}{31}{subsubsection.4.8.2.6}%
+\contentsline {subsubsection}{\numberline {4.8.2.7}Proc\_Update\_Worker\_Created()}{31}{subsubsection.4.8.2.7}%
+\contentsline {subsubsection}{\numberline {4.8.2.8}Proc\_Update\_Worker\_Ended()}{32}{subsubsection.4.8.2.8}%
+\contentsline {subsubsection}{\numberline {4.8.2.9}try\_build\_ums\_proc()}{32}{subsubsection.4.8.2.9}%
+\contentsline {section}{\numberline {4.9}proc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{32}{section.4.9}%
+\contentsline {section}{\numberline {4.10}shared.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{34}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{34}{subsection.4.10.1}%
+\contentsline {section}{\numberline {4.11}shared.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{35}{section.4.11}%
+\contentsline {section}{\numberline {4.12}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{35}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{37}{subsection.4.12.1}%
+\contentsline {subsection}{\numberline {4.12.2}Function Documentation}{37}{subsection.4.12.2}%
+\contentsline {subsubsection}{\numberline {4.12.2.1}append\_to\_cq()}{37}{subsubsection.4.12.2.1}%
+\contentsline {subsubsection}{\numberline {4.12.2.2}DECLARE\_BITMAP()}{37}{subsubsection.4.12.2.2}%
+\contentsline {subsubsection}{\numberline {4.12.2.3}DEFINE\_HASHTABLE()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{37}{subsubsection.4.12.2.3}%
+\contentsline {subsubsection}{\numberline {4.12.2.4}DEFINE\_HASHTABLE()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{38}{subsubsection.4.12.2.4}%
+\contentsline {subsubsection}{\numberline {4.12.2.5}DEFINE\_HASHTABLE()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{38}{subsubsection.4.12.2.5}%
+\contentsline {subsubsection}{\numberline {4.12.2.6}dequeue\_cq()}{38}{subsubsection.4.12.2.6}%
+\contentsline {subsubsection}{\numberline {4.12.2.7}end\_ums\_scheduler()}{38}{subsubsection.4.12.2.7}%
+\contentsline {subsubsection}{\numberline {4.12.2.8}end\_worker\_thread()}{39}{subsubsection.4.12.2.8}%
+\contentsline {subsection}{\numberline {4.12.3}Implementation}{39}{subsection.4.12.3}%
+\contentsline {subsubsection}{\numberline {4.12.3.1}execute\_wkt()}{40}{subsubsection.4.12.3.1}%
+\contentsline {subsection}{\numberline {4.12.4}Implementation}{40}{subsection.4.12.4}%
+\contentsline {subsubsection}{\numberline {4.12.4.1}Get\_UMS()}{40}{subsubsection.4.12.4.1}%
+\contentsline {subsubsection}{\numberline {4.12.4.2}Get\_UMS\_from\_WKT()}{41}{subsubsection.4.12.4.2}%
+\contentsline {subsubsection}{\numberline {4.12.4.3}Get\_UMS\_Info()}{41}{subsubsection.4.12.4.3}%
+\contentsline {subsubsection}{\numberline {4.12.4.4}Get\_WKT()}{41}{subsubsection.4.12.4.4}%
+\contentsline {subsubsection}{\numberline {4.12.4.5}Get\_WKT\_Info()}{43}{subsubsection.4.12.4.5}%
+\contentsline {subsubsection}{\numberline {4.12.4.6}init\_cq()}{43}{subsubsection.4.12.4.6}%
+\contentsline {subsection}{\numberline {4.12.5}Implementation}{43}{subsection.4.12.5}%
+\contentsline {subsubsection}{\numberline {4.12.5.1}init\_ums\_scheduler()}{44}{subsubsection.4.12.5.1}%
+\contentsline {subsection}{\numberline {4.12.6}Implementation}{44}{subsection.4.12.6}%
+\contentsline {subsubsection}{\numberline {4.12.6.1}init\_worker\_thread()}{44}{subsubsection.4.12.6.1}%
+\contentsline {subsection}{\numberline {4.12.7}Implementation}{45}{subsection.4.12.7}%
+\contentsline {subsubsection}{\numberline {4.12.7.1}try\_build\_ums\_core()}{45}{subsubsection.4.12.7.1}%
+\contentsline {subsubsection}{\numberline {4.12.7.2}ums\_do\_unwait()}{45}{subsubsection.4.12.7.2}%
+\contentsline {subsubsection}{\numberline {4.12.7.3}ums\_do\_wait()}{46}{subsubsection.4.12.7.3}%
+\contentsline {subsubsection}{\numberline {4.12.7.4}yield\_to\_ums()}{46}{subsubsection.4.12.7.4}%
+\contentsline {subsection}{\numberline {4.12.8}Implementation}{46}{subsection.4.12.8}%
+\contentsline {subsection}{\numberline {4.12.9}Variable Documentation}{47}{subsection.4.12.9}%
+\contentsline {subsubsection}{\numberline {4.12.9.1}state}{47}{subsubsection.4.12.9.1}%
+\contentsline {section}{\numberline {4.13}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{47}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{49}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{50}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}append\_to\_cq()}{50}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}dequeue\_cq()}{50}{subsubsection.4.13.2.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.3}end\_ums\_scheduler()}{50}{subsubsection.4.13.2.3}%
+\contentsline {subsubsection}{\numberline {4.13.2.4}end\_worker\_thread()}{51}{subsubsection.4.13.2.4}%
+\contentsline {subsection}{\numberline {4.13.3}Implementation}{51}{subsection.4.13.3}%
+\contentsline {subsubsection}{\numberline {4.13.3.1}execute\_wkt()}{52}{subsubsection.4.13.3.1}%
+\contentsline {subsection}{\numberline {4.13.4}Implementation}{52}{subsection.4.13.4}%
+\contentsline {subsubsection}{\numberline {4.13.4.1}Get\_UMS()}{53}{subsubsection.4.13.4.1}%
+\contentsline {subsubsection}{\numberline {4.13.4.2}Get\_UMS\_from\_WKT()}{53}{subsubsection.4.13.4.2}%
+\contentsline {subsubsection}{\numberline {4.13.4.3}Get\_UMS\_Info()}{53}{subsubsection.4.13.4.3}%
+\contentsline {subsubsection}{\numberline {4.13.4.4}Get\_WKT()}{54}{subsubsection.4.13.4.4}%
+\contentsline {subsubsection}{\numberline {4.13.4.5}Get\_WKT\_Info()}{54}{subsubsection.4.13.4.5}%
+\contentsline {subsubsection}{\numberline {4.13.4.6}init\_cq()}{54}{subsubsection.4.13.4.6}%
+\contentsline {subsection}{\numberline {4.13.5}Implementation}{54}{subsection.4.13.5}%
+\contentsline {subsubsection}{\numberline {4.13.5.1}init\_ums\_scheduler()}{55}{subsubsection.4.13.5.1}%
+\contentsline {subsection}{\numberline {4.13.6}Implementation}{55}{subsection.4.13.6}%
+\contentsline {subsubsection}{\numberline {4.13.6.1}init\_worker\_thread()}{56}{subsubsection.4.13.6.1}%
+\contentsline {subsection}{\numberline {4.13.7}Implementation}{56}{subsection.4.13.7}%
+\contentsline {subsubsection}{\numberline {4.13.7.1}try\_build\_ums\_core()}{56}{subsubsection.4.13.7.1}%
+\contentsline {subsubsection}{\numberline {4.13.7.2}ums\_do\_unwait()}{56}{subsubsection.4.13.7.2}%
+\contentsline {subsubsection}{\numberline {4.13.7.3}ums\_do\_wait()}{57}{subsubsection.4.13.7.3}%
+\contentsline {subsubsection}{\numberline {4.13.7.4}yield\_to\_ums()}{57}{subsubsection.4.13.7.4}%
+\contentsline {subsection}{\numberline {4.13.8}Implementation}{57}{subsection.4.13.8}%
+\contentsline {section}{\numberline {4.14}ums.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{58}{section.4.14}%
+\contentsline {section}{\numberline {4.15}utility.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{60}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{60}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Macro Definition Documentation}{60}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}add\_new\_item\_to\_hlist}{61}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}add\_new\_item\_to\_list}{61}{subsubsection.4.15.2.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.3}delete\_completion\_queue\_descriptor}{61}{subsubsection.4.15.2.3}%
+\contentsline {subsubsection}{\numberline {4.15.2.4}get\_hlist\_item\_by\_id}{62}{subsubsection.4.15.2.4}%
+\contentsline {subsubsection}{\numberline {4.15.2.5}retrive\_from\_hlist}{62}{subsubsection.4.15.2.5}%
+\contentsline {subsubsection}{\numberline {4.15.2.6}retrive\_from\_list}{63}{subsubsection.4.15.2.6}%
+\contentsline {subsubsection}{\numberline {4.15.2.7}ums\_delete\_hlist}{63}{subsubsection.4.15.2.7}%
+\contentsline {subsubsection}{\numberline {4.15.2.8}ums\_delete\_list}{64}{subsubsection.4.15.2.8}%
+\contentsline {section}{\numberline {4.16}utility.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{64}{section.4.16}%
+\contentsline {chapter}{Index}{67}{section*.33}%

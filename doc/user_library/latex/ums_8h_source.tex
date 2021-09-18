@@ -1,0 +1,115 @@
+\hypertarget{ums_8h_source}{}\doxysection{ums.\+h}
+\mbox{\hyperlink{ums_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* }}
+\DoxyCodeLine{2 \textcolor{comment}{ * This file is part of the User Mode Thread Scheduling (Kernel Module).}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (c) 2021 Tiziano Colagrossi.}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify  }}
+\DoxyCodeLine{6 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by  }}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Free Software Foundation, version 3.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful, but }}
+\DoxyCodeLine{10 \textcolor{comment}{ * WITHOUT ANY WARRANTY; without even the implied warranty of }}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU }}
+\DoxyCodeLine{12 \textcolor{comment}{ * General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License }}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program. If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define \_GNU\_SOURCE}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}../kernel\_module/shared.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{list_8h}{list.h}}"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include <semaphore.h>}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <unistd.h>}  }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <pthread.h>}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <sys/syscall.h>}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*worker\_job)(\textcolor{keywordtype}{void} *);}
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*ums\_entry\_point)(\textcolor{keywordtype}{void} *);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} bool;}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TRUE  1}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define FALSE 0}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define GENERAL\_UMS\_ERROR -\/1}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define EXIT\_UMS\_MOD -\/2}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define UMS\_PATH "{}/dev/ums"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define MODULE\_UMSLIB\_LOG "{}[UMS LIB DEBUG]: "{}}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define UMSLIB\_DEBUG}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define \_\_F\_APPEND "{}\_\_append\_new\_worker\_to\_cq: "{}}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define F\_APPEND "{}AppendToCompletionQueue: "{}}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define F\_FLUSH "{}FlushCompletionQueue: "{}}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define INIT\_UMS\_ENTRY\_STRUCT(X,E,I,O)  \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    ums\_entry\_info\_t X = \{      \(\backslash\)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{            .entry = E,     \(\backslash\)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{            .cq\_id = I,     \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{            .ret\_value = 1, \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{            .owner\_pid = O  \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{            \}   }}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structbuff__cq}{buff\_cq}}\{}
+\DoxyCodeLine{71         \textcolor{keywordtype}{int} \mbox{\hyperlink{structbuff__cq_a5747c6e0132d00a4cba46ed9ee693698}{pids}}[COMPLETION\_QUEUE\_BUFF]; }
+\DoxyCodeLine{72 \} \mbox{\hyperlink{ums_8h_af65b53e5cd59b128fb6b6336d5600003}{dequeued\_cq\_t}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structcq__list__item}{cq\_list\_item}}}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     \textcolor{keywordtype}{int}                   \mbox{\hyperlink{structcq__list__item_a457a4dedc09851f7a06d2398c39ac7b3}{id}}; }
+\DoxyCodeLine{77     \textcolor{keywordtype}{int}              \mbox{\hyperlink{structcq__list__item_a39d2102dcf16183a1f977045d6dabf00}{used\_by}}; }
+\DoxyCodeLine{78     ums\_cq\_param\_t   \mbox{\hyperlink{structcq__list__item_a5396f7aff7ae06db3cb349ba6bf887e7}{cq\_item}}; }
+\DoxyCodeLine{79     \textcolor{keyword}{struct }\mbox{\hyperlink{structlist__head}{list\_head}}    \mbox{\hyperlink{structcq__list__item_a16afe1105ca55eb4eb9f8b56de77965d}{list}}; }
+\DoxyCodeLine{80 \} \mbox{\hyperlink{structcq__list__item}{cq\_list\_item\_t}};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structworker__thread__job__info}{worker\_thread\_job\_info}} \{}
+\DoxyCodeLine{83     worker\_job           \mbox{\hyperlink{structworker__thread__job__info_a1d3251b6a08b15d75bdd3a28708b0f27}{job}}; }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} *      \mbox{\hyperlink{structworker__thread__job__info_a3ec93fd458b85647211eea18fd69f1d4}{args\_routine}}; }
+\DoxyCodeLine{85     \textcolor{keywordtype}{int}              \mbox{\hyperlink{structworker__thread__job__info_a0507d76091ccd17367d78997eae2f315}{pid}}; }
+\DoxyCodeLine{86 \} \mbox{\hyperlink{structworker__thread__job__info}{worker\_thread\_job\_info\_t}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structums__entry__info}{ums\_entry\_info}} \{}
+\DoxyCodeLine{89     ums\_entry\_point    \mbox{\hyperlink{structums__entry__info_a38d97f1a8a92979bcbe64ce118d16315}{entry}}; }
+\DoxyCodeLine{90     \textcolor{keywordtype}{int}                \mbox{\hyperlink{structums__entry__info_aed333e37e4c6602f31a02ea065c77b14}{cq\_id}}; }
+\DoxyCodeLine{91     \textcolor{keywordtype}{int}            \mbox{\hyperlink{structums__entry__info_a582d9b9d773e2e9497c4f799f35797e6}{owner\_pid}}; }
+\DoxyCodeLine{92     \textcolor{keywordtype}{int}            \mbox{\hyperlink{structums__entry__info_aef4049c88190d8dbce84c1f039bf574e}{ret\_value}}; }
+\DoxyCodeLine{93 \} \mbox{\hyperlink{structums__entry__info}{ums\_entry\_info\_t}};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpthread__entry}{pthread\_entry}} \{}
+\DoxyCodeLine{96     pthread\_t        \mbox{\hyperlink{structpthread__entry_a1dd75cbc245ee0979485c165bdc0bf71}{tid}}; }
+\DoxyCodeLine{97     \textcolor{keyword}{struct }\mbox{\hyperlink{structlist__head}{list\_head}}    \mbox{\hyperlink{structpthread__entry_a371dd1fde7d42ad5020e550e47b802f7}{list}}; }
+\DoxyCodeLine{98 \} \mbox{\hyperlink{structpthread__entry}{pthread\_entry\_t}};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structums__scheduler}{ums\_scheduler}}\{}
+\DoxyCodeLine{101     pthread\_t * ums\_threads\_list;}
+\DoxyCodeLine{102     \textcolor{keywordtype}{int}         n\_cpu;}
+\DoxyCodeLine{103     \textcolor{keywordtype}{int} cq\_id;}
+\DoxyCodeLine{104 \} \mbox{\hyperlink{structums__scheduler}{ums\_t}};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{comment}{//Functions exported to user}}
+\DoxyCodeLine{107 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_a3e8af3842b66efe2b09d19292b4693dd}{CreateNewWorker}}(worker\_job job\_to\_perform, \textcolor{keywordtype}{void} * job\_args);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_aa3a7dbcd13fa0ab865bda217ab1c0aee}{UmsThreadYield}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{110 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_a11d81e84245dc30caf2105da4178cb28}{ExecuteUmsThread}}(\textcolor{keywordtype}{unsigned} worker\_id);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 pthread\_t \mbox{\hyperlink{ums_8h_af2f6f1d2d39eae2629046bbc442e503e}{UMS\_thread\_create}}(ums\_entry\_point entry\_point, \textcolor{keywordtype}{int} completion\_queue\_id, \textcolor{keywordtype}{int} n\_cpu);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \mbox{\hyperlink{structums__scheduler}{ums\_t}} * \mbox{\hyperlink{ums_8h_abc6038aaf775781b269d09ff68793a6a}{EnterUmsSchedulingMode}}(ums\_entry\_point entry\_point, \textcolor{keywordtype}{int} completion\_queue\_id);}
+\DoxyCodeLine{115 \textcolor{keywordtype}{void} \mbox{\hyperlink{ums_8h_a50ee127ff09b6aa3ec676940e36b4f5f}{ExitFromUmsSchedulingMode}}(\mbox{\hyperlink{structums__scheduler}{ums\_t}} * ums);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_ab32c7b973ff7df238b8a2f8f2917ffab}{CreateCompletionQueue}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{118 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_a1952e5d04ef148d19021480423fa7772}{AppendToCompletionQueue}}(\textcolor{keywordtype}{int} completion\_queue\_id, \textcolor{keywordtype}{int} worker\_pid);}
+\DoxyCodeLine{119 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_adbbc303533f4048b334c632bf8e9ac3c}{FlushCompletionQueue}}(\textcolor{keywordtype}{int} completion\_queue\_id);}
+\DoxyCodeLine{120 \textcolor{keywordtype}{int} \mbox{\hyperlink{ums_8h_abf416194f89a8ad38d8ea06c713d93de}{DequeueUmsCompletionListItems}}(\mbox{\hyperlink{structbuff__cq}{dequeued\_cq\_t}} * return\_cq);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{void} resetUMSFlag(\textcolor{keywordtype}{void});}
+
+\end{DoxyCode}

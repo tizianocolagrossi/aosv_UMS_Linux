@@ -1,0 +1,211 @@
+\hypertarget{proc_8c}{}\doxysection{proc.\+c File Reference}
+\label{proc_8c}\index{proc.c@{proc.c}}
+
+
+This file contains the functionalities for managing the exposure of the stats info using the procfs.  
+
+
+{\ttfamily \#include \char`\"{}proc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}shared.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{proc_8c_ab5bf9e4cb421a087c8682b1de1e66162}\label{proc_8c_ab5bf9e4cb421a087c8682b1de1e66162}} 
+{\bfseries DEFINE\+\_\+\+HASHTABLE} (own\+\_\+htable, HASH\+\_\+\+KEY\+\_\+\+SIZE)
+\item 
+\mbox{\Hypertarget{proc_8c_a3b4d447388164f4fca043cbee6b8e7cd}\label{proc_8c_a3b4d447388164f4fca043cbee6b8e7cd}} 
+{\bfseries DEFINE\+\_\+\+HASHTABLE} (ums\+\_\+htable, HASH\+\_\+\+KEY\+\_\+\+SIZE)
+\item 
+\mbox{\Hypertarget{proc_8c_aca984c90217b267826ea4d7b26e4223c}\label{proc_8c_aca984c90217b267826ea4d7b26e4223c}} 
+{\bfseries DEFINE\+\_\+\+HASHTABLE} (wkt\+\_\+htable, HASH\+\_\+\+KEY\+\_\+\+SIZE)
+\item 
+\mbox{\Hypertarget{proc_8c_aceaecde5ebdbd46fc2acef4a3d19a424}\label{proc_8c_aceaecde5ebdbd46fc2acef4a3d19a424}} 
+{\bfseries DEFINE\+\_\+\+HASHTABLE} (cq\+\_\+htable, HASH\+\_\+\+KEY\+\_\+\+SIZE)
+\item 
+int \mbox{\hyperlink{proc_8c_ae490e5de265c685251e7df406995c0ee}{Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Created}} (int wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em Insert the created worker thread into the procfs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_a9a86c1a056ba322a329c93bf8143756c}{Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Ended}} (int wkt\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em Remove the worker that has ended from the procfs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_a4356ac452c746426b4d93a15c42642bd}{Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Appended}} (int wkt\+\_\+pid, int id)
+\begin{DoxyCompactList}\small\item\em link a worker to its completion queue \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_a20b72bcd1a3ef0bd7eb0cfe0c7b57c0c}{Proc\+\_\+\+Update\+\_\+\+Ums\+\_\+\+Created}} (int ums\+\_\+pid, int owner\+\_\+pid, int id)
+\begin{DoxyCompactList}\small\item\em Insert the new UMS into the proc fs and link the completion queue path to the UMS folder. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_ae521fa6c4855e5a5f57c00d51f2e1df0}{Proc\+\_\+\+Update\+\_\+\+Ums\+\_\+\+Ended}} (int ums\+\_\+pid)
+\begin{DoxyCompactList}\small\item\em Remove the UMS directory from the proc fs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_acd51dc9de3d740215e798d1bbb4588a6}{Proc\+\_\+\+Update\+\_\+\+Cq\+\_\+\+Created}} (int id)
+\begin{DoxyCompactList}\small\item\em create a completion queue folder into the proc fs \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_aaf3fc9dd67e138eebe225f72d335eb19}{Proc\+\_\+\+Update\+\_\+\+Cq\+\_\+\+Deleted}} (int id)
+\begin{DoxyCompactList}\small\item\em remove the completion queue folder from the proc fs \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_a0066639f9bfabe52b228b58f38ab5e09}{try\+\_\+build\+\_\+ums\+\_\+proc}} (void)
+\begin{DoxyCompactList}\small\item\em initialize the main data structures for the proc part for the ums \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{proc_8c_a52e2e82400df1a7bdf070872d6aeb418}{clear\+\_\+ums\+\_\+proc}} (void)
+\begin{DoxyCompactList}\small\item\em clear the data structures allocated from this part of the UMS kernel module \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the functionalities for managing the exposure of the stats info using the procfs. 
+
+\begin{DoxyAuthor}{Author}
+Tiziano Colagrossi \href{mailto:tiziano.colagrossi@gmail.com}{\texttt{ tiziano.\+colagrossi@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{proc_8c_a52e2e82400df1a7bdf070872d6aeb418}\label{proc_8c_a52e2e82400df1a7bdf070872d6aeb418}} 
+\index{proc.c@{proc.c}!clear\_ums\_proc@{clear\_ums\_proc}}
+\index{clear\_ums\_proc@{clear\_ums\_proc}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{clear\_ums\_proc()}{clear\_ums\_proc()}}
+{\footnotesize\ttfamily int clear\+\_\+ums\+\_\+proc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+clear the data structures allocated from this part of the UMS kernel module 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_acd51dc9de3d740215e798d1bbb4588a6}\label{proc_8c_acd51dc9de3d740215e798d1bbb4588a6}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Cq\_Created@{Proc\_Update\_Cq\_Created}}
+\index{Proc\_Update\_Cq\_Created@{Proc\_Update\_Cq\_Created}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Cq\_Created()}{Proc\_Update\_Cq\_Created()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Cq\+\_\+\+Created (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+create a completion queue folder into the proc fs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & completion queue id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_aaf3fc9dd67e138eebe225f72d335eb19}\label{proc_8c_aaf3fc9dd67e138eebe225f72d335eb19}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Cq\_Deleted@{Proc\_Update\_Cq\_Deleted}}
+\index{Proc\_Update\_Cq\_Deleted@{Proc\_Update\_Cq\_Deleted}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Cq\_Deleted()}{Proc\_Update\_Cq\_Deleted()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Cq\+\_\+\+Deleted (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+remove the completion queue folder from the proc fs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & completion queue id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_a20b72bcd1a3ef0bd7eb0cfe0c7b57c0c}\label{proc_8c_a20b72bcd1a3ef0bd7eb0cfe0c7b57c0c}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Ums\_Created@{Proc\_Update\_Ums\_Created}}
+\index{Proc\_Update\_Ums\_Created@{Proc\_Update\_Ums\_Created}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Ums\_Created()}{Proc\_Update\_Ums\_Created()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Ums\+\_\+\+Created (\begin{DoxyParamCaption}\item[{int}]{ums\+\_\+pid,  }\item[{int}]{owner\+\_\+pid,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Insert the new UMS into the proc fs and link the completion queue path to the UMS folder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ums\+\_\+pid} & pid of the UMS \\
+\hline
+{\em owner\+\_\+pid} & pid of the owner process of the UMS \\
+\hline
+{\em id} & completion queue id of the UMS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_ae521fa6c4855e5a5f57c00d51f2e1df0}\label{proc_8c_ae521fa6c4855e5a5f57c00d51f2e1df0}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Ums\_Ended@{Proc\_Update\_Ums\_Ended}}
+\index{Proc\_Update\_Ums\_Ended@{Proc\_Update\_Ums\_Ended}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Ums\_Ended()}{Proc\_Update\_Ums\_Ended()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Ums\+\_\+\+Ended (\begin{DoxyParamCaption}\item[{int}]{ums\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+Remove the UMS directory from the proc fs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ums\+\_\+pid} & pid of the ums \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_a4356ac452c746426b4d93a15c42642bd}\label{proc_8c_a4356ac452c746426b4d93a15c42642bd}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Worker\_Appended@{Proc\_Update\_Worker\_Appended}}
+\index{Proc\_Update\_Worker\_Appended@{Proc\_Update\_Worker\_Appended}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Worker\_Appended()}{Proc\_Update\_Worker\_Appended()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Appended (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+link a worker to its completion queue 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & pid of the worker \\
+\hline
+{\em id} & completion queue where the worker need to be appended \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_ae490e5de265c685251e7df406995c0ee}\label{proc_8c_ae490e5de265c685251e7df406995c0ee}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Worker\_Created@{Proc\_Update\_Worker\_Created}}
+\index{Proc\_Update\_Worker\_Created@{Proc\_Update\_Worker\_Created}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Worker\_Created()}{Proc\_Update\_Worker\_Created()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Created (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+Insert the created worker thread into the procfs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & pid of the worker \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_a9a86c1a056ba322a329c93bf8143756c}\label{proc_8c_a9a86c1a056ba322a329c93bf8143756c}} 
+\index{proc.c@{proc.c}!Proc\_Update\_Worker\_Ended@{Proc\_Update\_Worker\_Ended}}
+\index{Proc\_Update\_Worker\_Ended@{Proc\_Update\_Worker\_Ended}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{Proc\_Update\_Worker\_Ended()}{Proc\_Update\_Worker\_Ended()}}
+{\footnotesize\ttfamily int Proc\+\_\+\+Update\+\_\+\+Worker\+\_\+\+Ended (\begin{DoxyParamCaption}\item[{int}]{wkt\+\_\+pid }\end{DoxyParamCaption})}
+
+
+
+Remove the worker that has ended from the procfs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wkt\+\_\+pid} & pid of the worker \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{proc_8c_a0066639f9bfabe52b228b58f38ab5e09}\label{proc_8c_a0066639f9bfabe52b228b58f38ab5e09}} 
+\index{proc.c@{proc.c}!try\_build\_ums\_proc@{try\_build\_ums\_proc}}
+\index{try\_build\_ums\_proc@{try\_build\_ums\_proc}!proc.c@{proc.c}}
+\doxysubsubsection{\texorpdfstring{try\_build\_ums\_proc()}{try\_build\_ums\_proc()}}
+{\footnotesize\ttfamily int try\+\_\+build\+\_\+ums\+\_\+proc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+initialize the main data structures for the proc part for the ums 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
