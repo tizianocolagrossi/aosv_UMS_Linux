@@ -40,7 +40,7 @@
 
 #define MODULE_DEV_LOG "UMS_DEV: "
 
-// #define UMS_DEV_DEBUG
+#define UMS_DEV_DEBUG
 
 int  try_start_device(void);
 void stop_device(void);

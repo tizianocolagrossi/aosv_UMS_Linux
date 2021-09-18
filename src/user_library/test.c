@@ -124,12 +124,12 @@ void *testJob1(void *arguments){
     }
 
     // attempt to cause a page fault
-    printf(T1 "attempting a page fault\n");
-    int * arr = (int *) malloc(1000 * sizeof(int));
-    for(int i = 0; i<1000; i++){
-        arr[i] = i;
-    }
-    printf(T1 "end write in mem\n");
+    // printf(T1 "attempting a page fault\n");
+    // int * arr = (int *) malloc(1000 * sizeof(int));
+    // for(int i = 0; i<1000; i++){
+    //     arr[i] = i;
+    // }
+    // printf(T1 "end write in mem\n");
 
     printf(T1 "after yield ret %d\n",ret);
     return NULL;

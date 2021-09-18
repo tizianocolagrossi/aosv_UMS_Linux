@@ -93,7 +93,7 @@ typedef struct ums_entry_info {
 } ums_entry_info_t;
 
 typedef struct pthread_entry {
-	pthread_t 	         tid; /**< thread id of the ums used in the ExitFromUmsSchedulingMode function */
+	pthread_t 	     tid; /**< thread id of the ums used in the ExitFromUmsSchedulingMode function */
 	struct list_head    list; /**< list head for the list api*/
 } pthread_entry_t;
 

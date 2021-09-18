@@ -303,7 +303,7 @@ static inline void __delete_ums(ums_proc_t * ums){
 	hash_for_each(ums_htable, bkt, ums_cursor, hlist){
 		if(ums_cursor->pid_owner == ums->pid_owner && ums_cursor->pid != ums->pid) goto del_only_ums;
 	}
-	get_hlist_item_by_id(owner, own_htable , hlist, pid, ums->pid_owner);
+	retrive_from_hlist(owner, own_htable , hlist, pid, ums->pid_owner);
 	if(owner == NULL) goto del_only_ums;
 	__delete_owner(owner);
 
@@ -451,7 +451,7 @@ int Proc_Update_Worker_Ended(int wkt_pid)
 {
 	worker_proc_t * del_wkt;
 
-	get_hlist_item_by_id(del_wkt, wkt_htable , hlist, pid, wkt_pid);
+	retrive_from_hlist(del_wkt, wkt_htable , hlist, pid, wkt_pid);
 	if(del_wkt == NULL) return EXIT_FAILURE;
 	__delete_wkt(del_wkt);
 
@@ -471,11 +471,11 @@ int Proc_Update_Worker_Appended(int wkt_pid, int id)
 	cq_proc_t * cq;
 
 	// get the worker
-	get_hlist_item_by_id(wkt, wkt_htable , hlist, pid, wkt_pid);
+	retrive_from_hlist(wkt, wkt_htable , hlist, pid, wkt_pid);
 	if(wkt == NULL) return EXIT_FAILURE;
 
 	//get the completion queue
-	get_hlist_item_by_id(cq, cq_htable , hlist, cq_id, id);
+	retrive_from_hlist(cq, cq_htable , hlist, cq_id, id);
 	if(cq == NULL) return EXIT_FAILURE;
 	
 	// link the worker into the completion queue directory
@@ -506,7 +506,7 @@ int Proc_Update_Ums_Created(int ums_pid, int owner_pid, int id)
 	if(new_ums == NULL) return EXIT_FAILURE;
 
 	// get the owner struct
-	get_hlist_item_by_id(own, own_htable , hlist, pid, owner_pid);
+	retrive_from_hlist(own, own_htable , hlist, pid, owner_pid);
 	if(own == NULL){
 		is_new_own = 1;
 		own = __create_owner(owner_pid);
@@ -517,7 +517,7 @@ int Proc_Update_Ums_Created(int ums_pid, int owner_pid, int id)
 	new_ums->link_to = proc_symlink(new_ums->name_dir, own->sched_entry ,new_ums->path);
 	if(new_ums->link_to == NULL) goto err_link_own;
 
-	get_hlist_item_by_id(cq, cq_htable , hlist, cq_id, id);
+	retrive_from_hlist(cq, cq_htable , hlist, cq_id, id);
 	if(cq == NULL) goto err_link_own;
 
 	// link the completion queue to the ums directory
@@ -547,7 +547,7 @@ int Proc_Update_Ums_Ended(int ums_pid)
 {
 	ums_proc_t * ums;
 
-	get_hlist_item_by_id(ums, ums_htable , hlist, pid, ums_pid);
+	retrive_from_hlist(ums, ums_htable , hlist, pid, ums_pid);
 	if(ums == NULL) return EXIT_FAILURE;
 
 	proc_remove(ums->link_to);
@@ -582,11 +582,13 @@ int Proc_Update_Cq_Deleted(int id)
 {
 	cq_proc_t * cq;
 
-	get_hlist_item_by_id(cq, cq_htable , hlist, cq_id, id);
+	retrive_from_hlist(cq, cq_htable , hlist, cq_id, id);
+
 	if(cq == NULL) return EXIT_FAILURE;
 
 	proc_remove(cq->link_to);
 	__delete_cq(cq);
+
 
 	return EXIT_FAILURE;
 }

@@ -137,7 +137,9 @@ void *__ums_entry_point_wrapper(void *args){
     int ret = ioctl(ums_fd, UMS_IOC_END_UMS_SCHEDULER);
     if (ret < 0) return (void *) GENERAL_UMS_ERROR;
 
-    return (void *) EXIT_SUCCESS;
+    printf("Exiting from ums wrap###################################################\n");
+
+    return NULL;
 }
 
 /**
@@ -416,10 +418,10 @@ void ExitFromUmsSchedulingMode(ums_t * ums){
         if(cq_cursor->id==ums->cq_id) break;
         cq_cursor = NULL;
     }
-    
-    for(int cpu_i = 0; cpu_i<ums->n_cpu; cpu_i++){
+
+    for(int cpu_i = 0; cpu_i < ums->n_cpu; cpu_i++){
         pthread_join(ums->ums_threads_list[cpu_i], NULL);
-        if(cq_cursor == NULL) cq_cursor->used_by -= 1;
+        if(cq_cursor != NULL) cq_cursor->used_by -= 1;
     }
 
     if(cq_cursor->used_by <= 0){

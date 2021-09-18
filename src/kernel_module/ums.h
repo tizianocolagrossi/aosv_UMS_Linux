@@ -33,6 +33,7 @@
 #include <asm/fpu/types.h>
 #include <asm/ptrace.h>
 #include <asm/uaccess.h>
+#include <asm/barrier.h>
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/list.h>
@@ -52,6 +53,7 @@
 #define F_INIT_WORKER  "INIT_WORKER: "
 #define F_END_WORKER   "END_WORKER: "
 #define F_INIT_UMS     "INIT_UMS: "
+#define F_END_UMS      "END_UMS: "
 #define F_SCHED_WRK    "SCHED_WKT: "
 #define F_SCHED_UMS    "SCHED_UMS: "
 
@@ -73,7 +75,8 @@
 #define fxrestore(fpu)       copy_kernel_to_fxregs(&((fpu)->state.fxsave))
 
 
-#define UMS_CORE_DEBUG
+//#define UMS_CORE_DEBUG
+#define UMS_CORE_DEBUG_CNC
 
 #define SWITCH_PT_REGS
 
@@ -104,6 +107,7 @@ typedef struct completion_queue_descriptor{
         int                id;                  /**< id of the completion queue*/
         unsigned int       used_by_couter;      /**< conter of the ums that use this cq*/
         struct hlist_node  hlist;               /**< hlist node for the htable*/
+        rwlock_t rwlock;
 }completion_queue_descriptor_t;
 
 
@@ -117,7 +121,7 @@ typedef struct ums_scheduler {
         struct task_struct * task_struct;       /**< task_struct of the ums thread */
         int                  owner_pid;         /**< pid of the parent process that has generated the ums*/
         int                  ums_cq_id;         /**< id of the completion queue used by this ums*/
-        struct list_head *   cq_list;           /**< completion_queue of this scheduler*/
+        completion_queue_descriptor_t *   cq_list_des;           /**< completion_queue of this scheduler*/
         int                  pid_wkt_sched;     /**< pid of the worker scheduled or -1 */
         worker_thread_t *    wkt_sched_struct;  /**< datastructire of the wkt scheduled*/
 #ifdef SWITCH_PT_REGS 
@@ -129,6 +133,7 @@ typedef struct ums_scheduler {
         long                 state;             /**< current state of the scheduler IDLE | RUNNING*/
         struct list_head     list;              /**< all the scheduler are into a global list*/
         struct hlist_node    hlist;             /**< for implementing the master_ums_hashlist */
+        rwlock_t rwlock;
 } ums_scheduler_t;
 
 /**
@@ -149,6 +154,7 @@ typedef struct worker_thread {
         long                 state;             /**< current state of the worker*/
         struct list_head     list;              /**< for implementing the ready queue */
         struct hlist_node    hlist;             /**< for implementing the master_wt_hashlist */
+        rwlock_t rwlock;
 } worker_thread_t;
 
 /*

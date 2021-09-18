@@ -38,33 +38,6 @@
 	new_item_pointer = (item_type *) kmalloc(sizeof(item_type), GFP_KERNEL);						\
 	list_add_tail(&(new_item_pointer->member), list_head)
 
-/**
- * @brief allocate and append to tail a new item to a hlist
- * 
- * @param new_item_pointer	will be filled with the new item address.
- * @param hashtable 		hashtable to add to
- * @param node    		the &struct hlist_node of the object to be added
- * @param item_type             the item type of the new element
- * @param identifier          	the key of the object to be added
- */
-#define add_new_item_to_hlist(new_item_pointer, hashtable , node, item_type, identifier)					\
-	new_item_pointer = (item_type *) kmalloc(sizeof(item_type), GFP_KERNEL);						\
-	hash_add(hashtable, &(new_item_pointer->node), identifier)
-
-/**
- * @brief retrive the item from an hashtable by the key
- * 
- * @param getted_item_pointer	will be filled with the retrived node.
- * @param hashtable		hashtable where to search
- * @param node			the &struct hlist_node of the object to be retrived
- * @param member_identifier	the name of the identifier within the struct
- * @param identifier		the key of the object to find
- */
-#define get_hlist_item_by_id(getted_item_pointer, hashtable , node, member_identifier, identifier)				\
-	hash_for_each_possible(hashtable, getted_item_pointer, node, identifier) {						\
-			if (getted_item_pointer->member_identifier != identifier) continue;					\
-			break;													\
-	}
 
 /**
  * @brief delete the completion queue descriptor from its hashtable and free it
@@ -73,7 +46,7 @@
  * @param node			the &struct hlist_node of the object to be retrived
  */
 #define delete_completion_queue_descriptor(cq_desc_to_delete, node)						\
-	hash_del(&cq_desc_to_delete->node);									\
+	hash_del_rcu(&cq_desc_to_delete->node);									\
 	kfree(cq_desc_to_delete)
 
 /**
@@ -86,7 +59,7 @@
  * @param identifier		the key of the object to find
  */
 #define retrive_from_hlist(item_select, hashtable, node, member_identifier, identifier)						\
-	hash_for_each_possible(hashtable, item_select, node, identifier) {							\
+	hash_for_each_possible_rcu(hashtable, item_select, node, identifier) {							\
 		if (item_select->member_identifier != identifier) continue; 							\
 		break;														\
 	}
@@ -124,15 +97,15 @@
 /**
  * @brief delete all the item from an hlist
  *
- * @param cursor		the type * to use as a loop cursor.		
+ * @param cursor		the type * to use as a loop cursor.	
+ * @param ptr_safe
  * @param bucket		integer to use as bucket loop cursor
  * @param hashtable 		hashtable where to search
  * @param node    		the &struct hlist_node of the object to be retrived
  */
-#define ums_delete_hlist(cursor, node_ptr, bucket, hashtable, node)									\
-	hash_for_each_safe(hashtable, bucket, node_ptr, cursor, node){									\
-                hlist_del(&cursor->node);												\
-                kfree(cursor);														\
+#define ums_delete_hlist(cursor,ptr_safe, bucket, hashtable, node)									\
+	hash_for_each_rcu(hashtable, bucket, cursor, node){									\
+                hash_del_rcu(&cursor->node);												\
         }
 
 #endif

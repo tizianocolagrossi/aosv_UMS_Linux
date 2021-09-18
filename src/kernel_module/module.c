@@ -64,8 +64,11 @@ fail_start_device:
  * 
  */
 static void ums_module_exit(void){
+        printk(KERN_ERR MODULE_LOG "unload 1\n");
         clear_ums_proc();
+        printk(KERN_ERR MODULE_LOG "unload 2\n");
         clear_ums_core();
+        printk(KERN_ERR MODULE_LOG "unload 3\n");
         stop_device();
         printk(KERN_INFO MODULE_LOG "module unloaded\n");
 }
